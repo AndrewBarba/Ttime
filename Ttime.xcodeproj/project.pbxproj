@@ -13,7 +13,7 @@
 		B88A61DB17B02B430087A69B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88A61D917B02B430087A69B /* InfoPlist.strings */; };
 		B88A61DD17B02B430087A69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61DC17B02B430087A69B /* main.m */; };
 		B88A61E117B02B430087A69B /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61E017B02B430087A69B /* TTAppDelegate.m */; };
-		B88A61E417B02B430087A69B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88A61E217B02B430087A69B /* Main.storyboard */; };
+		B88A61E417B02B430087A69B /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88A61E217B02B430087A69B /* iPhone.storyboard */; };
 		B88A61E717B02B430087A69B /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61E617B02B430087A69B /* TTViewController.m */; };
 		B88A61E917B02B430087A69B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88A61E817B02B430087A69B /* Images.xcassets */; };
 		B88A61F017B02B430087A69B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61EF17B02B430087A69B /* XCTest.framework */; };
@@ -44,7 +44,7 @@
 		B88A61DE17B02B430087A69B /* Ttime-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ttime-Prefix.pch"; sourceTree = "<group>"; };
 		B88A61DF17B02B430087A69B /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
 		B88A61E017B02B430087A69B /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
-		B88A61E317B02B430087A69B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B88A61E317B02B430087A69B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		B88A61E517B02B430087A69B /* TTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
 		B88A61E617B02B430087A69B /* TTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
 		B88A61E817B02B430087A69B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -112,12 +112,7 @@
 		B88A61D617B02B430087A69B /* Ttime */ = {
 			isa = PBXGroup;
 			children = (
-				B88A61DF17B02B430087A69B /* TTAppDelegate.h */,
-				B88A61E017B02B430087A69B /* TTAppDelegate.m */,
-				B88A61E217B02B430087A69B /* Main.storyboard */,
-				B88A61E517B02B430087A69B /* TTViewController.h */,
-				B88A61E617B02B430087A69B /* TTViewController.m */,
-				B88A61E817B02B430087A69B /* Images.xcassets */,
+				B88A620517B02B5D0087A69B /* Source */,
 				B88A61D717B02B430087A69B /* Supporting Files */,
 			);
 			path = Ttime;
@@ -126,6 +121,7 @@
 		B88A61D717B02B430087A69B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B88A620617B02B6D0087A69B /* Assets */,
 				B88A61D817B02B430087A69B /* Ttime-Info.plist */,
 				B88A61D917B02B430087A69B /* InfoPlist.strings */,
 				B88A61DC17B02B430087A69B /* main.m */,
@@ -150,6 +146,82 @@
 				B88A61F817B02B430087A69B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B88A620517B02B5D0087A69B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B88A620717B02B990087A69B /* Core */,
+				B88A620C17B02BDE0087A69B /* Data */,
+				B88A620B17B02BCA0087A69B /* Controllers */,
+				B88A620817B02BA20087A69B /* UI */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		B88A620617B02B6D0087A69B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B88A61E817B02B430087A69B /* Images.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		B88A620717B02B990087A69B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B88A61DF17B02B430087A69B /* TTAppDelegate.h */,
+				B88A61E017B02B430087A69B /* TTAppDelegate.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B88A620817B02BA20087A69B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B88A620A17B02BBB0087A69B /* Views */,
+				B88A620917B02BA80087A69B /* Storyboards */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		B88A620917B02BA80087A69B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B88A61E217B02B430087A69B /* iPhone.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B88A620A17B02BBB0087A69B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B88A620B17B02BCA0087A69B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B88A620D17B02BE90087A69B /* Root Controller */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B88A620C17B02BDE0087A69B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		B88A620D17B02BE90087A69B /* Root Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B88A61E517B02B430087A69B /* TTViewController.h */,
+				B88A61E617B02B430087A69B /* TTViewController.m */,
+			);
+			name = "Root Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +272,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Andrew Barba";
 				TargetAttributes = {
+					B88A61CC17B02B430087A69B = {
+						DevelopmentTeam = EVJS956X67;
+					};
 					B88A61ED17B02B430087A69B = {
 						TestTargetID = B88A61CC17B02B430087A69B;
 					};
@@ -231,7 +306,7 @@
 			files = (
 				B88A61E917B02B430087A69B /* Images.xcassets in Resources */,
 				B88A61DB17B02B430087A69B /* InfoPlist.strings in Resources */,
-				B88A61E417B02B430087A69B /* Main.storyboard in Resources */,
+				B88A61E417B02B430087A69B /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +358,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B88A61E217B02B430087A69B /* Main.storyboard */ = {
+		B88A61E217B02B430087A69B /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B88A61E317B02B430087A69B /* Base */,
 			);
-			name = Main.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		B88A61F817B02B430087A69B /* InfoPlist.strings */ = {
@@ -375,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
@@ -388,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
