@@ -53,6 +53,7 @@
 		B88A61F717B02B430087A69B /* TtimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TtimeTests-Info.plist"; sourceTree = "<group>"; };
 		B88A61F917B02B430087A69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B88A61FB17B02B430087A69B /* TtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TtimeTests.m; sourceTree = "<group>"; };
+		B88A621017B02CA90087A69B /* Ttime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ttime.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B88A620617B02B6D0087A69B /* Assets */,
+				B88A621017B02CA90087A69B /* Ttime.entitlements */,
 				B88A61D817B02B430087A69B /* Ttime-Info.plist */,
 				B88A61D917B02B430087A69B /* InfoPlist.strings */,
 				B88A61DC17B02B430087A69B /* main.m */,
@@ -274,6 +276,17 @@
 				TargetAttributes = {
 					B88A61CC17B02B430087A69B = {
 						DevelopmentTeam = EVJS956X67;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					B88A61ED17B02B430087A69B = {
 						TestTargetID = B88A61CC17B02B430087A69B;
@@ -451,10 +464,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -465,10 +480,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -532,6 +549,7 @@
 				B88A620117B02B430087A69B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B88A620217B02B430087A69B /* Build configuration list for PBXNativeTarget "TtimeTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +558,7 @@
 				B88A620417B02B430087A69B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
