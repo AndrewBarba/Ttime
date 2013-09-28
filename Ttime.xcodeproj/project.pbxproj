@@ -21,6 +21,9 @@
 		B88A61F217B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
 		B88A61FA17B02B430087A69B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88A61F817B02B430087A69B /* InfoPlist.strings */; };
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
+		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
+		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
+		B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0884417F2610100DDF43E /* TTMBTAService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,13 @@
 		B88A61F917B02B430087A69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B88A61FB17B02B430087A69B /* TtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TtimeTests.m; sourceTree = "<group>"; };
 		B88A621017B02CA90087A69B /* Ttime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ttime.entitlements; sourceTree = "<group>"; };
+		B8D0883917F2594700DDF43E /* TTMBTAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAClient.h; sourceTree = "<group>"; };
+		B8D0883A17F2594700DDF43E /* TTMBTAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAClient.m; sourceTree = "<group>"; };
+		B8D0883C17F2595C00DDF43E /* TTConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConstants.h; sourceTree = "<group>"; };
+		B8D0883E17F25A6700DDF43E /* TTDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDispatch.h; sourceTree = "<group>"; };
+		B8D0883F17F25A6700DDF43E /* TTDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDispatch.m; sourceTree = "<group>"; };
+		B8D0884317F2610100DDF43E /* TTMBTAService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAService.h; sourceTree = "<group>"; };
+		B8D0884417F2610100DDF43E /* TTMBTAService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B861908417F0C4E200B4060C /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				B8D0883917F2594700DDF43E /* TTMBTAClient.h */,
+				B8D0883A17F2594700DDF43E /* TTMBTAClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		B88A61C417B02B430087A69B = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +172,11 @@
 		B88A620517B02B5D0087A69B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B88A620717B02B990087A69B /* Core */,
-				B88A620C17B02BDE0087A69B /* Data */,
-				B88A620B17B02BCA0087A69B /* Controllers */,
+				B8D0883C17F2595C00DDF43E /* TTConstants.h */,
+				B88A620717B02B990087A69B /* Delegate */,
 				B88A620817B02BA20087A69B /* UI */,
+				B88A620C17B02BDE0087A69B /* Data */,
+				B8D0884117F25B1200DDF43E /* Utilities */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -169,19 +189,19 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		B88A620717B02B990087A69B /* Core */ = {
+		B88A620717B02B990087A69B /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				B88A61DF17B02B430087A69B /* TTAppDelegate.h */,
 				B88A61E017B02B430087A69B /* TTAppDelegate.m */,
 			);
-			name = Core;
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		B88A620817B02BA20087A69B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B88A620A17B02BBB0087A69B /* Views */,
+				B88A620B17B02BCA0087A69B /* Controllers */,
 				B88A620917B02BA80087A69B /* Storyboards */,
 			);
 			name = UI;
@@ -195,13 +215,6 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		B88A620A17B02BBB0087A69B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 		B88A620B17B02BCA0087A69B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +226,8 @@
 		B88A620C17B02BDE0087A69B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B8D0884217F260F300DDF43E /* Services */,
+				B861908417F0C4E200B4060C /* Client */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -224,6 +239,32 @@
 				B88A61E617B02B430087A69B /* TTViewController.m */,
 			);
 			name = "Root Controller";
+			sourceTree = "<group>";
+		};
+		B8D0883D17F25A5500DDF43E /* Concurency */ = {
+			isa = PBXGroup;
+			children = (
+				B8D0883E17F25A6700DDF43E /* TTDispatch.h */,
+				B8D0883F17F25A6700DDF43E /* TTDispatch.m */,
+			);
+			name = Concurency;
+			sourceTree = "<group>";
+		};
+		B8D0884117F25B1200DDF43E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B8D0883D17F25A5500DDF43E /* Concurency */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		B8D0884217F260F300DDF43E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B8D0884317F2610100DDF43E /* TTMBTAService.h */,
+				B8D0884417F2610100DDF43E /* TTMBTAService.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,9 +379,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
 				B88A61E117B02B430087A69B /* TTAppDelegate.m in Sources */,
 				B88A61DD17B02B430087A69B /* main.m in Sources */,
+				B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */,
 				B88A61E717B02B430087A69B /* TTViewController.m in Sources */,
+				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +505,7 @@
 		B88A620017B02B430087A69B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -477,6 +522,7 @@
 		B88A620117B02B430087A69B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
