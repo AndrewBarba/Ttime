@@ -10,11 +10,16 @@
 #import <CoreLocation/CoreLocation.h>
 
 typedef NS_ENUM(NSUInteger, TTLocationStatus) {
-    TTLocationStatusNotDetermined = 0,
-    TTLocationStatusRestricted,
-    TTLocationStatusDenied,
-    TTLocationStatusDisabled,
-    TTLocationStatusOkay
+    
+    TTLocationStatusOkay = 0, // location ready
+    
+    TTLocationStatusNotDetermined = -1, // have not asked for location yet
+    
+    TTLocationStatusRestricted = 1, // device is restricted (maybe parental controls?)
+    
+    TTLocationStatusDenied = 2, // user denied us location permission
+    
+    TTLocationStatusDisabled = 3, // device location is turned off in settings
 };
 
 typedef void (^TTLocationBlock) (CLLocation *location, TTLocationStatus locationStatus);

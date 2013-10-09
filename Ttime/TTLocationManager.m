@@ -9,7 +9,8 @@
 #import "TTLocationManager.h"
 
 @interface TTLocationManager() {
-    TTLocationBlock _locationBlock;
+    NSMutableArray *_locationBlocks;
+    BOOL _isUpdatingLocation;
 }
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -40,15 +41,28 @@
 {
     if (!block) return;
     
-    TTLocationStatus locationStatus = [TTLocationManager locationStatus];
+    TTLocationStatus status = [TTLocationManager locationStatus];
     
-    if (locationStatus != TTLocationStatusOkay) {
-        return block(nil, locationStatus);
+    if (status != TTLocationStatusOkay && status != TTLocationStatusNotDetermined) {
+        return block(nil, status);
     }
     
-    _locationBlock = [block copy];
+    [_locationBlocks addObject:[block copy]];
     
-    [self.locationManager startUpdatingLocation];
+    if (!_isUpdatingLocation) {
+        _isUpdatingLocation = YES;
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
+- (void)_notifiyLocationBlocksWithLocation:(CLLocation *)location
+{
+    TTDispatchMain(^{
+        for (TTLocationBlock block in _locationBlocks) {
+            block(location, [TTLocationManager locationStatus]);
+        }
+        _locationBlocks = [NSMutableArray array];
+    });
 }
 
 #pragma mark - Location Delegate
@@ -56,28 +70,24 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [self.locationManager stopUpdatingLocation];
+    _isUpdatingLocation = NO;
     
     CLLocation *location = [locations lastObject];
     
-    if (_locationBlock) {
-        _locationBlock(location, [TTLocationManager locationStatus]);
-        _locationBlock = nil;
-    }
+    [self _notifiyLocationBlocksWithLocation:location];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     [self.locationManager stopUpdatingLocation];
+    _isUpdatingLocation = NO;
     
-    if (_locationBlock) {
-        _locationBlock(nil, [TTLocationManager locationStatus]);
-        _locationBlock = nil;
-    }
+    [self _notifiyLocationBlocksWithLocation:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    NSLog(@"Location status changed: %i", status);
+//    NSLog(@"Location status changed: %i", status);
 }
 
 #pragma mark - Initialization
@@ -88,6 +98,8 @@
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     _locationManager.distanceFilter = 50; // only update location when they move > 50 meters
+    
+    _locationBlocks = [NSMutableArray array];
 }
 
 - (id)_initPrivate

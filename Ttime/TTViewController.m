@@ -7,6 +7,7 @@
 //
 
 #import "TTViewController.h"
+#import "TTLocationManager.h"
 
 @interface TTViewController ()
 
@@ -14,16 +15,13 @@
 
 @implementation TTViewController
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidAppear:animated];
+    
+    [[TTLocationManager sharedManager] getCurrentLocation:^(CLLocation *location, TTLocationStatus status){
+        NSLog(@"%@ : %lu", location, status);
+    }];
 }
 
 @end
