@@ -9,13 +9,6 @@
 #import "TTMBTAObject.h"
 #import <CoreLocation/CoreLocation.h>
 
-typedef NS_ENUM(NSInteger, TTMBTALine) {
-    TTMBTALineGreen,
-    TTMBTALineRed,
-    TTMBTALineOrange,
-    TTMBTALineBlue
-};
-
 @interface TTStop : TTMBTAObject
 
 @property (nonatomic, strong) NSString *name;
