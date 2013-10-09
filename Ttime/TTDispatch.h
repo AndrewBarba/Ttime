@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+
 // TT Completion blocks
-typedef void (^TTObjectBlock)        (id object);
-typedef void (^TTSetBlock)           (NSSet *set);
-typedef void (^TTArrayBlock)         (NSArray *array);
-typedef void (^TTDictionaryBlock)    (NSDictionary *dict);
-typedef void (^TTIntegerBlock)       (NSInteger number);
-typedef void (^TTFloatBlock)         (float number);
-typedef void (^TTDoubleBlock)        (double number);
-typedef void (^TTBooleanBlock)       (BOOL *yesOrNo);
-typedef void (^TTBlock)              ();
+typedef void (^TTObjectBlock)         (id object);
+typedef void (^TTSetBlock)            (NSSet *set);
+typedef void (^TTArrayBlock)          (NSArray *array);
+typedef void (^TTDictionaryBlock)     (NSDictionary *dict);
+typedef void (^TTIntegerBlock)        (NSInteger number);
+typedef void (^TTFloatBlock)          (float number);
+typedef void (^TTDoubleBlock)         (double number);
+typedef void (^TTBooleanBlock)        (BOOL *yesOrNo);
+typedef void (^TTBlock)               ();
 
 @interface TTDispatch : NSObject
 

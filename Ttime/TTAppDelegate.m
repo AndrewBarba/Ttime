@@ -7,6 +7,7 @@
 //
 
 #import "TTAppDelegate.h"
+#import "TTMBTAService.h"
 
 @implementation TTAppDelegate
 

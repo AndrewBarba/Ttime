@@ -15,4 +15,6 @@
     #import <Foundation/Foundation.h>
     #import "TTConstants.h"
     #import "TTDispatch.h"
+    #import "NSDictionary+TT.h"
+    #import "TTStop.h"
 #endif

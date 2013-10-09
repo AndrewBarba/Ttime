@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TTMBTAClient.h"
 
 @interface TTMBTAService : NSObject
+
+- (void)fetchClostestStopsWithLatitude:(float)lat
+                             longitude:(float)lon
+                          onCompletion:(TTRequestArrayBlock)complete;
+
++ (instancetype)sharedService;
 
 @end
