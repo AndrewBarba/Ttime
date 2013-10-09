@@ -9,9 +9,11 @@
 #import "TTViewController.h"
 #import "TTLocationManager.h"
 #import "TTStopService.h"
+#import "TTTranslucentView.h"
 
 @interface TTViewController ()
 
+@property (nonatomic, weak) IBOutlet TTTranslucentView *translucentView;
 @property (nonatomic, weak) IBOutlet UILabel *greenLabel;
 @property (nonatomic, weak) IBOutlet UILabel *redLabel;
 @property (nonatomic, weak) IBOutlet UILabel *blueLabel;
@@ -23,7 +25,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewDidAppear:animated];    
     
     [self _getLocation];
 }

@@ -39,7 +39,10 @@
 
 - (NSString *)description
 {
-    return self.name;
+    return [NSString stringWithFormat:@"%@ <%f,%f>",
+            self.name,
+            self.location.coordinate.latitude,
+            self.location.coordinate.longitude];
 }
 
 @end
