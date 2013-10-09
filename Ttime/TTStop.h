@@ -7,15 +7,21 @@
 //
 
 #import "TTMBTAObject.h"
+#import <CoreLocation/CoreLocation.h>
+
+typedef NS_ENUM(NSInteger, TTMBTALine) {
+    TTMBTALineGreen,
+    TTMBTALineRed,
+    TTMBTALineOrange,
+    TTMBTALineBlue
+};
 
 @interface TTStop : TTMBTAObject
 
 @property (nonatomic, strong) NSString *name;
 
-@property (nonatomic) float latitude;
+@property (nonatomic, strong) CLLocation *location;
 
-@property (nonatomic) float longitude;
-
-@property (nonatomic) float distance; // distance in miles
+- (CLLocationDistance)distanceFromLocation:(CLLocation *)location;
 
 @end

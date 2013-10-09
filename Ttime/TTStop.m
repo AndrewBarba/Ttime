@@ -10,29 +10,36 @@
 
 @implementation TTStop
 
+#pragma mark - Stop
+
 + (instancetype)mbtaObjectFromDictionary:(NSDictionary *)dict
 {
     TTStop *stop = [super mbtaObjectFromDictionary:dict];
     
     if (stop) {
-        if ([dict containsNonEmptyJSONValueForKey:@"stop_name"]) {
-            stop.name = dict[@"stop_name"];
+        
+        if ([dict containsNonEmptyJSONValueForKey:@"parent_station_name"]) {
+            stop.name = dict[@"parent_station_name"];
         }
         
-        if ([dict containsNonEmptyJSONValueForKey:@"stop_lat"]) {
-            stop.latitude = [dict[@"stop_lat"] floatValue];
-        }
-        
-        if ([dict containsNonEmptyJSONValueForKey:@"stop_lon"]) {
-            stop.longitude = [dict[@"stop_lon"] floatValue];
-        }
-        
-        if ([dict containsNonEmptyJSONValueForKey:@"distance"]) {
-            stop.distance = [dict[@"distance"] floatValue];
+        if ([dict containsNonEmptyJSONValueForKey:@"stop_lat"] && [dict containsNonEmptyJSONValueForKey:@"stop_lon"]) {
+            CLLocationDistance lat = [dict[@"stop_lat"] doubleValue];
+            CLLocationDistance lon = [dict[@"stop_lon"] doubleValue];
+            stop.location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
         }
     }
     
     return stop;
+}
+
+- (CLLocationDistance)distanceFromLocation:(CLLocation *)location
+{
+    return [self.location distanceFromLocation:location];
+}
+
+- (NSString *)description
+{
+    return self.name;
 }
 
 @end

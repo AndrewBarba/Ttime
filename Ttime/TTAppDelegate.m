@@ -8,6 +8,7 @@
 
 #import "TTAppDelegate.h"
 #import "TTMBTAService.h"
+#import "TTStop.h"
 
 @implementation TTAppDelegate
 

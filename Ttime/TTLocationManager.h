@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-typedef NS_ENUM(NSUInteger, TTLocationStatus) {
+typedef NS_ENUM(NSInteger, TTLocationStatus) {
     
     TTLocationStatusOkay = 0, // location ready
     

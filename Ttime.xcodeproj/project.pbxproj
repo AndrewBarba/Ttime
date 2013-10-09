@@ -10,6 +10,8 @@
 		B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B80CD5731805CC5100BD3BD4 /* TTLocationManager.m */; };
 		B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80CD5751805CCA700BD3BD4 /* CoreLocation.framework */; };
 		B80CD5781805CCBA00BD3BD4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80CD5771805CCBA00BD3BD4 /* MapKit.framework */; };
+		B80CD57A1805FA0B00BD3BD4 /* stops.json in Resources */ = {isa = PBXBuildFile; fileRef = B80CD5791805FA0B00BD3BD4 /* stops.json */; };
+		B80CD5841805FE8C00BD3BD4 /* TTStopService.m in Sources */ = {isa = PBXBuildFile; fileRef = B80CD5831805FE8C00BD3BD4 /* TTStopService.m */; };
 		B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */ = {isa = PBXBuildFile; fileRef = B81EEC501804E74C00C3FC31 /* TTStop.m */; };
 		B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B81EEC541804E76300C3FC31 /* TTMBTAObject.m */; };
 		B81EEC591804E92500C3FC31 /* NSDictionary+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = B81EEC581804E92500C3FC31 /* NSDictionary+TT.m */; };
@@ -63,6 +65,9 @@
 		B80CD5731805CC5100BD3BD4 /* TTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLocationManager.m; sourceTree = "<group>"; };
 		B80CD5751805CCA700BD3BD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B80CD5771805CCBA00BD3BD4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B80CD5791805FA0B00BD3BD4 /* stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stops.json; sourceTree = "<group>"; };
+		B80CD5821805FE8C00BD3BD4 /* TTStopService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStopService.h; sourceTree = "<group>"; };
+		B80CD5831805FE8C00BD3BD4 /* TTStopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStopService.m; sourceTree = "<group>"; };
 		B81EEC4F1804E74C00C3FC31 /* TTStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStop.h; sourceTree = "<group>"; };
 		B81EEC501804E74C00C3FC31 /* TTStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStop.m; sourceTree = "<group>"; };
 		B81EEC531804E76300C3FC31 /* TTMBTAObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAObject.h; sourceTree = "<group>"; };
@@ -176,11 +181,21 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		B80CD57B1805FD3800BD3BD4 /* Stop Service */ = {
+			isa = PBXGroup;
+			children = (
+				B80CD5821805FE8C00BD3BD4 /* TTStopService.h */,
+				B80CD5831805FE8C00BD3BD4 /* TTStopService.m */,
+			);
+			name = "Stop Service";
+			sourceTree = "<group>";
+		};
 		B81EEC4D1804DFA400C3FC31 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B81EEC521804E75100C3FC31 /* Base */,
 				B81EEC4E1804E73600C3FC31 /* Stop */,
+				B80CD5791805FA0B00BD3BD4 /* stops.json */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -447,6 +462,7 @@
 		B8D0884217F260F300DDF43E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B80CD57B1805FD3800BD3BD4 /* Stop Service */,
 				B80CD5711805CC3D00BD3BD4 /* Location */,
 				B80CD5701805CC3200BD3BD4 /* MBTA */,
 			);
@@ -547,6 +563,7 @@
 				B88A61E917B02B430087A69B /* Images.xcassets in Resources */,
 				B88A61DB17B02B430087A69B /* InfoPlist.strings in Resources */,
 				B88A61E417B02B430087A69B /* iPhone.storyboard in Resources */,
+				B80CD57A1805FA0B00BD3BD4 /* stops.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +603,7 @@
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 				B823473A17F7849700EAEAEE /* UIAlertView+AFNetworking.m in Sources */,
 				B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */,
+				B80CD5841805FE8C00BD3BD4 /* TTStopService.m in Sources */,
 				B823473917F7849700EAEAEE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B823473017F7849700EAEAEE /* AFHTTPRequestOperationManager.m in Sources */,
 				B823473317F7849700EAEAEE /* AFSecurityPolicy.m in Sources */,
