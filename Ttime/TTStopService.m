@@ -16,10 +16,12 @@
 
 @implementation TTStopService
 
-- (TTStop *)closestStop:(NSArray *)stops toLocation:(CLLocation *)location
+- (TTStop *)closestStopOnLine:(TTLine)line toLocation:(CLLocation *)location
 {
     TTStop *closest = nil;
     CLLocationDistance closestDistance = NSIntegerMax;
+    
+    NSArray *stops = [self stopsForLine:line];
     
     for (TTStop *stop in stops) {
         CLLocationDistance distance = [stop distanceFromLocation:location];
@@ -34,49 +36,55 @@
 
 - (TTStop *)closestRedLineStop:(CLLocation *)location
 {
-    return [self closestStop:[self redLineStops] toLocation:location];
+    return [self closestStopOnLine:TTLineRed toLocation:location];
 }
 
 - (TTStop *)closestBlueLineStop:(CLLocation *)location
 {
-    return [self closestStop:[self blueLineStops] toLocation:location];
+    return [self closestStopOnLine:TTLineBlue toLocation:location];
 }
 
 - (TTStop *)closestOrangeLineStop:(CLLocation *)location
 {
-    return [self closestStop:[self orangeLineStops] toLocation:location];
+    return [self closestStopOnLine:TTLineOrange toLocation:location];
 }
 
 - (TTStop *)closestGreenLineStop:(CLLocation *)location
 {
-    return [self closestStop:[self greenLineStops] toLocation:location];
+    return [self closestStopOnLine:TTLineGreen toLocation:location];
 }
 
 #pragma mark - Stops
 
-- (NSArray *)stopsForKey:(NSString *)key
+- (NSArray *)stopsForLine:(TTLine)line
 {
-    return [self.lines objectForKey:key];
+    switch (line) {
+        case TTLineRed: return [self.lines objectForKey:@"red"];
+        case TTLineOrange: return [self.lines objectForKey:@"orange"];
+        case TTLineBlue: return [self.lines objectForKey:@"blue"];
+        case TTLineGreen: return [self.lines objectForKey:@"green"];
+        case TTLineUnknown: return nil;
+    }
 }
 
 - (NSArray *)redLineStops
 {
-    return [self stopsForKey:@"red"];
+    return [self stopsForLine:TTLineRed];
 }
 
 - (NSArray *)orangeLineStops
 {
-    return [self stopsForKey:@"orange"];
+    return [self stopsForLine:TTLineOrange];
 }
 
 - (NSArray *)blueLineStops
 {
-    return [self stopsForKey:@"blue"];
+    return [self stopsForLine:TTLineBlue];
 }
 
 - (NSArray *)greenLineStops
 {
-    return [self stopsForKey:@"green"];
+    return [self stopsForLine:TTLineGreen];
 }
 
 #pragma mark - Initialization

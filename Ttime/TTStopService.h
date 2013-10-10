@@ -18,6 +18,8 @@
 
 - (TTStop *)closestGreenLineStop:(CLLocation *)location;
 
+- (TTStop *)closestStopOnLine:(TTLine)line toLocation:(CLLocation *)location;
+
 + (instancetype)sharedService;
 
 @end

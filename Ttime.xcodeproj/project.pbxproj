@@ -49,6 +49,8 @@
 		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
 		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
 		B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0884417F2610100DDF43E /* TTMBTAService.m */; };
+		B8F71D711806238800D097AD /* TTTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D701806238800D097AD /* TTTime.m */; };
+		B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D7418062A7800D097AD /* TTTimeService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,10 @@
 		B8D0883F17F25A6700DDF43E /* TTDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDispatch.m; sourceTree = "<group>"; };
 		B8D0884317F2610100DDF43E /* TTMBTAService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAService.h; sourceTree = "<group>"; };
 		B8D0884417F2610100DDF43E /* TTMBTAService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAService.m; sourceTree = "<group>"; };
+		B8F71D6F1806238800D097AD /* TTTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTime.h; sourceTree = "<group>"; };
+		B8F71D701806238800D097AD /* TTTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTime.m; sourceTree = "<group>"; };
+		B8F71D7318062A7800D097AD /* TTTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeService.h; sourceTree = "<group>"; };
+		B8F71D7418062A7800D097AD /* TTTimeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTimeService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 			children = (
 				B81EEC521804E75100C3FC31 /* Base */,
 				B81EEC4E1804E73600C3FC31 /* Stop */,
+				B8F71D6E1806236F00D097AD /* TTTime */,
 				B80CD5791805FA0B00BD3BD4 /* stops.json */,
 			);
 			name = Model;
@@ -475,11 +482,30 @@
 		B8D0884217F260F300DDF43E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B8F71D7218062A6600D097AD /* Time Service */,
 				B80CD57B1805FD3800BD3BD4 /* Stop Service */,
 				B80CD5711805CC3D00BD3BD4 /* Location */,
 				B80CD5701805CC3200BD3BD4 /* MBTA */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		B8F71D6E1806236F00D097AD /* TTTime */ = {
+			isa = PBXGroup;
+			children = (
+				B8F71D6F1806238800D097AD /* TTTime.h */,
+				B8F71D701806238800D097AD /* TTTime.m */,
+			);
+			name = TTTime;
+			sourceTree = "<group>";
+		};
+		B8F71D7218062A6600D097AD /* Time Service */ = {
+			isa = PBXGroup;
+			children = (
+				B8F71D7318062A7800D097AD /* TTTimeService.h */,
+				B8F71D7418062A7800D097AD /* TTTimeService.m */,
+			);
+			name = "Time Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,10 +623,12 @@
 			files = (
 				B80CD58818060B8500BD3BD4 /* TTTranslucentView.m in Sources */,
 				B823473717F7849700EAEAEE /* AFURLSessionManager.m in Sources */,
+				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
 				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
 				B88A61E117B02B430087A69B /* TTAppDelegate.m in Sources */,
+				B8F71D711806238800D097AD /* TTTime.m in Sources */,
 				B81EEC591804E92500C3FC31 /* NSDictionary+TT.m in Sources */,
 				B823473217F7849700EAEAEE /* AFNetworkReachabilityManager.m in Sources */,
 				B823473817F7849700EAEAEE /* AFNetworkActivityIndicatorManager.m in Sources */,

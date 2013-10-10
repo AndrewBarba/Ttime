@@ -12,6 +12,11 @@
 
 #pragma mark - Stop
 
++ (NSString *)uniqueIdentifier
+{
+    return @"parent_station";
+}
+
 + (instancetype)mbtaObjectFromDictionary:(NSDictionary *)dict
 {
     TTStop *stop = [super mbtaObjectFromDictionary:dict];
@@ -40,7 +45,7 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ <%f,%f>",
-            self.name,
+            self.id,
             self.location.coordinate.latitude,
             self.location.coordinate.longitude];
 }

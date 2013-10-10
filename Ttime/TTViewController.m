@@ -10,6 +10,7 @@
 #import "TTLocationManager.h"
 #import "TTStopService.h"
 #import "TTTranslucentView.h"
+#import "TTTimeService.h"
 
 @interface TTViewController ()
 
@@ -36,9 +37,17 @@
         
         [self _updateLabels:location];
         
-        TTDispatchAfter(5.0, ^{
-            [self _getLocation];
-        });
+        [[TTTimeService sharedService] updateTTimesForLocation:location onCompletion:^{
+            TTTimeService *service = [TTTimeService sharedService];
+            NSLog(@"%@", service.redLineTTime);
+            NSLog(@"%@", service.blueLineTTime);
+            NSLog(@"%@", service.greenLineTTime);
+            NSLog(@"%@", service.orangeLineTTime);
+            
+            TTDispatchAfter(5.0, ^{
+                [self _getLocation];
+            });
+        }];
     }];
 }
 
