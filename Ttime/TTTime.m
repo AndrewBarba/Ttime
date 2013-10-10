@@ -15,6 +15,24 @@ static NSString *const _TTGreenLine  = @"Green Line";
 
 @implementation TTTime
 
+- (double)distanceInMiles
+{
+    double distanceInMeters = [self.stop distanceFromLocation:self.location];
+    return distanceInMeters * 0.000621371;
+}
+
+- (NSTimeInterval)secondsToInboundDeparture
+{
+    return [self.inboundDepartureDate timeIntervalSinceDate:[NSDate date]];
+}
+
+- (NSTimeInterval)secondsToOutboundDeparture
+{
+    return [self.outboundDepartureDate timeIntervalSinceDate:[NSDate date]];
+}
+
+#pragma mark - Initialization
+
 + (NSString *)uniqueIdentifier
 {
     return @"route_id";

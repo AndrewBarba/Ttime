@@ -7,15 +7,24 @@
 //
 
 #import "TTMBTAObject.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface TTTime : TTMBTAObject
 
 @property (nonatomic, strong) TTStop *stop;
+
+@property (nonatomic, strong) CLLocation *location;
 
 @property (nonatomic, strong) NSDate *inboundDepartureDate;
 
 @property (nonatomic, strong) NSDate *outboundDepartureDate;
 
 @property (nonatomic) TTLine line;
+
+- (double)distanceInMiles;
+
+- (NSTimeInterval)secondsToInboundDeparture;
+
+- (NSTimeInterval)secondsToOutboundDeparture;
 
 @end

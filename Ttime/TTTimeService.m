@@ -58,6 +58,7 @@
         if (ttimes && !error) {
             __block TTTime *myTime = nil;
             [ttimes enumerateObjectsUsingBlock:^(TTTime *time, NSUInteger index, BOOL *done){
+                time.location = location;
                 [self setTTime:time forLine:line];
                 if (time.line == line) {
                     myTime = time;
