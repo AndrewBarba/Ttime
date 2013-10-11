@@ -19,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *redLabel;
 @property (nonatomic, weak) IBOutlet UILabel *blueLabel;
 @property (nonatomic, weak) IBOutlet UILabel *orangeLabel;
+@property BOOL inbound;
+@property (weak, nonatomic) IBOutlet UIButton *inboundOutboundButton;
 
 @end
 
@@ -27,11 +29,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _inbound = YES;
+    [_inboundOutboundButton setTitle:@"Inbound" forState:UIControlStateNormal];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_handleTimesUpdatedNotification:)
                                                  name:TTUpdatedTimeNotificationKey
                                                object:nil];
+}
+
+
+- (IBAction)changeDirection:(id)sender {
+    if (_inbound) {
+        [_inboundOutboundButton setTitle:@"Outbound" forState:UIControlStateNormal];
+    } else {
+        [_inboundOutboundButton setTitle:@"Inbound" forState:UIControlStateNormal];
+    }
+    _inbound = !_inbound;
+    [self _updateLabels];
+    
+
 }
 
 - (void)loop
@@ -76,24 +93,31 @@
 - (void)_updateLabels
 {
     TTTime *red = [[TTTimeService sharedService] redLineTTime];
-    self.redLabel.text = [NSString stringWithFormat:@"%@ >> %@",
-                          [self prettyPrintTime:red.secondsToInboundDeparture],
-                          [self prettyPrintTime:red.secondsToOutboundDeparture]];
-    
     TTTime *green = [[TTTimeService sharedService] greenLineTTime];
-    self.greenLabel.text = [NSString stringWithFormat:@"%@ >> %@",
-                          [self prettyPrintTime:green.secondsToInboundDeparture],
-                          [self prettyPrintTime:green.secondsToOutboundDeparture]];
-    
     TTTime *blue = [[TTTimeService sharedService] blueLineTTime];
-    self.blueLabel.text = [NSString stringWithFormat:@"%@ >> %@",
-                          [self prettyPrintTime:blue.secondsToInboundDeparture],
-                          [self prettyPrintTime:blue.secondsToOutboundDeparture]];
-    
     TTTime *orange = [[TTTimeService sharedService] orangeLineTTime];
-    self.orangeLabel.text = [NSString stringWithFormat:@"%@ >> %@",
-                          [self prettyPrintTime:orange.secondsToInboundDeparture],
-                          [self prettyPrintTime:orange.secondsToOutboundDeparture]];
+    
+    if (_inbound)
+    {
+        self.redLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                          red.stop.name ,[self prettyPrintTime:red.secondsToInboundDeparture]];
+        self.greenLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                          green.stop.name, [self prettyPrintTime:green.secondsToInboundDeparture]];
+        self.blueLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                          blue.stop.name, [self prettyPrintTime:blue.secondsToInboundDeparture]];
+        self.orangeLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                          orange.stop.name, [self prettyPrintTime:orange.secondsToInboundDeparture]];
+    } else {
+        
+        self.redLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                              red.stop.name, [self prettyPrintTime:red.secondsToOutboundDeparture]];
+        self.greenLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                                green.stop.name, [self prettyPrintTime:green.secondsToOutboundDeparture]];
+        self.blueLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                               blue.stop.name, [self prettyPrintTime:blue.secondsToOutboundDeparture]];
+        self.orangeLabel.text = [NSString stringWithFormat:@"%@[final stop]: %@",
+                                 orange.stop.name, [self prettyPrintTime:orange.secondsToOutboundDeparture]];
+    }
 }
 
 - (NSString *)prettyPrintTime:(NSTimeInterval)seconds
