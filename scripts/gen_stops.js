@@ -1,87 +1,113 @@
 
-var data = {};
-
-var keys = [ "orange", "red", "blue", "green" ];
-
-var mbta = {
+mbta = {
 
 	"orange" : [
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=913_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=903_",
-	],
-
-	"red" : [
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=931_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=933_",
+		{
+			"name" : "main",
+			"route_ids" : [ "903_", "913_" ],
+			"outbound_end" : "Forest Hills",
+			"inbound_end" : "Oak Grove"
+		}
 	],
 
 	"blue" : [
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=9482",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=948_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=946_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=9462",
+		{
+			"name" : "main",
+			"route_ids" : [ "9482", "948_", "946_", "9462" ],
+			"outbound_end" : "Bowdoin",
+			"inbound_end" : "Wonderland"
+		}
+	],
+
+	"red" : [
+		{
+			"name" : "ashmont",
+			"route_ids" : [ "931_" ],
+			"outbound_end" : "Ashmont",
+			"inbound_end" : "Alewife"
+		},
+		{
+			"name" : "braintree",
+			"route_ids" : [ "933_" ],
+			"outbound_end" : "Braintree",
+			"inbound_end" : "Alewife"
+		}
 	],
 
 	"green" : [
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=810_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=812_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=822_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=830_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=831_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=840_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=842_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=852_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=880_",
-		"http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=882_",
+		{
+			"name" : "E",
+			"route_ids" : [ "880_", "882_" ],
+			"outbound_end" : "Heath Street",
+			"inbound_end" : "Lechemere"
+		},
+		{
+			"name" : "D",
+			"route_ids" : [ "840_", "842_", "852_" ],
+			"outbound_end" : "Riverside",
+			"inbound_end" : "Lechemere"
+		},
+		{
+			"name" : "C",
+			"route_ids" : [ "830_", "831_" ],
+			"outbound_end" : "Clevand Circle",
+			"inbound_end" : "Lechemere"
+		},
+		{
+			"name" : "B",
+			"route_ids" : [ "810_", "812_", "822_" ],
+			"outbound_end" : "Boston College",
+			"inbound_end" : "Lechemere"
+		}
 	]
 };
 
 function parseMBTA(callback) {
-	if (keys.length) {
-		console.log("parsing...");
-		var key = keys.pop();
-		var line = mbta[key];
-		console.log("parsing line: "+key);
-		parseLine(line, key, function(){
-			parseMBTA(callback);
-		});
-	} else {
-		console.log("done!");
-		if (callback) callback();
-	}
+	$.each(mbta, function(line, trains){
+		parseLineAndTrains(line, trains);
+	});
+
+	console.log("done!");
+
+	console.log(JSON.stringify(mbta));
+
+	console.log(mbta);
 }
 
-function parseLine(line, key, callback) {	
-	if (line.length) {
-		var url = line.pop();
-		console.log("parsing url: "+url);
-		$.getJSON(url, function(route){
-			console.log("parsing route...");
-			parseRoute(route, key);
-			parseLine(line, key, callback);
-		});
-	} else {
-		if (callback) callback();
-	}
+function parseLineAndTrains(line, trains) {
+	$.each(trains, function(index, train){
+		parseTrain(train);
+	});
 }
 
-function parseRoute(route, line) {
+function parseTrain(train) {
+	var stops_dict = {};
+	$.each(train.route_ids, function(index, route_id){
+		var route = getRoute(route_id);
+		parseRoute(route, stops_dict);
+	});
+	train["stops"] = stops_dict;
+}
+
+function getRoute(route_id) {
+    var url = "http://realtime.mbta.com/developer/api/v1/stopsbyroute?api_key=MQMcpRbPNkusVWUGofSMIA&route=" + route_id;
+    console.log("fetching url: "+url);
+    var text = $.ajax({
+        type: "GET",
+        url: url,
+        async: false,
+        contentType: "application/json"
+    }).responseText;
+    return JSON.parse(text);
+}
+
+function parseRoute(route, dict) {
 	$.each(route.direction, function(i, dir){
 		$.each(dir.stop, function(i, stop){
-			addStop(stop, line);
+			dict[stop.parent_station] = stop;
 		});
 	});
 }
 
-function addStop(stop, line) {
-	if (!data[line]) {
-		data[line] = {};
-	}
-	data[line][stop.parent_station] = stop;
-}
-
-parseMBTA(function(){
-	console.log(data);
-	console.log(JSON.stringify(data));
-});
+parseMBTA();
 

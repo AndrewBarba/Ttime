@@ -7,119 +7,32 @@
 //
 
 #import "TTTimeService.h"
-#import "TTStopService.h"
 #import "TTMBTAClient.h"
 
 @implementation TTTimeService
 
-- (void)updateTTimesForLocation:(CLLocation *)location onCompletion:(TTBlock)complete
-{
-    [self fetchRedLineTTime:location onComplettion:^(TTTime *time, NSError *error){
-        [self fetchOrangeLineTTime:location onComplettion:^(TTTime *time, NSError *error){
-            [self fetchBlueLineTTime:location onComplettion:^(TTTime *time, NSError *error){
-                [self fetchGreenLineTTime:location onComplettion:^(TTTime *time, NSError *error){
-                    if (complete) {
-                        complete();
-                    }
-                    [[NSNotificationCenter defaultCenter] postNotificationName:TTUpdatedTimeNotificationKey object:self];
-                }];
-            }];
-        }];
-    }];
-}
-
-#pragma mark - Fetch TTime
-
-- (void)fetchRedLineTTime:(CLLocation *)location onComplettion:(TTTimeBlock)complete
-{
-    [self fetchTTime:location forLine:TTLineRed onComplettion:complete];
-}
-
-- (void)fetchBlueLineTTime:(CLLocation *)location onComplettion:(TTTimeBlock)complete
-{
-    [self fetchTTime:location forLine:TTLineBlue onComplettion:complete];
-}
-
-- (void)fetchOrangeLineTTime:(CLLocation *)location onComplettion:(TTTimeBlock)complete
-{
-    [self fetchTTime:location forLine:TTLineOrange onComplettion:complete];
-}
-
-- (void)fetchGreenLineTTime:(CLLocation *)location onComplettion:(TTTimeBlock)complete
-{
-    [self fetchTTime:location forLine:TTLineGreen onComplettion:complete];
-}
-
-- (void)fetchTTime:(CLLocation *)location forLine:(TTLine)line onComplettion:(TTTimeBlock)complete
-{
-    TTStop *stop = [[TTStopService sharedService] closestStopOnLine:line toLocation:location];
-    
-    [self fetchTTimesForStop:stop onCompletion:^(NSArray *ttimes, NSError *error){
-        if (ttimes && !error) {
-            __block TTTime *myTime = nil;
-            [ttimes enumerateObjectsUsingBlock:^(TTTime *time, NSUInteger index, BOOL *done){
-                time.location = location;
-                if (time.line == line) {
-                    myTime = time;
-                    *done = YES;
-                }
-            }];
-            [self setTTime:myTime forLine:line];
-            if (complete) {
-                complete(myTime, nil);
-            }
-        } else {
-            if (complete) {
-                complete(nil, error);
-            }
-        }
-    }];
-}
-
-- (void)setTTime:(TTTime *)ttime forLine:(TTLine)line
-{
-    switch (line) {
-        case TTLineRed:
-            self.redLineTTime = ttime;
-            break;
-            
-        case TTLineBlue:
-            self.blueLineTTime = ttime;
-            break;
-            
-        case TTLineOrange:
-            self.orangeLineTTime = ttime;
-            break;
-            
-        case TTLineGreen:
-            self.greenLineTTime = ttime;
-            break;
-            
-        case TTLineUnknown:
-            // something went wrong...
-            break;
-    }
-}
-
-#pragma mark - Fetch Times
-
-- (void)fetchTTimesForStop:(TTStop *)stop onCompletion:(TTTimesBlock)complete
+- (void)fetchTTimeForStop:(TTStop *)stop onCompletion:(TTTimeBlock)complete
 {
     NSDictionary *params = @{ @"stop" : stop.id };
     [TTMBTAClient asyncMBTARequest:@"/schedulebystop" data:params completion:^(NSDictionary *schedule, NSError *error){
         if (schedule && !error) {
-            NSMutableArray *times = [NSMutableArray array];
             for (NSDictionary *mode in schedule[@"mode"]) {
                 if ([mode[@"mode_name"] isEqualToString:TTModeSubway]) {
                     for (NSDictionary *route in mode[@"route"]) {
-                        TTTime *time = [TTTime mbtaObjectFromDictionary:route];
-                        time.stop = stop;
-                        [times addObject:time];
+                        if ([stop.train.routeIDs containsObject:route[@"route_id"]]) {
+                            TTTime *time = [TTTime mbtaObjectFromDictionary:route];
+                            time.stop = stop;
+                            if (complete) {
+                                complete(time, nil);
+                            }
+                            return;
+                        }
                     }
                 }
             }
             if (complete) {
-                complete(times, nil);
+                NSError *e = [NSError errorWithDomain:@"Not found" code:NSNotFound userInfo:@{}];
+                complete(nil, e);
             }
         } else {
             if (complete) {

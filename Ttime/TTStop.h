@@ -7,9 +7,12 @@
 //
 
 #import "TTMBTAObject.h"
-#import <CoreLocation/CoreLocation.h>
+
+@class TTTrain;
 
 @interface TTStop : TTMBTAObject
+
+@property (nonatomic, strong) TTTrain *train;
 
 @property (nonatomic, strong) NSString *name;
 

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 
 typedef NS_ENUM(NSInteger, TTLocationStatus) {
     

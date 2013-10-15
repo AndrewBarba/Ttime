@@ -11,6 +11,14 @@
 
 @interface TTMBTAService : NSObject
 
+- (NSArray *)greenLineTrains;
+
+- (NSArray *)redLineTrains;
+
+- (NSArray *)orangeLineTrains;
+
+- (NSArray *)blueLineTrains;
+
 + (instancetype)sharedService;
 
 @end

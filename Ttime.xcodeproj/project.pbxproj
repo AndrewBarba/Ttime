@@ -11,7 +11,6 @@
 		B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80CD5751805CCA700BD3BD4 /* CoreLocation.framework */; };
 		B80CD5781805CCBA00BD3BD4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80CD5771805CCBA00BD3BD4 /* MapKit.framework */; };
 		B80CD57A1805FA0B00BD3BD4 /* stops.json in Resources */ = {isa = PBXBuildFile; fileRef = B80CD5791805FA0B00BD3BD4 /* stops.json */; };
-		B80CD5841805FE8C00BD3BD4 /* TTStopService.m in Sources */ = {isa = PBXBuildFile; fileRef = B80CD5831805FE8C00BD3BD4 /* TTStopService.m */; };
 		B80CD58818060B8500BD3BD4 /* TTTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80CD58718060B8500BD3BD4 /* TTTranslucentView.m */; };
 		B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */ = {isa = PBXBuildFile; fileRef = B81EEC501804E74C00C3FC31 /* TTStop.m */; };
 		B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B81EEC541804E76300C3FC31 /* TTMBTAObject.m */; };
@@ -32,6 +31,7 @@
 		B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472917F7849700EAEAEE /* UIImageView+AFNetworking.m */; };
 		B823473D17F7849700EAEAEE /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472C17F7849700EAEAEE /* UIProgressView+AFNetworking.m */; };
 		B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */; };
+		B8845DCC180D059400DB558D /* TTTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B8845DCB180D059400DB558D /* TTTrain.m */; };
 		B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D017B02B430087A69B /* Foundation.framework */; };
 		B88A61D317B02B430087A69B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D217B02B430087A69B /* CoreGraphics.framework */; };
 		B88A61D517B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
@@ -39,7 +39,6 @@
 		B88A61DD17B02B430087A69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61DC17B02B430087A69B /* main.m */; };
 		B88A61E117B02B430087A69B /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61E017B02B430087A69B /* TTAppDelegate.m */; };
 		B88A61E417B02B430087A69B /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88A61E217B02B430087A69B /* iPhone.storyboard */; };
-		B88A61E717B02B430087A69B /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61E617B02B430087A69B /* TTViewController.m */; };
 		B88A61E917B02B430087A69B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88A61E817B02B430087A69B /* Images.xcassets */; };
 		B88A61F017B02B430087A69B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61EF17B02B430087A69B /* XCTest.framework */; };
 		B88A61F117B02B430087A69B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D017B02B430087A69B /* Foundation.framework */; };
@@ -69,8 +68,6 @@
 		B80CD5751805CCA700BD3BD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B80CD5771805CCBA00BD3BD4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B80CD5791805FA0B00BD3BD4 /* stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stops.json; sourceTree = "<group>"; };
-		B80CD5821805FE8C00BD3BD4 /* TTStopService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStopService.h; sourceTree = "<group>"; };
-		B80CD5831805FE8C00BD3BD4 /* TTStopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStopService.m; sourceTree = "<group>"; };
 		B80CD58618060B8500BD3BD4 /* TTTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTranslucentView.h; sourceTree = "<group>"; };
 		B80CD58718060B8500BD3BD4 /* TTTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTranslucentView.m; sourceTree = "<group>"; };
 		B81EEC4F1804E74C00C3FC31 /* TTStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStop.h; sourceTree = "<group>"; };
@@ -113,6 +110,8 @@
 		B823472C17F7849700EAEAEE /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		B823472D17F7849700EAEAEE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		B8845DCA180D059400DB558D /* TTTrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrain.h; sourceTree = "<group>"; };
+		B8845DCB180D059400DB558D /* TTTrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrain.m; sourceTree = "<group>"; };
 		B88A61CD17B02B430087A69B /* Ttime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ttime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88A61D017B02B430087A69B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B88A61D217B02B430087A69B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,8 +123,6 @@
 		B88A61DF17B02B430087A69B /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
 		B88A61E017B02B430087A69B /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
 		B88A61E317B02B430087A69B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
-		B88A61E517B02B430087A69B /* TTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
-		B88A61E617B02B430087A69B /* TTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
 		B88A61E817B02B430087A69B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B88A61EE17B02B430087A69B /* TtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88A61EF17B02B430087A69B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -190,15 +187,6 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
-		B80CD57B1805FD3800BD3BD4 /* Stop Service */ = {
-			isa = PBXGroup;
-			children = (
-				B80CD5821805FE8C00BD3BD4 /* TTStopService.h */,
-				B80CD5831805FE8C00BD3BD4 /* TTStopService.m */,
-			);
-			name = "Stop Service";
-			sourceTree = "<group>";
-		};
 		B80CD58518060B7200BD3BD4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,20 +200,21 @@
 			isa = PBXGroup;
 			children = (
 				B81EEC521804E75100C3FC31 /* Base */,
-				B81EEC4E1804E73600C3FC31 /* Stop */,
+				B8845DC9180CE71800DB558D /* TTTrain */,
+				B81EEC4E1804E73600C3FC31 /* TTStop */,
 				B8F71D6E1806236F00D097AD /* TTTime */,
 				B80CD5791805FA0B00BD3BD4 /* stops.json */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		B81EEC4E1804E73600C3FC31 /* Stop */ = {
+		B81EEC4E1804E73600C3FC31 /* TTStop */ = {
 			isa = PBXGroup;
 			children = (
 				B81EEC4F1804E74C00C3FC31 /* TTStop.h */,
 				B81EEC501804E74C00C3FC31 /* TTStop.m */,
 			);
-			name = Stop;
+			name = TTStop;
 			sourceTree = "<group>";
 		};
 		B81EEC521804E75100C3FC31 /* Base */ = {
@@ -312,6 +301,15 @@
 				B8D0883A17F2594700DDF43E /* TTMBTAClient.m */,
 			);
 			name = Client;
+			sourceTree = "<group>";
+		};
+		B8845DC9180CE71800DB558D /* TTTrain */ = {
+			isa = PBXGroup;
+			children = (
+				B8845DCA180D059400DB558D /* TTTrain.h */,
+				B8845DCB180D059400DB558D /* TTTrain.m */,
+			);
+			name = TTTrain;
 			sourceTree = "<group>";
 		};
 		B88A61C417B02B430087A69B = {
@@ -437,7 +435,6 @@
 		B88A620B17B02BCA0087A69B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B88A620D17B02BE90087A69B /* Root Controller */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -449,15 +446,6 @@
 				B8D0884217F260F300DDF43E /* Services */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		B88A620D17B02BE90087A69B /* Root Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B88A61E517B02B430087A69B /* TTViewController.h */,
-				B88A61E617B02B430087A69B /* TTViewController.m */,
-			);
-			name = "Root Controller";
 			sourceTree = "<group>";
 		};
 		B8D0883D17F25A5500DDF43E /* Concurency */ = {
@@ -483,9 +471,8 @@
 			isa = PBXGroup;
 			children = (
 				B8F71D7218062A6600D097AD /* Time Service */,
-				B80CD57B1805FD3800BD3BD4 /* Stop Service */,
-				B80CD5711805CC3D00BD3BD4 /* Location */,
 				B80CD5701805CC3200BD3BD4 /* MBTA */,
+				B80CD5711805CC3D00BD3BD4 /* Location */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -627,6 +614,7 @@
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
 				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
+				B8845DCC180D059400DB558D /* TTTrain.m in Sources */,
 				B88A61E117B02B430087A69B /* TTAppDelegate.m in Sources */,
 				B8F71D711806238800D097AD /* TTTime.m in Sources */,
 				B81EEC591804E92500C3FC31 /* NSDictionary+TT.m in Sources */,
@@ -641,11 +629,9 @@
 				B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */,
 				B823473B17F7849700EAEAEE /* UIButton+AFNetworking.m in Sources */,
 				B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */,
-				B88A61E717B02B430087A69B /* TTViewController.m in Sources */,
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 				B823473A17F7849700EAEAEE /* UIAlertView+AFNetworking.m in Sources */,
 				B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */,
-				B80CD5841805FE8C00BD3BD4 /* TTStopService.m in Sources */,
 				B823473917F7849700EAEAEE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B823473017F7849700EAEAEE /* AFHTTPRequestOperationManager.m in Sources */,
 				B823473317F7849700EAEAEE /* AFSecurityPolicy.m in Sources */,

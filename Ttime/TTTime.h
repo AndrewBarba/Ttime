@@ -7,7 +7,6 @@
 //
 
 #import "TTMBTAObject.h"
-#import <CoreLocation/CoreLocation.h>
 
 @interface TTTime : TTMBTAObject
 

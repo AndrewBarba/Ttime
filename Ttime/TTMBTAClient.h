@@ -18,8 +18,8 @@ typedef void (^TTRequestDictionaryBlock) (NSDictionary *dict, NSError *error);
 
 @interface TTMBTAClient : NSObject
 
-+ (NSURLSessionDataTask *)asyncMBTARequest:(NSString *)endpoint
-                                      data:(NSDictionary *)data
-                                completion:(TTRequestBlock)complete;
++ (void)asyncMBTARequest:(NSString *)endpoint
+                    data:(NSDictionary *)data
+              completion:(TTRequestBlock)complete;
 
 @end

@@ -13,9 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreLocation/CoreLocation.h>
     #import "TTConstants.h"
     #import "TTDispatch.h"
     #import "NSDictionary+TT.h"
     #import "TTStop.h"
     #import "TTTime.h"
+    #import "TTTrain.h"
 #endif
