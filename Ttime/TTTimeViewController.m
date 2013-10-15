@@ -65,7 +65,6 @@
 - (void)setUserLocation:(CLLocation *)userLocation
 {
     _userLocation = userLocation;
-    NSLog(@"%@", userLocation);
     [self.tableView reloadData];
 }
 

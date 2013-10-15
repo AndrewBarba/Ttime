@@ -59,13 +59,13 @@
             complete(response, nil);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error){
-        NSLog(@"%@", error);
+        NSLog(@"ERROR: %@", task.originalRequest.URL);
         if (complete) {
             complete(nil, error);
         }
     }];
     
-    NSLog(@"%@", task.originalRequest.URL.description);
+//    NSLog(@"%@", task.originalRequest.URL.description);
 }
 
 - (void)_processQueue
