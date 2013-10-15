@@ -8,11 +8,13 @@
 
 #import "TTMBTAObject.h"
 
-@class TTTrain;
+@class TTTrain, TTTime;
 
 @interface TTStop : TTMBTAObject
 
 @property (nonatomic, strong) TTTrain *train;
+
+@property (nonatomic, strong) TTTime *ttime;
 
 @property (nonatomic, strong) NSString *name;
 

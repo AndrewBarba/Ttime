@@ -97,17 +97,25 @@
     
     [[TTTimeService sharedService] fetchTTimeForStop:stop onCompletion:^(TTTime *ttime, NSError *error){
         if (ttime) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@", ttime.stop.name, [self timeTillDeparture:ttime]];
-            cell.detailTextLabel.text =
-            [NSString stringWithFormat:@"%@ > %@", ttime.stop.train.name,
-            self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
-            [cell layoutSubviews];
-        } else {
-            NSLog(@"%@", error);
+            stop.ttime = ttime;
+            [self updateCell:cell forTTime:ttime];
         }
     }];
     
+    if (stop.ttime) {
+        [self updateCell:cell forTTime:stop.ttime];
+    }
+    
     return cell;
+}
+
+- (void)updateCell:(UITableViewCell *)cell forTTime:(TTTime *)ttime
+{
+    cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@", ttime.stop.name, [self timeTillDeparture:ttime]];
+    cell.detailTextLabel.text =
+    [NSString stringWithFormat:@"%@ > %@", ttime.stop.train.name,
+     self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
+    [cell layoutSubviews];
 }
 
 - (NSString *)timeTillDeparture:(TTTime *)ttime
@@ -121,7 +129,7 @@
     }
     
     NSInteger min = (int)(seconds / 60);
-    NSString *string = [NSString stringWithFormat:@"%i minute", min];
+    NSString *string = [NSString stringWithFormat:@"%li minute", (long)min];
     if (min > 1) string = [string stringByAppendingString:@"s"];
     return string;
 }
