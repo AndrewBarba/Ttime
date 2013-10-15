@@ -74,6 +74,19 @@
 
 #pragma mark - Table view data source
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0: return @"Green Line";
+        case 1: return @"Orange Line";
+        case 2: return @"Red Line";
+        case 3: return @"Blue Line";
+        case 4: return @"Silver Line";
+    }
+    
+    return nil;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.userLocation ? 5 : 0;
@@ -95,12 +108,11 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
     
-    cell.textLabel.text = @"loading...";
-    cell.detailTextLabel.text = nil;
-    
     NSArray *trains = [self _trainArrayForSection:indexPath.section];
     TTTrain *train = trains[indexPath.row];
     TTStop *stop = [train closestStopToLocation:self.userLocation];
+    
+    [self updateCell:cell forTTime:stop.ttime];
     
     [[TTTimeService sharedService] fetchTTimeForStop:stop onCompletion:^(TTTime *ttime, NSError *error){
         if (ttime) {
@@ -109,19 +121,20 @@
         }
     }];
     
-    if (stop.ttime) {
-        [self updateCell:cell forTTime:stop.ttime];
-    }
-    
     return cell;
 }
 
 - (void)updateCell:(UITableViewCell *)cell forTTime:(TTTime *)ttime
 {
-    cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@", ttime.stop.name, [self timeTillDeparture:ttime]];
-    cell.detailTextLabel.text =
-    [NSString stringWithFormat:@"%@ > %@", ttime.stop.train.name,
-     self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
+    if (ttime) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@", ttime.stop.name, [self timeTillDeparture:ttime]];
+        cell.detailTextLabel.text =
+        [NSString stringWithFormat:@"%@ > %@", ttime.stop.train.name,
+         self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
+    } else {
+        cell.textLabel.text = @"loading...";
+        cell.detailTextLabel.text = nil;
+    }
     [cell layoutSubviews];
 }
 
@@ -139,19 +152,6 @@
     NSString *string = [NSString stringWithFormat:@"%li minute", (long)min];
     if (min > 1) string = [string stringByAppendingString:@"s"];
     return string;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0: return @"Green Line";
-        case 1: return @"Orange Line";
-        case 2: return @"Red Line";
-        case 3: return @"Blue Line";
-        case 4: return @"Silver Line";
-    }
-    
-    return nil;
 }
 
 @end
