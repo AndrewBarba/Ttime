@@ -128,7 +128,7 @@
 {
     NSDate *date = self.inbound ? ttime.inboundDepartureDate : ttime.outboundDepartureDate;
     NSTimeInterval seconds = [date timeIntervalSinceDate:[NSDate date]];
-    if (seconds < 0) return @"Loading...";
+    if (seconds <= 0) return @"Loading...";
     
     if (seconds < 60) {
         return [NSString stringWithFormat:@"%i seconds", (int)seconds];

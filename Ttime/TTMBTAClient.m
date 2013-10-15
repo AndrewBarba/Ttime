@@ -37,6 +37,7 @@
     if (!_isProcessingQueue) {
         _isProcessingQueue = YES;
         [self _processQueue];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }
 }
 
@@ -72,6 +73,7 @@
     
     if (!requestParts) {
         _isProcessingQueue = NO;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         return;
     }
     
