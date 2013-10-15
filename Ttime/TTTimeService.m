@@ -21,6 +21,7 @@
                     if ([stop.train.routeIDs containsObject:route[@"route_id"]]) {
                         TTTime *time = [TTTime mbtaObjectFromDictionary:route];
                         time.stop = stop;
+                        stop.ttime = time;
                         if (complete) {
                             complete(time, nil);
                         }

@@ -26,21 +26,40 @@
     [super viewDidLoad];
     
     self.inbound = YES;
+    
+    [[TTLocationManager sharedManager] getCurrentLocation:^(CLLocation *location, TTLocationStatus status){
+        self.userLocation = location;
+        [self loop];
+    }];
+}
 
-    [self refresh:nil];
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self uiloop];
+}
+
+- (void)loop
+{
+    [[TTMBTAService sharedService] updateAllDataForLocation:self.userLocation onComplete:^{
+        TTDispatchAfter(2.0, ^{
+            [self loop];
+        });
+    }];
+}
+
+- (void)uiloop
+{
+    [self.tableView reloadData];
+    TTDispatchAfter(0.25, ^{
+        [self uiloop];
+    });
 }
 
 - (IBAction)_handleSwitch:(UISwitch *)sender
 {
     self.inbound = sender.on;
-}
-
-- (IBAction)refresh:(id)sender
-{
-    [[TTLocationManager sharedManager] getCurrentLocation:^(CLLocation *location, TTLocationStatus locationStatus){
-        self.userLocation = location;
-        [self.refreshControl endRefreshing];
-    }];
 }
 
 - (void)setUserLocation:(CLLocation *)userLocation
@@ -99,27 +118,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    I'm commenting out these lines for now because I'm too lazy too subclass a cell. This should be uncommented at somepoint
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // This is bad. At some point we should use the above but I'm lazy and using this for now
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSArray *trains = [self _trainArrayForSection:indexPath.section];
     TTTrain *train = trains[indexPath.row];
     TTStop *stop = [train closestStopToLocation:self.userLocation];
     
     [self updateCell:cell forTTime:stop.ttime];
-    
-    [[TTTimeService sharedService] fetchTTimeForStop:stop onCompletion:^(TTTime *ttime, NSError *error){
-        if (ttime) {
-            stop.ttime = ttime;
-            [self updateCell:cell forTTime:ttime];
-        }
-    }];
     
     return cell;
 }

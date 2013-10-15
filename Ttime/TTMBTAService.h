@@ -21,6 +21,8 @@
 
 - (NSArray *)silverLineTrains;
 
+- (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete;
+
 + (instancetype)sharedService;
 
 @end

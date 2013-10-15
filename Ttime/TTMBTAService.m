@@ -7,6 +7,7 @@
 //
 
 #import "TTMBTAService.h"
+#import "TTTimeService.h"
 
 @interface TTMBTAService() {
     NSArray *_redLineTrains;
@@ -43,6 +44,33 @@
 - (NSArray *)silverLineTrains
 {
     return _silverLineTrains;
+}
+
+#pragma mark - Update Data
+
+- (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete
+{
+    NSArray *lines = @[ _redLineTrains, _greenLineTrains, _blueLineTrains, _silverLineTrains ];
+    
+    NSMutableArray *stops = [NSMutableArray array];
+    
+    for (NSArray *line in lines) {
+        for (TTTrain *train in line) {
+            TTStop *stop = [train closestStopToLocation:location];
+            [stops addObject:stop];
+        }
+    }
+    
+    __block NSUInteger remaining = stops.count;
+    
+    for (TTStop *stop in stops) {
+        [[TTTimeService sharedService] fetchTTimeForStop:stop onCompletion:^(TTTime *time, NSError *error){
+            remaining--;
+            if (remaining == 0 && complete) {
+                complete();
+            }
+        }];
+    }
 }
 
 #pragma mark - Load Data
