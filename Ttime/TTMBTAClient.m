@@ -35,6 +35,7 @@
     [_requestQueue addObject:parts];
     
     if (!_isProcessingQueue) {
+        _isProcessingQueue = YES;
         [self _processQueue];
     }
 }
@@ -52,23 +53,21 @@
     NSMutableDictionary *params = [data mutableCopy];
     params[@"api_key"] = TT_MBTA_API_KEY;
     
-    [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
+    NSURLSessionDataTask *task = [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
         if (complete) {
             complete(response, nil);
         }
-        [self _processQueue];
     } failure:^(NSURLSessionDataTask *task, NSError *error){
         if (complete) {
             complete(nil, error);
         }
-        [self _processQueue];
     }];
+    
+    NSLog(@"%@", task.originalRequest.URL.description);
 }
 
 - (void)_processQueue
 {
-    _isProcessingQueue = YES;
-    
     NSArray *requestParts = [_requestQueue firstObject];
     
     if (!requestParts) {
@@ -84,7 +83,9 @@
         if (complete) {
             complete(resp, error);
         }
-        [self _processQueue];
+        TTDispatchMain(^{
+            [self _processQueue];
+        });
     }];
     
     [_requestQueue removeObjectAtIndex:0];
@@ -92,9 +93,7 @@
 
 #pragma mark - Make Request
 
-+ (void)asyncMBTARequest:(NSString *)endpoint
-                                      data:(NSDictionary *)data
-                                completion:(TTRequestBlock)complete
++ (void)asyncMBTARequest:(NSString *)endpoint data:(NSDictionary *)data completion:(TTRequestBlock)complete
 {
     static TTMBTAClient *client = nil;
     

@@ -24,8 +24,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.inbound = YES;
 
     [self refresh:nil];
+}
+
+- (IBAction)_handleSwitch:(UISwitch *)sender
+{
+    self.inbound = sender.on;
 }
 
 - (IBAction)refresh:(id)sender
@@ -41,6 +48,15 @@
     _userLocation = userLocation;
     NSLog(@"%@", userLocation);
     [self.tableView reloadData];
+}
+
+- (void)setInbound:(BOOL)inbound
+{
+    if (_inbound != inbound) {
+        _inbound = inbound;
+        self.title = _inbound ? @"Inbound" : @"Outbound";
+        [self.tableView reloadData];
+    }
 }
 
 - (NSArray *)_trainArrayForSection:(NSInteger)section
@@ -81,12 +97,33 @@
     
     [[TTTimeService sharedService] fetchTTimeForStop:stop onCompletion:^(TTTime *ttime, NSError *error){
         if (ttime) {
-            cell.textLabel.text = ttime.stop.name;
-            cell.detailTextLabel.text = self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation;
+            cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@", ttime.stop.name, [self timeTillDeparture:ttime]];
+            cell.detailTextLabel.text =
+            [NSString stringWithFormat:@"%@ > %@", ttime.stop.train.name,
+            self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
+            [cell layoutSubviews];
+        } else {
+            NSLog(@"%@", error);
         }
     }];
     
     return cell;
+}
+
+- (NSString *)timeTillDeparture:(TTTime *)ttime
+{
+    NSDate *date = self.inbound ? ttime.inboundDepartureDate : ttime.outboundDepartureDate;
+    NSTimeInterval seconds = [date timeIntervalSinceDate:[NSDate date]];
+    if (seconds < 0) return @"Loading...";
+    
+    if (seconds < 60) {
+        return [NSString stringWithFormat:@"%i seconds", (int)seconds];
+    }
+    
+    NSInteger min = (int)(seconds / 60);
+    NSString *string = [NSString stringWithFormat:@"%i minute", min];
+    if (min > 1) string = [string stringByAppendingString:@"s"];
+    return string;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

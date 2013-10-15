@@ -64,4 +64,9 @@
     return closest;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ Train", self.name];
+}
+
 @end
