@@ -54,7 +54,7 @@
     NSMutableDictionary *params = [data mutableCopy];
     params[@"api_key"] = TT_MBTA_API_KEY;
     
-    NSURLSessionDataTask *task = [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
+    [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
         if (complete) {
             complete(response, nil);
         }
@@ -64,8 +64,6 @@
             complete(nil, error);
         }
     }];
-    
-//    NSLog(@"%@", task.originalRequest.URL.description);
 }
 
 - (void)_processQueue
