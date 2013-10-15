@@ -66,6 +66,7 @@
         case 1: return [[TTMBTAService sharedService] orangeLineTrains];
         case 2: return [[TTMBTAService sharedService] redLineTrains];
         case 3: return [[TTMBTAService sharedService] blueLineTrains];
+        case 4: return [[TTMBTAService sharedService] silverLineTrains];
     }
     
     return nil;
@@ -75,7 +76,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.userLocation ? 4 : 0;
+    return self.userLocation ? 5 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -141,6 +142,7 @@
         case 1: return @"Orange Line";
         case 2: return @"Red Line";
         case 3: return @"Blue Line";
+        case 4: return @"Silver Line";
     }
     
     return nil;

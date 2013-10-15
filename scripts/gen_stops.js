@@ -59,6 +59,33 @@ mbta = {
 			"outbound_end" : "Boston College",
 			"inbound_end" : "Lechemere"
 		}
+	],
+
+	"silver" : [
+		{
+			"name" : "SL1",
+			"route_ids" : [ "741" ],
+			"outbound_end" : "Logan Airport",
+			"inbound_end" : "South Station"
+		},
+		{
+			"name" : "SL2",
+			"route_ids" : [ "742" ],
+			"outbound_end" : "Dry Dock",
+			"inbound_end" : "South Station"
+		},
+		{
+			"name" : "SL4",
+			"route_ids" : [ "751" ],
+			"outbound_end" : "Dudley",
+			"inbound_end" : "Essex"
+		},
+		{
+			"name" : "SL5",
+			"route_ids" : [ "749" ],
+			"outbound_end" : "Dudley",
+			"inbound_end" : "Temple"
+		}
 	]
 };
 
@@ -104,7 +131,7 @@ function getRoute(route_id) {
 function parseRoute(route, dict) {
 	$.each(route.direction, function(i, dir){
 		$.each(dir.stop, function(i, stop){
-			dict[stop.parent_station] = stop;
+			dict[stop.stop_id] = stop;
 		});
 	});
 }

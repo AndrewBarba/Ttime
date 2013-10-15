@@ -23,8 +23,14 @@
     
     if (stop) {
         
+        if (![dict containsNonEmptyJSONValueForKey:@"parent_station"]) {
+            stop.id = dict[@"stop_id"];
+        }
+        
         if ([dict containsNonEmptyJSONValueForKey:@"parent_station_name"]) {
             stop.name = dict[@"parent_station_name"];
+        } else if ([dict containsNonEmptyJSONValueForKey:@"stop_name"]) {
+            stop.name = dict[@"stop_name"];
         }
         
         if ([dict containsNonEmptyJSONValueForKey:@"stop_lat"] && [dict containsNonEmptyJSONValueForKey:@"stop_lon"]) {

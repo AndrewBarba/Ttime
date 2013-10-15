@@ -13,6 +13,7 @@
     NSArray *_greenLineTrains;
     NSArray *_blueLineTrains;
     NSArray *_orangeLineTrains;
+    NSArray *_silverLineTrains;
 }
 
 @end
@@ -39,6 +40,11 @@
     return _orangeLineTrains;
 }
 
+- (NSArray *)silverLineTrains
+{
+    return _silverLineTrains;
+}
+
 #pragma mark - Load Data
 
 - (void)_setTrainArray:(NSArray *)trains forKey:(NSString *)key
@@ -47,6 +53,7 @@
     if ([key isEqualToString:@"orange"]) _orangeLineTrains = trains;
     if ([key isEqualToString:@"blue"])   _blueLineTrains = trains;
     if ([key isEqualToString:@"green"])  _greenLineTrains = trains;
+    if ([key isEqualToString:@"silver"]) _silverLineTrains = trains;
 }
 
 - (void)_initData:(NSDictionary *)data

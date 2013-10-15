@@ -19,6 +19,8 @@
 
 - (NSArray *)blueLineTrains;
 
+- (NSArray *)silverLineTrains;
+
 + (instancetype)sharedService;
 
 @end

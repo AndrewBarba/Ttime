@@ -17,16 +17,14 @@
     [TTMBTAClient asyncMBTARequest:@"/schedulebystop" data:params completion:^(NSDictionary *schedule, NSError *error){
         if (schedule && !error) {
             for (NSDictionary *mode in schedule[@"mode"]) {
-                if ([mode[@"mode_name"] isEqualToString:TTModeSubway]) {
-                    for (NSDictionary *route in mode[@"route"]) {
-                        if ([stop.train.routeIDs containsObject:route[@"route_id"]]) {
-                            TTTime *time = [TTTime mbtaObjectFromDictionary:route];
-                            time.stop = stop;
-                            if (complete) {
-                                complete(time, nil);
-                            }
-                            return;
+                for (NSDictionary *route in mode[@"route"]) {
+                    if ([stop.train.routeIDs containsObject:route[@"route_id"]]) {
+                        TTTime *time = [TTTime mbtaObjectFromDictionary:route];
+                        time.stop = stop;
+                        if (complete) {
+                            complete(time, nil);
                         }
+                        return;
                     }
                 }
             }
