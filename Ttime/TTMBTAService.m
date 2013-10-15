@@ -50,7 +50,7 @@
 
 - (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete
 {
-    NSArray *lines = @[ _redLineTrains, _greenLineTrains, _blueLineTrains, _silverLineTrains, _orangeLineTrains ];
+    NSArray *lines = @[ _greenLineTrains, _orangeLineTrains, _redLineTrains, _blueLineTrains, _silverLineTrains ];
     
     NSMutableArray *stops = [NSMutableArray array];
     
