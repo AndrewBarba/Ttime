@@ -93,6 +93,7 @@
     // This is bad. At some point we should use the above but I'm lazy and using this for now
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
     
     cell.textLabel.text = @"loading...";
     cell.detailTextLabel.text = nil;
