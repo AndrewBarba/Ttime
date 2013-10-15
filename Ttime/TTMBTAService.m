@@ -41,26 +41,23 @@
 
 #pragma mark - Load Data
 
-- (NSArray *)_trainArrayForKey:(NSString *)key
+- (void)_setTrainArray:(NSArray *)trains forKey:(NSString *)key
 {
-    if ([key isEqualToString:@"red"])    return _redLineTrains;
-    if ([key isEqualToString:@"orange"]) return _orangeLineTrains;
-    if ([key isEqualToString:@"blue"])   return _blueLineTrains;
-    if ([key isEqualToString:@"green"])  return _greenLineTrains;
-    
-    return nil;
+    if ([key isEqualToString:@"red"])    _redLineTrains = trains;
+    if ([key isEqualToString:@"orange"]) _orangeLineTrains = trains;
+    if ([key isEqualToString:@"blue"])   _blueLineTrains = trains;
+    if ([key isEqualToString:@"green"])  _greenLineTrains = trains;
 }
 
 - (void)_initData:(NSDictionary *)data
 {
     [data enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSArray *trainsArray, BOOL *done){
-        NSArray *_trainArray = [self _trainArrayForKey:key];
         NSMutableArray *trains = [NSMutableArray array];
         [trainsArray enumerateObjectsUsingBlock:^(NSDictionary *trainDict, NSUInteger index, BOOL *stop){
             TTTrain *train = [TTTrain mbtaObjectFromDictionary:trainDict];
             [trains addObject:train];
         }];
-        _trainArray = trains;
+        [self _setTrainArray:trains forKey:key];
     }];
 }
 

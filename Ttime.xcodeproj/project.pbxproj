@@ -32,6 +32,7 @@
 		B823473D17F7849700EAEAEE /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472C17F7849700EAEAEE /* UIProgressView+AFNetworking.m */; };
 		B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */; };
 		B8845DCC180D059400DB558D /* TTTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B8845DCB180D059400DB558D /* TTTrain.m */; };
+		B8845DCF180D0F6F00DB558D /* TTTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */; };
 		B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D017B02B430087A69B /* Foundation.framework */; };
 		B88A61D317B02B430087A69B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D217B02B430087A69B /* CoreGraphics.framework */; };
 		B88A61D517B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
@@ -112,6 +113,8 @@
 		B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		B8845DCA180D059400DB558D /* TTTrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrain.h; sourceTree = "<group>"; };
 		B8845DCB180D059400DB558D /* TTTrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrain.m; sourceTree = "<group>"; };
+		B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeViewController.h; sourceTree = "<group>"; };
+		B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTimeViewController.m; sourceTree = "<group>"; };
 		B88A61CD17B02B430087A69B /* Ttime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ttime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88A61D017B02B430087A69B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B88A61D217B02B430087A69B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -435,6 +438,8 @@
 		B88A620B17B02BCA0087A69B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */,
+				B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */,
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 				B823473A17F7849700EAEAEE /* UIAlertView+AFNetworking.m in Sources */,
+				B8845DCF180D0F6F00DB558D /* TTTimeViewController.m in Sources */,
 				B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */,
 				B823473917F7849700EAEAEE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B823473017F7849700EAEAEE /* AFHTTPRequestOperationManager.m in Sources */,

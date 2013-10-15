@@ -36,7 +36,7 @@
             NSMutableArray *stops = [NSMutableArray array];
             NSDictionary *stopsDict = dict[@"stops"];
             [stopsDict enumerateKeysAndObjectsUsingBlock:^(NSDictionary *key, NSDictionary *stopDict, BOOL *end){
-                TTStop *stop = [TTStop mbtaObjectFromDictionary:stopsDict];
+                TTStop *stop = [TTStop mbtaObjectFromDictionary:stopDict];
                 stop.train = train;
                 [stops addObject:stop];
             }];
