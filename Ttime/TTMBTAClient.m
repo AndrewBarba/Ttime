@@ -59,6 +59,7 @@
             complete(response, nil);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error){
+        NSLog(@"%@", error);
         if (complete) {
             complete(nil, error);
         }

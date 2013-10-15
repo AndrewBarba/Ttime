@@ -43,7 +43,7 @@
 - (void)loop
 {
     [[TTMBTAService sharedService] updateAllDataForLocation:self.userLocation onComplete:^{
-        TTDispatchAfter(2.0, ^{
+        TTDispatchAfter(10.0, ^{
             [self loop];
         });
     }];

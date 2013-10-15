@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="eOI-FY-dMB" detailTextLabel="1Dr-2D-znc" style="IBUITableViewCellStyleSubtitle" id="S7o-lQ-NVQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="eOI-FY-dMB" detailTextLabel="1Dr-2D-znc" style="IBUITableViewCellStyleSubtitle" id="S7o-lQ-NVQ">
                                 <rect key="frame" x="0.0" y="119" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S7o-lQ-NVQ" id="9XC-0C-wPi">
