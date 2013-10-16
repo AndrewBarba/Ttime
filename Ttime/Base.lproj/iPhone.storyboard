@@ -59,6 +59,35 @@
             </objects>
             <point key="canvasLocation" x="1271" y="114"/>
         </scene>
+        <!--View Controller - Core Animation-->
+        <scene sceneID="XrN-2F-m2H">
+            <objects>
+                <viewController id="ffP-DF-ryt" customClass="TTCAViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Vp-2l-vEk"/>
+                        <viewControllerLayoutGuide type="bottom" id="AdS-Rl-HRc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OaK-Gw-Kgu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-ck-u40" customClass="TTCircleTimeView">
+                                <rect key="frame" x="120" y="244" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.955078125" green="0.955078125" blue="0.955078125" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Core Animation" id="Qkc-lw-aX3"/>
+                    <connections>
+                        <outlet property="timeView" destination="ulJ-ck-u40" id="XQf-YO-GXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNM-i0-bYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="-605"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FLn-WV-57p">
             <objects>
@@ -76,6 +105,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GE4-qu-kG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y6s-WS-7i8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ctx-9l-JOw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="egX-6j-I2N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ffP-DF-ryt" kind="relationship" relationship="rootViewController" id="doL-p7-kye"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95M-fx-n39" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="-605"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

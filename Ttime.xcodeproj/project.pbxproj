@@ -31,6 +31,8 @@
 		B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472917F7849700EAEAEE /* UIImageView+AFNetworking.m */; };
 		B823473D17F7849700EAEAEE /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472C17F7849700EAEAEE /* UIProgressView+AFNetworking.m */; };
 		B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */; };
+		B86B4767180EB9D400BF91D6 /* TTCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86B4766180EB9D400BF91D6 /* TTCAViewController.m */; };
+		B86B476A180EC01F00BF91D6 /* TTCircleTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B86B4769180EC01F00BF91D6 /* TTCircleTimeView.m */; };
 		B8845DCC180D059400DB558D /* TTTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B8845DCB180D059400DB558D /* TTTrain.m */; };
 		B8845DCF180D0F6F00DB558D /* TTTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */; };
 		B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D017B02B430087A69B /* Foundation.framework */; };
@@ -111,6 +113,10 @@
 		B823472C17F7849700EAEAEE /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		B823472D17F7849700EAEAEE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		B823472E17F7849700EAEAEE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		B86B4765180EB9D400BF91D6 /* TTCAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCAViewController.h; sourceTree = "<group>"; };
+		B86B4766180EB9D400BF91D6 /* TTCAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCAViewController.m; sourceTree = "<group>"; };
+		B86B4768180EC01F00BF91D6 /* TTCircleTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleTimeView.h; sourceTree = "<group>"; };
+		B86B4769180EC01F00BF91D6 /* TTCircleTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleTimeView.m; sourceTree = "<group>"; };
 		B8845DCA180D059400DB558D /* TTTrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrain.h; sourceTree = "<group>"; };
 		B8845DCB180D059400DB558D /* TTTrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrain.m; sourceTree = "<group>"; };
 		B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeViewController.h; sourceTree = "<group>"; };
@@ -151,8 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */,
 				B88A61D317B02B430087A69B /* CoreGraphics.framework in Frameworks */,
+				B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */,
 				B80CD5781805CCBA00BD3BD4 /* MapKit.framework in Frameworks */,
 				B88A61D517B02B430087A69B /* UIKit.framework in Frameworks */,
 				B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */,
@@ -440,6 +446,10 @@
 			children = (
 				B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */,
 				B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */,
+				B86B4765180EB9D400BF91D6 /* TTCAViewController.h */,
+				B86B4766180EB9D400BF91D6 /* TTCAViewController.m */,
+				B86B4768180EC01F00BF91D6 /* TTCircleTimeView.h */,
+				B86B4769180EC01F00BF91D6 /* TTCircleTimeView.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -615,6 +625,7 @@
 			files = (
 				B80CD58818060B8500BD3BD4 /* TTTranslucentView.m in Sources */,
 				B823473717F7849700EAEAEE /* AFURLSessionManager.m in Sources */,
+				B86B4767180EB9D400BF91D6 /* TTCAViewController.m in Sources */,
 				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
@@ -629,6 +640,7 @@
 				B823473417F7849700EAEAEE /* AFURLConnectionOperation.m in Sources */,
 				B823473D17F7849700EAEAEE /* UIProgressView+AFNetworking.m in Sources */,
 				B823473117F7849700EAEAEE /* AFHTTPSessionManager.m in Sources */,
+				B86B476A180EC01F00BF91D6 /* TTCircleTimeView.m in Sources */,
 				B823473517F7849700EAEAEE /* AFURLRequestSerialization.m in Sources */,
 				B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */,
 				B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */,
