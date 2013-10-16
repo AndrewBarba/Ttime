@@ -26,39 +26,6 @@
 
 @implementation TTCircleTimeView
 
-- (void)animate
-{
-    return;
-    if (self.superview && self.circleAnimationLayer && self.doneDate) {
-        [self.circleAnimationLayer removeAllAnimations];
-        
-        // Configure animation
-        CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        drawAnimation.delegate = self;
-        drawAnimation.duration            = [self timeToCompletion]; // "animate over 10 seconds or so.."
-        drawAnimation.repeatCount         = 1.0;  // Animate only once..
-        drawAnimation.removedOnCompletion = NO;   // Remain stroked after the animation..
-        
-        // Animate from no part of the stroke being drawn to the entire stroke being drawn
-        drawAnimation.fromValue = [NSNumber numberWithFloat:[self percentComplete]];
-        drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
-        
-        // Experiment with timing to get the appearence to look the way you want
-        drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-        
-        [_circleAnimationLayer addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
-    }
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    if (flag) {
-        self.circleAnimationLayer.strokeEnd = [[(CABasicAnimation *)anim fromValue] floatValue];
-    } else {
-        [self animate];
-    }
-}
-
 - (void)updateLayout:(NSTimer *)timer
 {
     [self updateLabel];
@@ -66,14 +33,6 @@
 }
 
 #pragma mark - State Helpers
-
-- (void)setDoneDate:(NSDate *)doneDate
-{
-    if (![_doneDate isEqualToDate:doneDate]) {
-        _doneDate = doneDate;
-        [self animate];
-    }
-}
 
 - (void)setTintColor:(UIColor *)tintColor
 {
@@ -119,8 +78,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    [self animate];
     
     if (!_updateTimer) {
         _updateTimer = [NSTimer timerWithTimeInterval:TT_TIMER_INT
@@ -253,6 +210,41 @@
         [self commonInit];
     }
     return self;
+}
+
+#pragma mark - Save for later
+
+- (void)animate
+{
+    return;
+    if (self.superview && self.circleAnimationLayer && self.doneDate) {
+        [self.circleAnimationLayer removeAllAnimations];
+        
+        // Configure animation
+        CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        drawAnimation.delegate = self;
+        drawAnimation.duration            = [self timeToCompletion]; // "animate over 10 seconds or so.."
+        drawAnimation.repeatCount         = 1.0;  // Animate only once..
+        drawAnimation.removedOnCompletion = NO;   // Remain stroked after the animation..
+        
+        // Animate from no part of the stroke being drawn to the entire stroke being drawn
+        drawAnimation.fromValue = [NSNumber numberWithFloat:[self percentComplete]];
+        drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
+        
+        // Experiment with timing to get the appearence to look the way you want
+        drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [_circleAnimationLayer addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
+    }
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if (flag) {
+        self.circleAnimationLayer.strokeEnd = [[(CABasicAnimation *)anim fromValue] floatValue];
+    } else {
+        [self animate];
+    }
 }
 
 @end
