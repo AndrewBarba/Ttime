@@ -23,11 +23,11 @@
     
     [self.timeView setTintColor:[UIColor orangeColor]];
     NSTimeInterval c = [[NSDate date] timeIntervalSince1970] + 5;
-    self.timeView.doneDate = [NSDate dateWithTimeIntervalSince1970:c];
+    self.timeView.departureDate = [NSDate dateWithTimeIntervalSince1970:c];
     
     TTDispatchAfter(7.0, ^{
         NSTimeInterval c = [[NSDate date] timeIntervalSince1970] + 20;
-        self.timeView.doneDate = [NSDate dateWithTimeIntervalSince1970:c];
+        self.timeView.departureDate = [NSDate dateWithTimeIntervalSince1970:c];
     });
 }
 

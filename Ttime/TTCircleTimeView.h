@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) UIColor *tintColor;
 
-@property (nonatomic, strong) NSDate *doneDate;
+@property (nonatomic, strong) NSDate *departureDate;
 
 @end

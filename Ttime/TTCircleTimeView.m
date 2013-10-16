@@ -45,11 +45,11 @@
 
 - (CGFloat)percentComplete
 {
-    if (!self.doneDate) {
+    if (!_departureDate) {
         return 0.0f;
     }
     
-    NSTimeInterval doneInterval = [self.doneDate timeIntervalSince1970];
+    NSTimeInterval doneInterval = [_departureDate timeIntervalSince1970];
     NSTimeInterval startInterval = doneInterval - TT_MAX_INTERVAL;
     NSTimeInterval currentInterval = [[NSDate date] timeIntervalSince1970];
     
@@ -68,7 +68,7 @@
 
 - (NSTimeInterval)timeToCompletion
 {
-    NSTimeInterval doneInterval = [self.doneDate timeIntervalSince1970];
+    NSTimeInterval doneInterval = [_departureDate timeIntervalSince1970];
     NSTimeInterval currentInterval = [[NSDate date] timeIntervalSince1970];
     return doneInterval - currentInterval;
 }
@@ -217,7 +217,7 @@
 - (void)animate
 {
     return;
-    if (self.superview && self.circleAnimationLayer && self.doneDate) {
+    if (self.superview && self.circleAnimationLayer && _departureDate) {
         [self.circleAnimationLayer removeAllAnimations];
         
         // Configure animation
