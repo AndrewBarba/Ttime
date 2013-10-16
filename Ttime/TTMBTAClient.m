@@ -8,6 +8,8 @@
 
 #import "TTMBTAClient.h"
 
+#define TT_CONCURRENT_REQUESTS 0 // enable this when the MBTA gets their shit together
+
 @interface TTMBTAClient() {
     NSMutableArray *_requestQueue;
     BOOL _isProcessingQueue;
@@ -31,13 +33,17 @@
                                       data:(NSDictionary *)data
                                 completion:(TTRequestBlock)complete
 {
-    NSArray *parts = @[ endpoint, data, [complete copy] ];
-    [_requestQueue addObject:parts];
-    
-    if (!_isProcessingQueue) {
-        _isProcessingQueue = YES;
-        [self _processQueue];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    if (TT_CONCURRENT_REQUESTS) {
+        [self _asyncMBTARequest:endpoint data:data completion:complete];
+    } else {
+        NSArray *parts = @[ endpoint, data, [complete copy] ];
+        [_requestQueue addObject:parts];
+        
+        if (!_isProcessingQueue) {
+            _isProcessingQueue = YES;
+            [self _processQueue];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        }
     }
 }
 
