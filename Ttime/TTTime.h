@@ -14,16 +14,16 @@
 
 @property (nonatomic, strong) CLLocation *location;
 
-@property (nonatomic, strong) NSDate *inboundDepartureDate;
+@property (nonatomic, strong) NSArray *inboundDepartureDates;
 
-@property (nonatomic, strong) NSDate *outboundDepartureDate;
+@property (nonatomic, strong) NSArray *outboundDepartureDates;
 
 @property (nonatomic) TTLine line;
 
 - (double)distanceInMiles;
 
-- (NSTimeInterval)secondsToInboundDeparture;
+- (NSTimeInterval)secondsToInboundDeparture:(NSUInteger)index; // train index. 0 is closest train
 
-- (NSTimeInterval)secondsToOutboundDeparture;
+- (NSTimeInterval)secondsToOutboundDeparture:(NSUInteger)index;
 
 @end

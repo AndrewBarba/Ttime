@@ -48,6 +48,7 @@
 		B88A61F217B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
 		B88A61FA17B02B430087A69B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88A61F817B02B430087A69B /* InfoPlist.strings */; };
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
+		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
 		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
 		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
 		B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0884417F2610100DDF43E /* TTMBTAService.m */; };
@@ -139,6 +140,7 @@
 		B88A61F917B02B430087A69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B88A61FB17B02B430087A69B /* TtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TtimeTests.m; sourceTree = "<group>"; };
 		B88A621017B02CA90087A69B /* Ttime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ttime.entitlements; sourceTree = "<group>"; };
+		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
 		B8D0883917F2594700DDF43E /* TTMBTAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAClient.h; sourceTree = "<group>"; };
 		B8D0883A17F2594700DDF43E /* TTMBTAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAClient.m; sourceTree = "<group>"; };
 		B8D0883C17F2595C00DDF43E /* TTConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConstants.h; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				B88A61D917B02B430087A69B /* InfoPlist.strings */,
 				B88A61DC17B02B430087A69B /* main.m */,
 				B88A61DE17B02B430087A69B /* Ttime-Prefix.pch */,
+				B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				B88A61DB17B02B430087A69B /* InfoPlist.strings in Resources */,
 				B88A61E417B02B430087A69B /* iPhone.storyboard in Resources */,
 				B80CD57A1805FA0B00BD3BD4 /* stops.json in Resources */,
+				B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

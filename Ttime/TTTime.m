@@ -21,14 +21,24 @@ static NSString *const _TTGreenLine  = @"Green Line";
     return distanceInMeters * 0.000621371;
 }
 
-- (NSTimeInterval)secondsToInboundDeparture
+- (NSTimeInterval)secondsToInboundDeparture:(NSUInteger)index
 {
-    return [self.inboundDepartureDate timeIntervalSinceDate:[NSDate date]];
+    if (self.inboundDepartureDates.count > index) {
+        NSDate *date = self.inboundDepartureDates[index];
+        return [date timeIntervalSinceDate:[NSDate date]];
+    } else {
+        return -1;
+    }
 }
 
-- (NSTimeInterval)secondsToOutboundDeparture
+- (NSTimeInterval)secondsToOutboundDeparture:(NSUInteger)index
 {
-    return [self.outboundDepartureDate timeIntervalSinceDate:[NSDate date]];
+    if (self.outboundDepartureDates.count > index) {
+        NSDate *date = self.outboundDepartureDates[index];
+        return [date timeIntervalSinceDate:[NSDate date]];
+    } else {
+        return -1;
+    }
 }
 
 #pragma mark - Initialization
@@ -50,27 +60,32 @@ static NSString *const _TTGreenLine  = @"Green Line";
         }
         
         if ([dict containsNonEmptyJSONValueForKey:@"direction"]) {
-            NSArray *directions = dict[@"direction"];
-            for (NSDictionary *direction in directions) {
+            NSMutableArray *outboundDates = [NSMutableArray array];
+            NSMutableArray *inboundDates = [NSMutableArray array];
+            for (NSDictionary *direction in dict[@"direction"]) {
                 TTDirection lineDirection = [direction[@"direction_id"] integerValue];
-                NSDictionary *trip = [direction[@"trip"] firstObject];
-                NSTimeInterval departTime = [trip[@"sch_arr_dt"] doubleValue];
-                NSDate *departDate = [NSDate dateWithTimeIntervalSince1970:departTime];
-                
-                switch (lineDirection) {
-                    case TTDirectionOutbound:
-                        ttime.outboundDepartureDate = departDate;
-                        break;
-                        
-                    case TTDirectionInbound:
-                        ttime.inboundDepartureDate = departDate;
-                        break;
+                for (NSDictionary *trip in direction[@"trip"]) {
+                    NSDictionary *trip = [direction[@"trip"] firstObject];
+                    NSTimeInterval departTime = [trip[@"sch_arr_dt"] doubleValue];
+                    NSDate *departDate = [NSDate dateWithTimeIntervalSince1970:departTime];
                     
-                    case TTDirectionUnknown:
-                        // something went wrong...
-                        break;
+                    switch (lineDirection) {
+                        case TTDirectionOutbound:
+                            [outboundDates addObject:departDate];
+                            break;
+                            
+                        case TTDirectionInbound:
+                            [inboundDates addObject:departDate];
+                            break;
+                            
+                        case TTDirectionUnknown:
+                            // something went wrong...
+                            break;
+                    }
                 }
             }
+            ttime.outboundDepartureDates = outboundDates;
+            ttime.inboundDepartureDates = inboundDates;
         }
     }
     

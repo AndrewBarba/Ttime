@@ -145,8 +145,7 @@
 
 - (NSString *)timeTillDeparture:(TTTime *)ttime
 {
-    NSDate *date = self.inbound ? ttime.inboundDepartureDate : ttime.outboundDepartureDate;
-    NSTimeInterval seconds = [date timeIntervalSinceDate:[NSDate date]];
+    NSTimeInterval seconds = self.inbound ? [ttime secondsToInboundDeparture:0] : [ttime secondsToOutboundDeparture:0];
     if (seconds <= 0) return @"Loading...";
     
     if (seconds < 60) {
