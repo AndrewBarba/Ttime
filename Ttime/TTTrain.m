@@ -64,6 +64,13 @@
     return closest;
 }
 
+- (NSArray *)stopsSortedForLocation:(CLLocation *)location
+{
+    return [self.stops sortedArrayUsingComparator:^NSComparisonResult(TTStop *a, TTStop *b){
+        return [a distanceFromLocation:location] - [b distanceFromLocation:location];
+    }];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ Train", self.name];
