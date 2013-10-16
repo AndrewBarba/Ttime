@@ -17,6 +17,8 @@
     NSArray *_silverLineTrains;
 }
 
+@property (nonatomic, strong) CLLocation *lastKnownLocation;
+
 @end
 
 @implementation TTMBTAService
@@ -46,10 +48,21 @@
     return _silverLineTrains;
 }
 
+- (void)setLastKnownLocation:(CLLocation *)lastKnownLocation
+{
+    if (![_lastKnownLocation isEqual:lastKnownLocation]) {
+        _lastKnownLocation = lastKnownLocation;
+    }
+}
+
 #pragma mark - Update Data
 
 - (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete
 {
+    if (!location) return;
+    
+    self.lastKnownLocation = location;
+    
     NSArray *lines = @[ _greenLineTrains, _orangeLineTrains, _redLineTrains, _blueLineTrains, _silverLineTrains ];
     
     NSMutableArray *stops = [NSMutableArray array];
