@@ -8,6 +8,7 @@
 
 #import "TTMBTAService.h"
 #import "TTTimeService.h"
+#import "TTMBTAClient.h"
 
 @interface TTMBTAService() {
     NSArray *_redLineTrains;
@@ -15,6 +16,8 @@
     NSArray *_blueLineTrains;
     NSArray *_orangeLineTrains;
     NSArray *_silverLineTrains;
+    
+    BOOL _isUpdatingData;
 }
 
 @property (nonatomic, strong) CLLocation *lastKnownLocation;
@@ -48,20 +51,64 @@
     return _silverLineTrains;
 }
 
-- (void)setLastKnownLocation:(CLLocation *)lastKnownLocation
+- (void)sortTrains
 {
-    if (![_lastKnownLocation isEqual:lastKnownLocation]) {
-        _lastKnownLocation = lastKnownLocation;
-    }
+    NSComparator comp = ^NSComparisonResult(TTTrain *t1, TTTrain *t2) {
+        CLLocation *location = [[TTLocationManager sharedManager] currentLocation];
+        return [t1 distanceToClosestStop:location] - [t2 distanceToClosestStop:location];
+    };
+    
+    _redLineTrains    = [_redLineTrains sortedArrayUsingComparator:comp];
+    _blueLineTrains   = [_blueLineTrains sortedArrayUsingComparator:comp];
+    _orangeLineTrains = [_orangeLineTrains sortedArrayUsingComparator:comp];
+    _greenLineTrains  = [_greenLineTrains sortedArrayUsingComparator:comp];
+    _silverLineTrains = [_silverLineTrains sortedArrayUsingComparator:comp];
 }
 
 #pragma mark - Update Data
 
-- (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete
+- (void)_handleCurrentLocationChanged:(NSNotification *)notification
 {
-    if (!location) return;
+    [self sortTrains];
+    [self startUpdatingData];
+}
+
+- (void)startUpdatingData
+{
+    CLLocation *location = [[TTLocationManager sharedManager] currentLocation];
     
-    self.lastKnownLocation = location;
+    if (location && !_isUpdatingData) {
+        _isUpdatingData = YES;
+        [self _updateData];
+    }
+}
+
+- (void)stopUpdatingData
+{
+    _isUpdatingData = NO;
+}
+
+- (void)_updateData
+{
+    if (_isUpdatingData) {
+        [self updateAllData:^{
+            TTDispatchAfter(5.0, ^{
+                [self _updateData];
+            });
+        }];
+    }
+}
+
+- (void)updateAllData:(TTBlock)complete
+{
+    CLLocation *location = [[TTLocationManager sharedManager] currentLocation];
+    
+    if (!location) {
+        if (complete) {
+            complete();
+        }
+        return;
+    }
     
     NSArray *lines = @[ _greenLineTrains, _orangeLineTrains, _redLineTrains, _blueLineTrains, _silverLineTrains ];
     
@@ -119,6 +166,11 @@
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         [self _initData:dict];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(_handleCurrentLocationChanged:)
+                                                     name:TTCurrentLocationChangedNotificationKey
+                                                   object:nil];
     }
     return self;
 }

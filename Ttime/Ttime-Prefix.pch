@@ -15,10 +15,11 @@
     #import <Foundation/Foundation.h>
     #import <CoreLocation/CoreLocation.h>
     #import <QuartzCore/QuartzCore.h>
+    #import "TTLocationManager.h"
     #import "TTConstants.h"
     #import "TTDispatch.h"
-    #import "NSDictionary+TT.h"
     #import "TTStop.h"
     #import "TTTime.h"
     #import "TTTrain.h"
+    #import "NSDictionary+TT.h"
 #endif

@@ -71,6 +71,11 @@
     }];
 }
 
+- (CLLocationDistance)distanceToClosestStop:(CLLocation *)location
+{
+    return [[self closestStopToLocation:location] distanceFromLocation:location];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ Train", self.name];

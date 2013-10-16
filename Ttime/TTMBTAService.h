@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTMBTAClient.h"
 
 @interface TTMBTAService : NSObject
 
@@ -21,7 +20,9 @@
 
 - (NSArray *)silverLineTrains;
 
-- (void)updateAllDataForLocation:(CLLocation *)location onComplete:(TTBlock)complete;
+- (void)startUpdatingData;
+
+- (void)stopUpdatingData;
 
 + (instancetype)sharedService;
 

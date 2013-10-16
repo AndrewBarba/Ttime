@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSArray *stops;
 
+- (CLLocationDistance)distanceToClosestStop:(CLLocation *)location;
+
 - (NSArray *)stopsSortedForLocation:(CLLocation *)location;
 
 - (TTStop *)closestStopToLocation:(CLLocation *)location;

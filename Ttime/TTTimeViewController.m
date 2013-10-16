@@ -7,13 +7,10 @@
 //
 
 #import "TTTimeViewController.h"
-#import "TTLocationManager.h"
 #import "TTTimeService.h"
 #import "TTMBTAService.h"
 
 @interface TTTimeViewController ()
-
-@property (nonatomic, strong) CLLocation *userLocation;
 
 @property (nonatomic) BOOL inbound;
 
@@ -26,11 +23,6 @@
     [super viewDidLoad];
     
     self.inbound = YES;
-    
-    [[TTLocationManager sharedManager] getCurrentLocation:^(CLLocation *location, TTLocationStatus status){
-        self.userLocation = location;
-        [self loop];
-    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,15 +30,6 @@
     [super viewDidAppear:animated];
     
     [self uiloop];
-}
-
-- (void)loop
-{
-    [[TTMBTAService sharedService] updateAllDataForLocation:self.userLocation onComplete:^{
-        TTDispatchAfter(5.0, ^{
-            [self loop];
-        });
-    }];
 }
 
 - (void)uiloop
@@ -60,12 +43,6 @@
 - (IBAction)_handleSwitch:(UISwitch *)sender
 {
     self.inbound = sender.on;
-}
-
-- (void)setUserLocation:(CLLocation *)userLocation
-{
-    _userLocation = userLocation;
-    [self.tableView reloadData];
 }
 
 - (void)setInbound:(BOOL)inbound
@@ -107,7 +84,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.userLocation ? 5 : 0;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -122,7 +99,7 @@
     
     NSArray *trains = [self _trainArrayForSection:indexPath.section];
     TTTrain *train = trains[indexPath.row];
-    TTStop *stop = [train closestStopToLocation:self.userLocation];
+    TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
     
     [self updateCell:cell forTTime:stop.ttime];
     

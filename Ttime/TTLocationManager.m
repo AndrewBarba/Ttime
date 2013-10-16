@@ -8,16 +8,25 @@
 
 #import "TTLocationManager.h"
 
-@interface TTLocationManager() {
-    NSMutableArray *_locationBlocks;
-    BOOL _isUpdatingLocation;
-}
+#define TT_DISTANCE_THRESHOLD 25.0f
+
+@interface TTLocationManager()
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
 @implementation TTLocationManager
+
+- (void)startUpdatingLocation
+{
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopUpdatingLocation
+{
+    [self.locationManager stopUpdatingLocation];
+}
 
 #pragma mark - Location Status
 
@@ -35,59 +44,34 @@
     }
 }
 
-#pragma mark - Get Location
-
-- (void)getCurrentLocation:(TTLocationBlock)block
-{
-    if (!block) return;
-    
-    TTLocationStatus status = [TTLocationManager locationStatus];
-    
-    if (status != TTLocationStatusOkay && status != TTLocationStatusNotDetermined) {
-        return block(nil, status);
-    }
-    
-    [_locationBlocks addObject:[block copy]];
-    
-    if (!_isUpdatingLocation) {
-        _isUpdatingLocation = YES;
-        [self.locationManager startUpdatingLocation];
-    }
-}
-
-- (void)_notifiyLocationBlocksWithLocation:(CLLocation *)location
-{
-    TTDispatchMain(^{
-        for (TTLocationBlock block in _locationBlocks) {
-            block(location, [TTLocationManager locationStatus]);
-        }
-        _locationBlocks = [NSMutableArray array];
-    });
-}
-
 #pragma mark - Location Delegate
+
+- (void)setCurrentLocation:(CLLocation *)currentLocation
+{
+    BOOL equal = [_currentLocation isEqual:currentLocation];
+    CLLocationDistance distance = [_currentLocation distanceFromLocation:currentLocation];
+    if (!_currentLocation || (!equal && distance > TT_DISTANCE_THRESHOLD)) {
+        _currentLocation = currentLocation;
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTCurrentLocationChangedNotificationKey
+                                                            object:_currentLocation];
+    }
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    [self.locationManager stopUpdatingLocation];
-    _isUpdatingLocation = NO;
-    
     CLLocation *location = [locations lastObject];
-    
-    [self _notifiyLocationBlocksWithLocation:location];
+    [self setCurrentLocation:location];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [self.locationManager stopUpdatingLocation];
-    _isUpdatingLocation = NO;
-    
-    [self _notifiyLocationBlocksWithLocation:nil];
+    [self setCurrentLocation:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-//    NSLog(@"Location status changed: %i", status);
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTLocationStatusChangedNotificationKey
+                                                        object:@([TTLocationManager locationStatus])];
 }
 
 #pragma mark - Initialization
@@ -97,9 +81,7 @@
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    _locationManager.distanceFilter = 50; // only update location when they move > 50 meters
-    
-    _locationBlocks = [NSMutableArray array];
+    _locationManager.distanceFilter = TT_DISTANCE_THRESHOLD; // only update location when they move > 50 meters
 }
 
 - (id)_initPrivate
