@@ -128,7 +128,7 @@
     NSString *labelText = useSeconds ? @"second" : @"minute";
     if (t != 1) labelText = [labelText stringByAppendingString:@"s"];
     
-    NSString *timeText = [NSString stringWithFormat:@"%i",t];
+    NSString *timeText = [NSString stringWithFormat:@"%@",@(t).stringValue];
     
     CGFloat radius = MIN(self.bounds.size.width / 2.0f,
                          self.bounds.size.height / 2.0f);
