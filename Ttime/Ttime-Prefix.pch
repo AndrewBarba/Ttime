@@ -16,6 +16,7 @@
     #import <CoreLocation/CoreLocation.h>
     #import <QuartzCore/QuartzCore.h>
     #import "TTLocationManager.h"
+    #import "TTTracker.h"
     #import "TTConstants.h"
     #import "TTDispatch.h"
     #import "TTStop.h"

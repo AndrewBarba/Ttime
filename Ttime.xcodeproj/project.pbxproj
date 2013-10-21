@@ -53,6 +53,11 @@
 		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
 		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
 		B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0884417F2610100DDF43E /* TTMBTAService.m */; };
+		B8E3D5F218159FD9003AA4BB /* TTTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D5F118159FD9003AA4BB /* TTTracker.m */; };
+		B8E3D6001815A031003AA4BB /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D5FA1815A031003AA4BB /* libGoogleAnalyticsServices.a */; };
+		B8E3D6021815A1DA003AA4BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6011815A1DA003AA4BB /* CoreData.framework */; };
+		B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */; };
+		B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6051815A1EF003AA4BB /* libz.dylib */; };
 		B8F71D711806238800D097AD /* TTTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D701806238800D097AD /* TTTime.m */; };
 		B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D7418062A7800D097AD /* TTTimeService.m */; };
 /* End PBXBuildFile section */
@@ -151,6 +156,23 @@
 		B8D0883F17F25A6700DDF43E /* TTDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDispatch.m; sourceTree = "<group>"; };
 		B8D0884317F2610100DDF43E /* TTMBTAService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAService.h; sourceTree = "<group>"; };
 		B8D0884417F2610100DDF43E /* TTMBTAService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAService.m; sourceTree = "<group>"; };
+		B8E3D5F018159FD9003AA4BB /* TTTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTracker.h; sourceTree = "<group>"; };
+		B8E3D5F118159FD9003AA4BB /* TTTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTracker.m; sourceTree = "<group>"; };
+		B8E3D5F41815A031003AA4BB /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Thirdparty/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
+		B8E3D5F51815A031003AA4BB /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Thirdparty/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		B8E3D5F61815A031003AA4BB /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Thirdparty/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
+		B8E3D5F71815A031003AA4BB /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Thirdparty/GoogleAnalytics/GAILogger.h; sourceTree = "<group>"; };
+		B8E3D5F81815A031003AA4BB /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Thirdparty/GoogleAnalytics/GAITrackedViewController.h; sourceTree = "<group>"; };
+		B8E3D5F91815A031003AA4BB /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Thirdparty/GoogleAnalytics/GAITracker.h; sourceTree = "<group>"; };
+		B8E3D5FA1815A031003AA4BB /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = Thirdparty/GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		B8E3D5FB1815A031003AA4BB /* TAGContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAGContainer.h; path = Thirdparty/GoogleAnalytics/TAGContainer.h; sourceTree = "<group>"; };
+		B8E3D5FC1815A031003AA4BB /* TAGContainerOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAGContainerOpener.h; path = Thirdparty/GoogleAnalytics/TAGContainerOpener.h; sourceTree = "<group>"; };
+		B8E3D5FD1815A031003AA4BB /* TAGDataLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAGDataLayer.h; path = Thirdparty/GoogleAnalytics/TAGDataLayer.h; sourceTree = "<group>"; };
+		B8E3D5FE1815A031003AA4BB /* TAGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAGLogger.h; path = Thirdparty/GoogleAnalytics/TAGLogger.h; sourceTree = "<group>"; };
+		B8E3D5FF1815A031003AA4BB /* TAGManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAGManager.h; path = Thirdparty/GoogleAnalytics/TAGManager.h; sourceTree = "<group>"; };
+		B8E3D6011815A1DA003AA4BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B8E3D6051815A1EF003AA4BB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B8F71D6F1806238800D097AD /* TTTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTime.h; sourceTree = "<group>"; };
 		B8F71D701806238800D097AD /* TTTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTime.m; sourceTree = "<group>"; };
 		B8F71D7318062A7800D097AD /* TTTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeService.h; sourceTree = "<group>"; };
@@ -162,11 +184,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */,
+				B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */,
+				B8E3D6021815A1DA003AA4BB /* CoreData.framework in Frameworks */,
 				B88A61D317B02B430087A69B /* CoreGraphics.framework in Frameworks */,
 				B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */,
 				B80CD5781805CCBA00BD3BD4 /* MapKit.framework in Frameworks */,
 				B88A61D517B02B430087A69B /* UIKit.framework in Frameworks */,
 				B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */,
+				B8E3D6001815A031003AA4BB /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +287,7 @@
 		B823470A17F7848500EAEAEE /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				B8E3D5F318159FDD003AA4BB /* Google Analytics */,
 				B823470B17F7849700EAEAEE /* AFNetworking */,
 				B823471F17F7849700EAEAEE /* UIKit+AFNetworking */,
 			);
@@ -357,6 +384,9 @@
 		B88A61CF17B02B430087A69B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8E3D6051815A1EF003AA4BB /* libz.dylib */,
+				B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */,
+				B8E3D6011815A1DA003AA4BB /* CoreData.framework */,
 				B80CD5771805CCBA00BD3BD4 /* MapKit.framework */,
 				B80CD5751805CCA700BD3BD4 /* CoreLocation.framework */,
 				B88A61D017B02B430087A69B /* Foundation.framework */,
@@ -491,6 +521,7 @@
 		B8D0884117F25B1200DDF43E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B8E3D5EF18159FC7003AA4BB /* Tracker */,
 				B81EEC561804E91600C3FC31 /* Categories */,
 				B8D0883D17F25A5500DDF43E /* Concurency */,
 				B861908417F0C4E200B4060C /* Client */,
@@ -506,6 +537,34 @@
 				B80CD5711805CC3D00BD3BD4 /* Location */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		B8E3D5EF18159FC7003AA4BB /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D5F018159FD9003AA4BB /* TTTracker.h */,
+				B8E3D5F118159FD9003AA4BB /* TTTracker.m */,
+			);
+			name = Tracker;
+			sourceTree = "<group>";
+		};
+		B8E3D5F318159FDD003AA4BB /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D5F41815A031003AA4BB /* GAI.h */,
+				B8E3D5F51815A031003AA4BB /* GAIDictionaryBuilder.h */,
+				B8E3D5F61815A031003AA4BB /* GAIFields.h */,
+				B8E3D5F71815A031003AA4BB /* GAILogger.h */,
+				B8E3D5F81815A031003AA4BB /* GAITrackedViewController.h */,
+				B8E3D5F91815A031003AA4BB /* GAITracker.h */,
+				B8E3D5FA1815A031003AA4BB /* libGoogleAnalyticsServices.a */,
+				B8E3D5FB1815A031003AA4BB /* TAGContainer.h */,
+				B8E3D5FC1815A031003AA4BB /* TAGContainerOpener.h */,
+				B8E3D5FD1815A031003AA4BB /* TAGDataLayer.h */,
+				B8E3D5FE1815A031003AA4BB /* TAGLogger.h */,
+				B8E3D5FF1815A031003AA4BB /* TAGManager.h */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		B8F71D6E1806236F00D097AD /* TTTime */ = {
@@ -575,7 +634,7 @@
 				ORGANIZATIONNAME = "Andrew Barba";
 				TargetAttributes = {
 					B88A61CC17B02B430087A69B = {
-						DevelopmentTeam = 4SVQ2M25CT;
+						DevelopmentTeam = EVJS956X67;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -644,6 +703,7 @@
 				B823473717F7849700EAEAEE /* AFURLSessionManager.m in Sources */,
 				B86B4767180EB9D400BF91D6 /* TTCAViewController.m in Sources */,
 				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
+				B8E3D5F218159FD9003AA4BB /* TTTracker.m in Sources */,
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
 				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
@@ -793,7 +853,7 @@
 		B88A620017B02B430087A69B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -802,6 +862,10 @@
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -811,7 +875,7 @@
 		B88A620117B02B430087A69B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -820,6 +884,10 @@
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
