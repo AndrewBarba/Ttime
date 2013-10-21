@@ -112,6 +112,8 @@
     if (ttime) {
         cell.ttime = ttime;
         cell.stationLabel.text = [NSString stringWithFormat:@"%@", ttime.stop.name];
+        [cell.timeButton.titleLabel setNumberOfLines:0];
+        [cell.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
         [cell.timeButton setTitle:[NSString stringWithFormat:@"%@", [self timeTillDeparture:ttime atIndex:cell.currentIndex]]
                          forState:UIControlStateNormal];
         cell.destinationLabel.text = [NSString stringWithFormat:@"%@",
@@ -129,15 +131,14 @@
 - (NSString *)timeTillDeparture:(TTTime *)ttime atIndex:(NSInteger *)index
 {
     NSTimeInterval seconds = self.inbound ? [ttime secondsToInboundDeparture:index] : [ttime secondsToOutboundDeparture:index];
-    if (seconds <= 0) return @"Loading...";
+    if (seconds < 1) return @"...";
     
     if (seconds < 60) {
-        return [NSString stringWithFormat:@"%i sec", (int)seconds];
+        return [NSString stringWithFormat:@"%i\nsec", (int)seconds];
     }
     
     NSInteger min = (int)(seconds / 60);
-    NSString *string = [NSString stringWithFormat:@"%li min", (long)min];
-    if (min > 1) string = [string stringByAppendingString:@"s"];
+    NSString *string = [NSString stringWithFormat:@"%li\nmin", (long)min];
     return string;
 }
 
