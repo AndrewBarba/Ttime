@@ -8,7 +8,7 @@
 
 #import "TTMBTAClient.h"
 
-#define TT_CONCURRENT_REQUESTS 0 // enable this when the MBTA gets their shit together
+#define TT_CONCURRENT_REQUESTS 1 // enable this when the MBTA gets their shit together
 
 @interface TTMBTAClient() {
     NSMutableArray *_requestQueue;
