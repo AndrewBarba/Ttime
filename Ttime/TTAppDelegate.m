@@ -38,8 +38,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [[TTLocationManager sharedManager] startUpdatingLocation];
-    [[TTMBTAService sharedService] startUpdatingData];
+    if ([TTLocationManager locationStatus] == TTLocationStatusOkay) {
+        [[TTLocationManager sharedManager] startUpdatingLocation];
+        [[TTMBTAService sharedService] startUpdatingData];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
