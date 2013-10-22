@@ -58,6 +58,7 @@
 		B8E3D6021815A1DA003AA4BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6011815A1DA003AA4BB /* CoreData.framework */; };
 		B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */; };
 		B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6051815A1EF003AA4BB /* libz.dylib */; };
+		B8E3D60C1815E8E3003AA4BB /* TTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */; };
 		B8F71D711806238800D097AD /* TTTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D701806238800D097AD /* TTTime.m */; };
 		B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D7418062A7800D097AD /* TTTimeService.m */; };
 /* End PBXBuildFile section */
@@ -173,6 +174,8 @@
 		B8E3D6011815A1DA003AA4BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8E3D6051815A1EF003AA4BB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B8E3D60A1815E8E3003AA4BB /* TTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleView.h; sourceTree = "<group>"; };
+		B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleView.m; sourceTree = "<group>"; };
 		B8F71D6F1806238800D097AD /* TTTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTime.h; sourceTree = "<group>"; };
 		B8F71D701806238800D097AD /* TTTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTime.m; sourceTree = "<group>"; };
 		B8F71D7318062A7800D097AD /* TTTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeService.h; sourceTree = "<group>"; };
@@ -236,13 +239,14 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
-		B80CD58518060B7200BD3BD4 /* Common */ = {
+		B80CD58518060B7200BD3BD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B80CD58618060B8500BD3BD4 /* TTTranslucentView.h */,
-				B80CD58718060B8500BD3BD4 /* TTTranslucentView.m */,
+				B8E3D6091815E8C9003AA4BB /* Circle */,
+				B8E3D6081815E8B8003AA4BB /* Translucent */,
+				B8E3D6071815E8A6003AA4BB /* Count Down */,
 			);
-			name = Common;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B81EEC4D1804DFA400C3FC31 /* Model */ = {
@@ -472,7 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				98E052CB180F49E2000C60B7 /* TTTableViewCell */,
-				B80CD58518060B7200BD3BD4 /* Common */,
+				B80CD58518060B7200BD3BD4 /* Views */,
 				B88A620B17B02BCA0087A69B /* Controllers */,
 				B88A620917B02BA80087A69B /* Storyboards */,
 			);
@@ -494,8 +498,6 @@
 				B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */,
 				B86B4765180EB9D400BF91D6 /* TTCAViewController.h */,
 				B86B4766180EB9D400BF91D6 /* TTCAViewController.m */,
-				B86B4768180EC01F00BF91D6 /* TTCircleTimeView.h */,
-				B86B4769180EC01F00BF91D6 /* TTCircleTimeView.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -565,6 +567,33 @@
 				B8E3D5FF1815A031003AA4BB /* TAGManager.h */,
 			);
 			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
+		B8E3D6071815E8A6003AA4BB /* Count Down */ = {
+			isa = PBXGroup;
+			children = (
+				B86B4768180EC01F00BF91D6 /* TTCircleTimeView.h */,
+				B86B4769180EC01F00BF91D6 /* TTCircleTimeView.m */,
+			);
+			name = "Count Down";
+			sourceTree = "<group>";
+		};
+		B8E3D6081815E8B8003AA4BB /* Translucent */ = {
+			isa = PBXGroup;
+			children = (
+				B80CD58618060B8500BD3BD4 /* TTTranslucentView.h */,
+				B80CD58718060B8500BD3BD4 /* TTTranslucentView.m */,
+			);
+			name = Translucent;
+			sourceTree = "<group>";
+		};
+		B8E3D6091815E8C9003AA4BB /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D60A1815E8E3003AA4BB /* TTCircleView.h */,
+				B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */,
+			);
+			name = Circle;
 			sourceTree = "<group>";
 		};
 		B8F71D6E1806236F00D097AD /* TTTime */ = {
@@ -705,6 +734,7 @@
 				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
 				B8E3D5F218159FD9003AA4BB /* TTTracker.m in Sources */,
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
+				B8E3D60C1815E8E3003AA4BB /* TTCircleView.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
 				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
 				B8845DCC180D059400DB558D /* TTTrain.m in Sources */,

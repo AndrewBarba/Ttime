@@ -32,6 +32,13 @@
     self.circleAnimationLayer.strokeEnd = [self percentComplete];
 }
 
+- (void)setDepartureDate:(NSDate *)departureDate
+{
+    if (![_departureDate isEqualToDate:departureDate]) {
+        _departureDate = departureDate;
+    }
+}
+
 #pragma mark - State Helpers
 
 - (void)setTintColor:(UIColor *)tintColor
@@ -62,7 +69,6 @@
     }
     
     CGFloat done = (currentInterval - startInterval + 1) / (doneInterval - startInterval);
-    NSLog(@"%f",done);
     return done;
 }
 
@@ -94,8 +100,8 @@
     [super willMoveToSuperview:newSuperview];
     
     _circleLayer = [self circleForView:self];
-    _circleLayer.lineWidth = 4.0;
-    _circleLayer.opacity = 0.75;
+    _circleLayer.lineWidth = 6.0;
+    _circleLayer.opacity = 0.4;
     _circleLayer.strokeEnd = 1.0f;
     [self.layer addSublayer:_circleLayer];
     
@@ -182,7 +188,7 @@
 
 - (void)commonInit
 {
-    // do something on init
+    _tintColor = [UIColor blueColor];
 }
 
 - (id)init
