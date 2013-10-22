@@ -59,6 +59,10 @@
 		B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */; };
 		B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E3D6051815A1EF003AA4BB /* libz.dylib */; };
 		B8E3D60C1815E8E3003AA4BB /* TTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */; };
+		B8E3D6121815FEE0003AA4BB /* TTTrainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D6111815FEE0003AA4BB /* TTTrainCell.m */; };
+		B8E3D6161815FEFF003AA4BB /* TTTrainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D6151815FEFF003AA4BB /* TTTrainCollectionViewController.m */; };
+		B8E3D61A1816009F003AA4BB /* TTCollectionLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D6191816009F003AA4BB /* TTCollectionLineCell.m */; };
+		B8E3D61D181602C5003AA4BB /* UIColor+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E3D61C181602C5003AA4BB /* UIColor+TT.m */; };
 		B8F71D711806238800D097AD /* TTTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D701806238800D097AD /* TTTime.m */; };
 		B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F71D7418062A7800D097AD /* TTTimeService.m */; };
 /* End PBXBuildFile section */
@@ -176,6 +180,14 @@
 		B8E3D6051815A1EF003AA4BB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B8E3D60A1815E8E3003AA4BB /* TTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleView.h; sourceTree = "<group>"; };
 		B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleView.m; sourceTree = "<group>"; };
+		B8E3D6101815FEE0003AA4BB /* TTTrainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCell.h; sourceTree = "<group>"; };
+		B8E3D6111815FEE0003AA4BB /* TTTrainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCell.m; sourceTree = "<group>"; };
+		B8E3D6141815FEFF003AA4BB /* TTTrainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewController.h; sourceTree = "<group>"; };
+		B8E3D6151815FEFF003AA4BB /* TTTrainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewController.m; sourceTree = "<group>"; };
+		B8E3D6181816009F003AA4BB /* TTCollectionLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCollectionLineCell.h; sourceTree = "<group>"; };
+		B8E3D6191816009F003AA4BB /* TTCollectionLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCollectionLineCell.m; sourceTree = "<group>"; };
+		B8E3D61B181602C5003AA4BB /* UIColor+TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TT.h"; sourceTree = "<group>"; };
+		B8E3D61C181602C5003AA4BB /* UIColor+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TT.m"; sourceTree = "<group>"; };
 		B8F71D6F1806238800D097AD /* TTTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTime.h; sourceTree = "<group>"; };
 		B8F71D701806238800D097AD /* TTTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTime.m; sourceTree = "<group>"; };
 		B8F71D7318062A7800D097AD /* TTTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTimeService.h; sourceTree = "<group>"; };
@@ -284,6 +296,8 @@
 			children = (
 				B81EEC571804E92500C3FC31 /* NSDictionary+TT.h */,
 				B81EEC581804E92500C3FC31 /* NSDictionary+TT.m */,
+				B8E3D61B181602C5003AA4BB /* UIColor+TT.h */,
+				B8E3D61C181602C5003AA4BB /* UIColor+TT.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -494,8 +508,8 @@
 		B88A620B17B02BCA0087A69B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */,
-				B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */,
+				B8E3D6131815FEE5003AA4BB /* Train Controller */,
+				B8E3D60E1815FE89003AA4BB /* Main Controller */,
 				B86B4765180EB9D400BF91D6 /* TTCAViewController.h */,
 				B86B4766180EB9D400BF91D6 /* TTCAViewController.m */,
 			);
@@ -594,6 +608,44 @@
 				B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */,
 			);
 			name = Circle;
+			sourceTree = "<group>";
+		};
+		B8E3D60E1815FE89003AA4BB /* Main Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D60F1815FEA7003AA4BB /* Cells */,
+				B8845DCD180D0F6F00DB558D /* TTTimeViewController.h */,
+				B8845DCE180D0F6F00DB558D /* TTTimeViewController.m */,
+			);
+			name = "Main Controller";
+			sourceTree = "<group>";
+		};
+		B8E3D60F1815FEA7003AA4BB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D6101815FEE0003AA4BB /* TTTrainCell.h */,
+				B8E3D6111815FEE0003AA4BB /* TTTrainCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		B8E3D6131815FEE5003AA4BB /* Train Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D6141815FEFF003AA4BB /* TTTrainCollectionViewController.h */,
+				B8E3D6151815FEFF003AA4BB /* TTTrainCollectionViewController.m */,
+				B8E3D61718160089003AA4BB /* Cells */,
+			);
+			name = "Train Controller";
+			sourceTree = "<group>";
+		};
+		B8E3D61718160089003AA4BB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B8E3D6181816009F003AA4BB /* TTCollectionLineCell.h */,
+				B8E3D6191816009F003AA4BB /* TTCollectionLineCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		B8F71D6E1806236F00D097AD /* TTTime */ = {
@@ -731,9 +783,11 @@
 				B80CD58818060B8500BD3BD4 /* TTTranslucentView.m in Sources */,
 				B823473717F7849700EAEAEE /* AFURLSessionManager.m in Sources */,
 				B86B4767180EB9D400BF91D6 /* TTCAViewController.m in Sources */,
+				B8E3D61A1816009F003AA4BB /* TTCollectionLineCell.m in Sources */,
 				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
 				B8E3D5F218159FD9003AA4BB /* TTTracker.m in Sources */,
 				B81EEC511804E74C00C3FC31 /* TTStop.m in Sources */,
+				B8E3D6121815FEE0003AA4BB /* TTTrainCell.m in Sources */,
 				B8E3D60C1815E8E3003AA4BB /* TTCircleView.m in Sources */,
 				B80CD5741805CC5100BD3BD4 /* TTLocationManager.m in Sources */,
 				B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */,
@@ -752,9 +806,11 @@
 				B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */,
 				B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */,
 				B823473B17F7849700EAEAEE /* UIButton+AFNetworking.m in Sources */,
+				B8E3D6161815FEFF003AA4BB /* TTTrainCollectionViewController.m in Sources */,
 				B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */,
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 				B823473A17F7849700EAEAEE /* UIAlertView+AFNetworking.m in Sources */,
+				B8E3D61D181602C5003AA4BB /* UIColor+TT.m in Sources */,
 				B8845DCF180D0F6F00DB558D /* TTTimeViewController.m in Sources */,
 				98E052CE180F49FA000C60B7 /* TTTableViewCell.m in Sources */,
 				B823473E17F7849700EAEAEE /* UIWebView+AFNetworking.m in Sources */,

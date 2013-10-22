@@ -23,4 +23,5 @@
     #import "TTTime.h"
     #import "TTTrain.h"
     #import "NSDictionary+TT.h"
+    #import "UIColor+TT.h"
 #endif

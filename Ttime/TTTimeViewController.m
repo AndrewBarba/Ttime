@@ -102,28 +102,27 @@
     TTTrain *train = trains[indexPath.row];
     TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
     
-    [self updateCell:cell forTTime:stop.ttime];
+    [self updateCell:cell forStop:stop];
     
     return cell;
 }
 
-- (void)updateCell:(TTTableViewCell *)cell forTTime:(TTTime *)ttime
+- (void)updateCell:(TTTableViewCell *)cell forStop:(TTStop *)stop
 {
-    if (ttime) {
-        cell.ttime = ttime;
-        cell.stationLabel.text = [NSString stringWithFormat:@"%@", ttime.stop.name];
-        [cell.timeButton.titleLabel setNumberOfLines:0];
-        [cell.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-        [cell.timeButton setTitle:[NSString stringWithFormat:@"%@", [self timeTillDeparture:ttime atIndex:cell.currentIndex]]
+    cell.stationLabel.text = [NSString stringWithFormat:@"%@", stop.name];
+    [cell.timeButton.titleLabel setNumberOfLines:0];
+    [cell.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    cell.destinationLabel.text = [NSString stringWithFormat:@"%@",
+                                  self.inbound ? stop.train.inboundStation : stop.train.outboundStation];
+    cell.distanceLabel.text = [NSString stringWithFormat:@"%@",
+                               [self distanceToStop:stop]];
+    
+    if (stop.ttime) {
+        cell.ttime = stop.ttime;
+        [cell.timeButton setTitle:[NSString stringWithFormat:@"%@", [self timeTillDeparture:stop.ttime atIndex:cell.currentIndex]]
                          forState:UIControlStateNormal];
-        cell.destinationLabel.text = [NSString stringWithFormat:@"%@",
-                                      self.inbound ? ttime.stop.train.inboundStation : ttime.stop.train.outboundStation];
-        cell.distanceLabel.text = [NSString stringWithFormat:@"%@",
-                                   [self distanceToStop:ttime.stop]];
-         
     } else {
         [cell.timeButton setTitle:@"..." forState:UIControlStateNormal];
-        cell.stationLabel.text = @"loading...";
     }
     [cell layoutSubviews];
 }
@@ -145,7 +144,7 @@
 -(NSString *)distanceToStop:(TTStop *)stop
 {
     CLLocationDistance distance = [stop distanceFromLocation:
-                       [[TTLocationManager sharedManager] currentLocation]];
+                                   [[TTLocationManager sharedManager] currentLocation]];
     distance = distance * 0.000621371;
     
     

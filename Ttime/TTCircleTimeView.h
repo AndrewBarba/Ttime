@@ -10,8 +10,14 @@
 
 @interface TTCircleTimeView : UIView
 
+/**
+ * The color of the circle, I will need to get you rgb values for colors
+ */
 @property (nonatomic, strong) UIColor *tintColor;
 
+/**
+ * Set this date and everything else is handled magically
+ */
 @property (nonatomic, strong) NSDate *departureDate;
 
 @end
