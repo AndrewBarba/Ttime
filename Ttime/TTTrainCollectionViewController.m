@@ -71,6 +71,7 @@
 
 - (void)updateCell:(TTCollectionLineCell *)cell forStop:(TTStop *)stop
 {
+#warning this logic should not be here! We have a cell subclass so just set the ttime on the cell and let the cell handle it own layout
     cell.stopLabel.text = [NSString stringWithFormat:@"%@", stop.name];
     [cell.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     cell.destinationLabel.text = [NSString stringWithFormat:@"%@",
@@ -94,6 +95,7 @@
 
 - (NSString *)timeTillDeparture:(TTTime *)ttime atIndex:(NSInteger *)index
 {
+#warning This will not be needed once you start using my custom TTCircleTimeView
     NSTimeInterval seconds;
     
     if (self.inbound)
@@ -116,6 +118,8 @@
 
 -(NSString *)distanceToStop:(TTStop *)stop
 {
+#warning I dont like this logic. Lets move this to a class thats more suited to returning this kind of info. \
+         It's fine that this method returns a string but there should be a method somewhere else that converts meters to miles
     CLLocationDistance distance = [stop distanceFromLocation:
                                    [[TTLocationManager sharedManager] currentLocation]];
     distance = distance * 0.000621371;
