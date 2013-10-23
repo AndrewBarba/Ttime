@@ -10,8 +10,11 @@
 
 @interface TTTrainCollectionViewController : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) TTTrain *train;
+@property (nonatomic, strong) NSArray *trains;
+
+@property (nonatomic) BOOL inbound;
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+
 
 @end

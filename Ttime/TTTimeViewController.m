@@ -9,7 +9,7 @@
 #import "TTTimeViewController.h"
 #import "TTTimeService.h"
 #import "TTMBTAService.h"
-#import "TTTableViewCell.h"
+#import "TTTrainCell.h"
 
 @interface TTTimeViewController ()
 
@@ -22,6 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
     
     self.inbound = YES;
 }
@@ -43,7 +45,7 @@
 
 - (IBAction)_handleSwitch:(UISwitch *)sender
 {
-    self.inbound = sender.on;
+    [self setInbound:sender.on];
 }
 
 - (void)setInbound:(BOOL)inbound
@@ -81,79 +83,44 @@
     }
     
     return nil;
+
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [UIScreen mainScreen].bounds.size.height / 5;
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 5;
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self _trainArrayForSection:section] count];
+    return 1;
 }
 
-- (TTTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+
+- (TTTrainCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TTCell";
-    TTTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"TTTrainCell";
+    TTTrainCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     
     NSArray *trains = [self _trainArrayForSection:indexPath.section];
-    TTTrain *train = trains[indexPath.row];
-    TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
     
-    [self updateCell:cell forStop:stop];
+    cell.inbound = _inbound;
+    cell.trains = trains;
+    
     
     return cell;
 }
 
-- (void)updateCell:(TTTableViewCell *)cell forStop:(TTStop *)stop
-{
-    cell.stationLabel.text = [NSString stringWithFormat:@"%@", stop.name];
-    [cell.timeButton.titleLabel setNumberOfLines:0];
-    [cell.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    cell.destinationLabel.text = [NSString stringWithFormat:@"%@",
-                                  self.inbound ? stop.train.inboundStation : stop.train.outboundStation];
-    cell.distanceLabel.text = [NSString stringWithFormat:@"%@",
-                               [self distanceToStop:stop]];
-    
-    if (stop.ttime) {
-        cell.ttime = stop.ttime;
-        [cell.timeButton setTitle:[NSString stringWithFormat:@"%@", [self timeTillDeparture:stop.ttime atIndex:cell.currentIndex]]
-                         forState:UIControlStateNormal];
-    } else {
-        [cell.timeButton setTitle:@"..." forState:UIControlStateNormal];
-    }
-    [cell layoutSubviews];
-}
-
-- (NSString *)timeTillDeparture:(TTTime *)ttime atIndex:(NSInteger *)index
-{
-    NSTimeInterval seconds = self.inbound ? [ttime secondsToInboundDeparture:index] : [ttime secondsToOutboundDeparture:index];
-    if (seconds < 1) return @"...";
-    
-    if (seconds < 60) {
-        return [NSString stringWithFormat:@"%i\nsec", (int)seconds];
-    }
-    
-    NSInteger min = (int)(seconds / 60);
-    NSString *string = [NSString stringWithFormat:@"%li\nmin", (long)min];
-    return string;
-}
-
--(NSString *)distanceToStop:(TTStop *)stop
-{
-    CLLocationDistance distance = [stop distanceFromLocation:
-                                   [[TTLocationManager sharedManager] currentLocation]];
-    distance = distance * 0.000621371;
-    
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [numberFormatter setMaximumFractionDigits:2];
-    
-    return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:distance]];
-    
-}
 
 @end

@@ -12,8 +12,11 @@
 @interface TTTrainCell : UITableViewCell
 
 // this may need to be weak, we'll find out later
-@property (nonatomic, strong) TTTrain *train;
+@property (nonatomic, strong) NSArray *trains;
+
+@property (nonatomic) BOOL inbound;
 
 @property (nonatomic, weak) IBOutlet TTTrainCollectionViewController *trainCollectionViewController;
+
 
 @end
