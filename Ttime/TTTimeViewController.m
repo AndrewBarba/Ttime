@@ -115,6 +115,8 @@
     
     NSArray *trains = [self _trainArrayForSection:indexPath.section];
     
+#warning This is bad because you're saying that we HAVE to set inbound before you can set trains. \
+         lets make a method for the cell like [cell setTrains:trains forDirection:_inbound]
     cell.inbound = _inbound;
     cell.trains = trains;
     
