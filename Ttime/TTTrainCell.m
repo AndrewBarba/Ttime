@@ -12,12 +12,18 @@
 
 // Anytime someone sets out Train object
 // pass it down to our collection view controller
-- (void)setTrain:(TTTrain *)train
+- (void)setTrains:(NSArray *)trains 
 {
-    if (_train != train) {
-        _train = train;
-        self.trainCollectionViewController.train = _train;
+    if (_trains != trains) {
+        
+        _trains = trains;
+        _trainCollectionViewController.inbound = _inbound;
+        [_trainCollectionViewController setTrains:trains];
+        
     }
 }
+
+
+
 
 @end
