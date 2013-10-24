@@ -51,10 +51,10 @@
 {
     if (_inbound)
     {
-        [_inboundButton setTitle:@"Inbound" forState:UIControlStateNormal];
+        [_inboundButton setTitle:@"Outbound" forState:UIControlStateNormal];
         _inbound = !_inbound;
     } else {
-        [_inboundButton setTitle:@"Outbound" forState:UIControlStateNormal];
+        [_inboundButton setTitle:@"Inbound" forState:UIControlStateNormal];
         _inbound = !_inbound;
     }
     [self.tableView reloadData];
