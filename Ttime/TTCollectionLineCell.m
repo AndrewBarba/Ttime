@@ -16,7 +16,6 @@
 {
     self.stopLabel.textColor = color;
     self.stopLabel.text = [NSString stringWithFormat:@"%@", stop.name];
-    [self.timeButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     self.destinationLabel.textColor = color;
     self.destinationLabel.text = [NSString stringWithFormat:@"%@",
                                   self.inbound ? stop.train.inboundStation : stop.train.outboundStation];
@@ -26,12 +25,16 @@
     
     
     
-    if (stop.ttime) {
-        self.ttime = stop.ttime;
-        [self.timeButton setTitle:[NSString stringWithFormat:@"%@", [self timeTillDeparture:stop.ttime atIndex:0]]
-                         forState:UIControlStateNormal];
+    self.timeView.tintColor = color;
+    
+    if (_inbound) {
+        if (!stop.ttime.inboundDepartureDates || !stop.ttime.inboundDepartureDates.count ) {
+            [self.timeView setDepartureDate:stop.ttime.inboundDepartureDates[0]];
+        }
     } else {
-        [self.timeButton setTitle:@"..." forState:UIControlStateNormal];
+        if (!stop.ttime.inboundDepartureDates || !stop.ttime.inboundDepartureDates.count ) {
+        [self.timeView setDepartureDate:stop.ttime.outboundDepartureDates[0]];
+        }
     }
 
     

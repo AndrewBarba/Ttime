@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TTTrain.h"
+#import "TTCircleTimeView.h"
 
 @interface TTCollectionLineCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIButton *timeButton;
+@property (weak, nonatomic) IBOutlet TTCircleTimeView *timeView;
 
 @property (weak, nonatomic) IBOutlet UILabel *stopLabel;
 

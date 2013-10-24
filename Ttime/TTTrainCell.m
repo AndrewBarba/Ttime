@@ -10,27 +10,16 @@
 
 @implementation TTTrainCell
 
-// Anytime someone sets out Train object
-// pass it down to our collection view controller
-- (void)setTrains:(NSArray *)trains 
-{
-    if (_trains != trains) {
-        
-        _trains = trains;
-        _trainCollectionViewController.inbound = _inbound;
-        [_trainCollectionViewController setTrains:trains];
-        
-    }
-}
 
 
 -(void)setTrains:(NSArray *)trains forDirection:(BOOL)inbound andColor:(UIColor *)color
 {
     self.trains = trains;
     self.inbound = inbound;
-    self.trainCollectionViewController.color = color;
+    self.color = color;
+    self.trainCollectionViewController.color = _color;
     self.trainCollectionViewController.inbound = _inbound;
-    [_trainCollectionViewController setTrains:trains];
+    [_trainCollectionViewController setTrains:_trains];
     
 }
 
