@@ -22,20 +22,25 @@
 - (void)uiloop
 {
     [self.collectionView reloadData];
-    TTDispatchAfter(0.25, ^{
+    TTDispatchAfter(0.5, ^{
         [self uiloop];
     });
+}
+
+- (void)setCollectionView:(UICollectionView *)collectionView
+{
+    if (_collectionView != collectionView) {
+        _collectionView = collectionView;
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+    }
 }
 
 -(void)setTrains:(NSArray *)trains
 {
     if (_trains != trains) {
         _trains = trains;
-        
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
-        
-        //[self uiloop];
+        [self uiloop];
     }
 }
 
@@ -50,7 +55,6 @@
 {
     return [self.trains count];
 }
-
 
 -(TTCollectionLineCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

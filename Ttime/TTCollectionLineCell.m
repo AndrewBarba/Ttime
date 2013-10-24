@@ -11,15 +11,6 @@
 
 @implementation TTCollectionLineCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 
 -(void)updateCell:(TTStop *)stop forInbound:(BOOL)inbound andColor:(UIColor *)color
 {

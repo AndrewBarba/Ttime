@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rLf-Fz-gTH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rLf-Fz-gTH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
     </dependencies>
     <scenes>
         <!--Time View Controller - TTIME-->
@@ -29,18 +29,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cin-dh-aHg">
-                                                        <size key="itemSize" width="310" height="120"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
+                                                    <collectionViewLayout key="collectionViewLayout" id="ZuX-Pl-uek" customClass="TTTrainCollectionViewFlowLayout"/>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="TTCollectionCell" id="6yY-HI-4xN" customClass="TTCollectionLineCell">
-                                                            <rect key="frame" x="5" y="5" width="310" height="120"/>
+                                                            <rect key="frame" x="8" y="0.0" width="304" height="105"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="304" height="105"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OC0-eC-KuQ">
@@ -77,6 +72,7 @@
                                                             </view>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="customSize" width="304" height="105"/>
                                                             <connections>
                                                                 <outlet property="destinationLabel" destination="lGh-A8-ZKR" id="cYF-cp-DQU"/>
                                                                 <outlet property="distanceLabel" destination="OC0-eC-KuQ" id="Vhg-iO-5KQ"/>
@@ -123,18 +119,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="TTIME" id="qWJ-Zd-F2w">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fBn-Ko-46i">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="fBn-Ko-46i">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="faS-pz-oGS">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Inbound">
+                                    <color key="titleColor" red="0.0" green="0.8078432083" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="switchInbound:" destination="yom-tx-uv2" eventType="touchUpInside" id="skj-6M-Wr7"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" red="0.0" green="0.8078432083" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

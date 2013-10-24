@@ -50,6 +50,7 @@
 		B88A61F217B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
 		B88A61FA17B02B430087A69B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88A61F817B02B430087A69B /* InfoPlist.strings */; };
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
+		B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */; };
 		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
 		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
 		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
@@ -156,6 +157,8 @@
 		B88A61F917B02B430087A69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B88A61FB17B02B430087A69B /* TtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TtimeTests.m; sourceTree = "<group>"; };
 		B88A621017B02CA90087A69B /* Ttime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ttime.entitlements; sourceTree = "<group>"; };
+		B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
 		B8D0883917F2594700DDF43E /* TTMBTAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAClient.h; sourceTree = "<group>"; };
 		B8D0883A17F2594700DDF43E /* TTMBTAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAClient.m; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 			children = (
 				B8E3D6141815FEFF003AA4BB /* TTTrainCollectionViewController.h */,
 				B8E3D6151815FEFF003AA4BB /* TTTrainCollectionViewController.m */,
+				B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */,
+				B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */,
 				B8E3D61718160089003AA4BB /* Cells */,
 			);
 			name = "Train Controller";
@@ -831,6 +836,7 @@
 				B8E3D6161815FEFF003AA4BB /* TTTrainCollectionViewController.m in Sources */,
 				B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */,
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
+				B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */,
 				B823473A17F7849700EAEAEE /* UIAlertView+AFNetworking.m in Sources */,
 				B8E3D61D181602C5003AA4BB /* UIColor+TT.m in Sources */,
 				B8845DCF180D0F6F00DB558D /* TTTimeViewController.m in Sources */,
