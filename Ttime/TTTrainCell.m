@@ -24,6 +24,16 @@
 }
 
 
+-(void)setTrains:(NSArray *)trains forDirection:(BOOL)inbound andColor:(UIColor *)color
+{
+    self.trains = trains;
+    self.inbound = inbound;
+    self.trainCollectionViewController.color = color;
+    self.trainCollectionViewController.inbound = _inbound;
+    [_trainCollectionViewController setTrains:trains];
+    
+}
+
 
 
 @end

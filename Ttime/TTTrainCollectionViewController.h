@@ -14,6 +14,8 @@
 
 @property (nonatomic) BOOL inbound;
 
+@property (nonatomic, strong) UIColor *color;
+
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 

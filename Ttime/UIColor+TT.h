@@ -18,4 +18,7 @@
 
 + (instancetype)greenLineColor;
 
++ (instancetype)silverLineColor;
+
+
 @end

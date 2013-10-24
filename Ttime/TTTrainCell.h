@@ -16,7 +16,11 @@
 
 @property (nonatomic) BOOL inbound;
 
+@property (nonatomic, strong) UIColor *color;
+
 @property (nonatomic, weak) IBOutlet TTTrainCollectionViewController *trainCollectionViewController;
 
+-(void)setTrains:(NSArray *)trains forDirection:(BOOL)inbound;
+-(void)setTrains:(NSArray *)trains forDirection:(BOOL)inbound andColor:(UIColor *)color;
 
 @end

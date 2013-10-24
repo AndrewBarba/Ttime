@@ -10,4 +10,7 @@
 
 @interface TTTimeViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *inboundButton;
+
+
 @end
