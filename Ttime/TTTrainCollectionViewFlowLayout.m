@@ -10,32 +10,12 @@
 
 @implementation TTTrainCollectionViewFlowLayout
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (void)commonInit
+- (void)prepareLayout
 {
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-}
-
-- (CGSize)itemSize
-{
-    return self.collectionView.bounds.size;
+    self.minimumLineSpacing = 0.0;
+    self.minimumInteritemSpacing = 0.0;
+    self.itemSize = self.collectionView.bounds.size;
 }
 
 @end

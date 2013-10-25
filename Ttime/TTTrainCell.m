@@ -20,7 +20,6 @@
     self.trainCollectionViewController.color = _color;
     self.trainCollectionViewController.inbound = _inbound;
     [_trainCollectionViewController setTrains:_trains];
-    
 }
 
 

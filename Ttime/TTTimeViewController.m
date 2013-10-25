@@ -108,23 +108,19 @@
     static NSString *CellIdentifier = @"TTTrainCell";
     TTTrainCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    
     NSArray *trains = [self _trainArrayForSection:indexPath.row];
-    
-#warning This is bad because you're saying that we HAVE to set inbound before you can set trains. \
-         lets make a method for the cell like [cell setTrains:trains forDirection:_inbound]
     
     switch (indexPath.row)
     {
-        case 0: [cell setTrains:trains forDirection:_inbound andColor:[UIColor greenLineColor]];
+        case 0: [cell setTrains:trains forDirection:_inbound andColor:[UIColor greenLineColor]]; break;
             
-        case 1: [cell setTrains:trains forDirection:_inbound andColor:[UIColor orangeLineColor]];
+        case 1: [cell setTrains:trains forDirection:_inbound andColor:[UIColor orangeLineColor]]; break;
             
-        case 2: [cell setTrains:trains forDirection:_inbound andColor:[UIColor redLineColor]];
+        case 2: [cell setTrains:trains forDirection:_inbound andColor:[UIColor redLineColor]]; break;
             
-        case 3: [cell setTrains:trains forDirection:_inbound andColor:[UIColor blueLineColor]];
+        case 3: [cell setTrains:trains forDirection:_inbound andColor:[UIColor blueLineColor]]; break;
             
-        case 4: [cell setTrains:trains forDirection:_inbound andColor:[UIColor silverLineColor]];
+        case 4: [cell setTrains:trains forDirection:_inbound andColor:[UIColor silverLineColor]]; break;
     }
 
     return cell;

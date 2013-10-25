@@ -18,7 +18,7 @@
     self.stopLabel.text = [NSString stringWithFormat:@"%@", stop.name];
     self.destinationLabel.textColor = color;
     self.destinationLabel.text = [NSString stringWithFormat:@"%@",
-                                  self.inbound ? stop.train.inboundStation : stop.train.outboundStation];
+                                  inbound ? stop.train.inboundStation : stop.train.outboundStation];
     self.distanceLabel.textColor = color;
     self.distanceLabel.text = [NSString stringWithFormat:@"%@",
                                [self distanceToStop:stop]];
@@ -27,42 +27,13 @@
     
     self.timeView.tintColor = color;
     
-    if (_inbound) {
-        if (!stop.ttime.inboundDepartureDates || !stop.ttime.inboundDepartureDates.count ) {
-            [self.timeView setDepartureDate:stop.ttime.inboundDepartureDates[0]];
-        }
+    if (inbound) {
+        [self.timeView setDepartureDate:[stop.ttime.inboundDepartureDates firstObject]];
     } else {
-        if (!stop.ttime.inboundDepartureDates || !stop.ttime.inboundDepartureDates.count ) {
-        [self.timeView setDepartureDate:stop.ttime.outboundDepartureDates[0]];
-        }
+        [self.timeView setDepartureDate:[stop.ttime.outboundDepartureDates firstObject]];
     }
 
     
-}
-
-
-
-- (NSString *)timeTillDeparture:(TTTime *)ttime atIndex:(NSInteger *)index
-{
-#warning This will not be needed once you start using my custom TTCircleTimeView
-    NSTimeInterval seconds;
-    
-    if (self.inbound)
-    {
-        seconds = [ttime secondsToInboundDeparture:0];
-    } else {
-        seconds = [ttime secondsToOutboundDeparture:0];
-    }
-    
-    if (seconds < 1) return @"...";
-    
-    if (seconds < 60) {
-        return [NSString stringWithFormat:@"%i\nsec", (int)seconds];
-    }
-    
-    NSInteger min = (int)(seconds / 60);
-    NSString *string = [NSString stringWithFormat:@"%li\nmin", (long)min];
-    return string;
 }
 
 -(NSString *)distanceToStop:(TTStop *)stop

@@ -20,10 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
-@property (nonatomic) BOOL inbound;
-
-@property (strong, nonatomic) TTTime *ttime;
-
 -(void)updateCell:(TTStop *)stop forInbound:(BOOL)inbound andColor:(UIColor *)color;
 
 @end

@@ -34,7 +34,7 @@
 
 - (void)setDepartureDate:(NSDate *)departureDate
 {
-    if (![_departureDate isEqualToDate:departureDate]) {
+    if (![_departureDate isEqualToDate:departureDate] && departureDate) {
         _departureDate = departureDate;
     }
 }

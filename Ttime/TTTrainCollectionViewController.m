@@ -10,22 +10,13 @@
 #import "TTTrainCell.h"
 #import "TTCollectionLineCell.h"
 
+static NSString *const TTCellID = @"TTCollectionCell";
+
 @interface TTTrainCollectionViewController ()
-
-
 
 @end
 
 @implementation TTTrainCollectionViewController
-
-
-- (void)uiloop
-{
-    [self.collectionView reloadData];
-    TTDispatchAfter(0.5, ^{
-        [self uiloop];
-    });
-}
 
 - (void)setCollectionView:(UICollectionView *)collectionView
 {
@@ -33,6 +24,7 @@
         _collectionView = collectionView;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+//        [_collectionView registerClass:[TTCollectionLineCell class] forCellWithReuseIdentifier:TTCellID];
     }
 }
 
@@ -40,7 +32,7 @@
 {
     if (_trains != trains) {
         _trains = trains;
-        [self uiloop];
+        [self.collectionView reloadData];
     }
 }
 
@@ -58,12 +50,12 @@
 
 -(TTCollectionLineCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"TTCollectionCell";
-    TTCollectionLineCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    TTCollectionLineCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TTCellID forIndexPath:indexPath];
+    
     TTTrain *train = _trains[indexPath.row];
     TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
-    
     [cell updateCell:stop forInbound:self.inbound andColor:self.color];
+    
     return cell;
 }
 
