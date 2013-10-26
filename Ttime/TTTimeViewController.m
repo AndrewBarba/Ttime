@@ -40,7 +40,7 @@
 - (void)uiloop
 {
     [self.tableView reloadData];
-    TTDispatchAfter(.25, ^{
+    TTDispatchAfter(1, ^{
         [self uiloop];
     });
 }
