@@ -32,8 +32,16 @@ static NSString *const TTCellID = @"TTCollectionCell";
 {
     if (_trains != trains) {
         _trains = trains;
-        [self.collectionView reloadData];
+        [self uiloop];
     }
+}
+
+- (void)uiloop
+{
+    [self.collectionView reloadData];
+    TTDispatchAfter(0.25, ^{
+        [self uiloop];
+    });
 }
 
 
