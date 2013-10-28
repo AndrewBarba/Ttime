@@ -52,6 +52,8 @@
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
 		B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */; };
 		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
+		B8C69438181DB01F00FD1F5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C69437181DB01F00FD1F5A /* StoreKit.framework */; };
+		B8C6943C181DB0AC00FD1F5A /* TTDonationService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C6943B181DB0AC00FD1F5A /* TTDonationService.m */; };
 		B8D0883B17F2594700DDF43E /* TTMBTAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883A17F2594700DDF43E /* TTMBTAClient.m */; };
 		B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0883F17F25A6700DDF43E /* TTDispatch.m */; };
 		B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0884417F2610100DDF43E /* TTMBTAService.m */; };
@@ -160,6 +162,9 @@
 		B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
+		B8C69437181DB01F00FD1F5A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B8C6943A181DB0AC00FD1F5A /* TTDonationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDonationService.h; sourceTree = "<group>"; };
+		B8C6943B181DB0AC00FD1F5A /* TTDonationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDonationService.m; sourceTree = "<group>"; };
 		B8D0883917F2594700DDF43E /* TTMBTAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMBTAClient.h; sourceTree = "<group>"; };
 		B8D0883A17F2594700DDF43E /* TTMBTAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMBTAClient.m; sourceTree = "<group>"; };
 		B8D0883C17F2595C00DDF43E /* TTConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTConstants.h; sourceTree = "<group>"; };
@@ -212,6 +217,7 @@
 				B80CD5761805CCA700BD3BD4 /* CoreLocation.framework in Frameworks */,
 				B80CD5781805CCBA00BD3BD4 /* MapKit.framework in Frameworks */,
 				B88A61D517B02B430087A69B /* UIKit.framework in Frameworks */,
+				B8C69438181DB01F00FD1F5A /* StoreKit.framework in Frameworks */,
 				B88A61D117B02B430087A69B /* Foundation.framework in Frameworks */,
 				B8E3D6001815A031003AA4BB /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
@@ -426,6 +432,7 @@
 		B88A61CF17B02B430087A69B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8C69437181DB01F00FD1F5A /* StoreKit.framework */,
 				B8E3D6051815A1EF003AA4BB /* libz.dylib */,
 				B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */,
 				B8E3D6011815A1DA003AA4BB /* CoreData.framework */,
@@ -549,6 +556,15 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		B8C69439181DB09000FD1F5A /* In App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				B8C6943A181DB0AC00FD1F5A /* TTDonationService.h */,
+				B8C6943B181DB0AC00FD1F5A /* TTDonationService.m */,
+			);
+			name = "In App Purchase";
+			sourceTree = "<group>";
+		};
 		B8D0883D17F25A5500DDF43E /* Concurency */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +577,7 @@
 		B8D0884117F25B1200DDF43E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B8C69439181DB09000FD1F5A /* In App Purchase */,
 				B8E3D5EF18159FC7003AA4BB /* Tracker */,
 				B81EEC561804E91600C3FC31 /* Categories */,
 				B8D0883D17F25A5500DDF43E /* Concurency */,
@@ -741,9 +758,12 @@
 				ORGANIZATIONNAME = "Andrew Barba";
 				TargetAttributes = {
 					B88A61CC17B02B430087A69B = {
-						DevelopmentTeam = 4SVQ2M25CT;
+						DevelopmentTeam = EVJS956X67;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.iCloud = {
@@ -823,6 +843,7 @@
 				B823473217F7849700EAEAEE /* AFNetworkReachabilityManager.m in Sources */,
 				B823473817F7849700EAEAEE /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B82A07DA1816149A00DD37E6 /* TTLocationPermissionViewController.m in Sources */,
+				B8C6943C181DB0AC00FD1F5A /* TTDonationService.m in Sources */,
 				B88A61DD17B02B430087A69B /* main.m in Sources */,
 				B823473417F7849700EAEAEE /* AFURLConnectionOperation.m in Sources */,
 				B823473D17F7849700EAEAEE /* UIProgressView+AFNetworking.m in Sources */,
@@ -975,7 +996,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",
@@ -997,7 +1018,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",

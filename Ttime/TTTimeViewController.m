@@ -11,6 +11,7 @@
 #import "TTMBTAService.h"
 #import "TTTrainCell.h"
 #import "UIColor+TT.h"
+#import "TTDonationService.h"
 
 @interface TTTimeViewController ()
 
@@ -58,6 +59,11 @@
         _inbound = !_inbound;
     }
     [self.tableView reloadData];
+    
+    [[TTDonationService sharedInstance] makeDonation:TTDonationSmallKey
+                                        onCompletion:^(BOOL success, NSError *error){
+                                            NSLog(@"DONATION COMPLETE: %i %@", success, error);
+                                        }];
 
 }
 
