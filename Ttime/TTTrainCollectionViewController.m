@@ -12,7 +12,9 @@
 
 static NSString *const TTCellID = @"TTCollectionCell";
 
-@interface TTTrainCollectionViewController ()
+@interface TTTrainCollectionViewController () {
+    NSTimer *_updateTimer;
+}
 
 @end
 
@@ -32,8 +34,25 @@ static NSString *const TTCellID = @"TTCollectionCell";
     if (_trains != trains) {
         _trains = trains;
         [self.collectionView reloadData];
-        [self _update];
+        [self _setupTimer];
     }
+}
+
+- (void)_setupTimer
+{
+    if (_updateTimer) {
+        [_updateTimer invalidate];
+        _updateTimer = nil;
+    }
+    
+    _updateTimer = [NSTimer timerWithTimeInterval:0.25 target:self selector:@selector(_update:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_updateTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)dealloc
+{
+    [_updateTimer invalidate];
+    _updateTimer = nil;
 }
 
 
@@ -59,7 +78,7 @@ static NSString *const TTCellID = @"TTCollectionCell";
     return cell;
 }
 
-- (void)_update
+- (void)_update:(NSTimer *)timer
 {
     [_trains enumerateObjectsUsingBlock:^(TTTrain *train, NSUInteger index, BOOL *done){
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
@@ -67,12 +86,6 @@ static NSString *const TTCellID = @"TTCollectionCell";
         TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
         [cell updateCell:stop forInbound:self.inbound andColor:self.color];
     }];
-    
-    __weak TTTrainCollectionViewController *_weakSelf = self;
-    
-    TTDispatchAfter(0.5, ^{
-        [_weakSelf _update];
-    });
 }
 
 @end
