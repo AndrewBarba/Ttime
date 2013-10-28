@@ -42,13 +42,16 @@ It's fine that this method returns a string but there should be a method somewhe
                                    [[TTLocationManager sharedManager] currentLocation]];
     distance = distance * 0.000621371;
     
+    if (distance > 20) {
+        return @"...";
+    }
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [numberFormatter setMaximumFractionDigits:2];
+    [numberFormatter setMaximumFractionDigits:1];
     
-    return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:distance]];
-    
+    NSString *num = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:distance]];
+    return [num stringByAppendingString:@" miles"];
 }
 
 

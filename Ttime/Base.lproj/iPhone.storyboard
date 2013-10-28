@@ -9,9 +9,10 @@
         <scene sceneID="JAH-FG-oJP">
             <objects>
                 <tableViewController id="yom-tx-uv2" customClass="TTTimeViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylU-o9-m6e">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylU-o9-m6e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="separatorColor" red="0.13976801658163263" green="0.13976801658163263" blue="0.13976801658163263" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -39,37 +40,56 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="316" height="104"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OC0-eC-KuQ">
-                                                                        <rect key="frame" x="237" y="31" width="59" height="43"/>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.4 miles" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OC0-eC-KuQ">
+                                                                        <rect key="frame" x="239" y="35" width="69" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="69" id="qjS-Hm-peV"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANq-Ei-nLV">
-                                                                        <rect key="frame" x="82" y="32" width="147" height="24"/>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="ANq-Ei-nLV">
+                                                                        <rect key="frame" x="82" y="35" width="149" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGh-A8-ZKR">
-                                                                        <rect key="frame" x="82" y="53" width="147" height="22"/>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="lGh-A8-ZKR">
+                                                                        <rect key="frame" x="82" y="53" width="149" height="15"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqR-z7-S23" customClass="TTCircleTimeView">
-                                                                        <rect key="frame" x="10" y="21" width="63" height="63"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqR-z7-S23" customClass="TTCircleTimeView">
+                                                                        <rect key="frame" x="10" y="25" width="56" height="56"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="56" id="EDr-sd-19q"/>
+                                                                            <constraint firstAttribute="height" constant="56" id="idl-Hs-Y06"/>
+                                                                        </constraints>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="DqR-z7-S23" firstAttribute="leading" secondItem="6yY-HI-4xN" secondAttribute="leading" constant="10" id="0lH-ZT-911"/>
+                                                                <constraint firstItem="lGh-A8-ZKR" firstAttribute="top" secondItem="ANq-Ei-nLV" secondAttribute="bottom" id="6rV-ou-NdZ"/>
+                                                                <constraint firstItem="ANq-Ei-nLV" firstAttribute="leading" secondItem="DqR-z7-S23" secondAttribute="trailing" constant="16" id="Ds6-Gt-gDJ"/>
+                                                                <constraint firstItem="lGh-A8-ZKR" firstAttribute="leading" secondItem="ANq-Ei-nLV" secondAttribute="leading" id="JYO-w7-nfH"/>
+                                                                <constraint firstItem="lGh-A8-ZKR" firstAttribute="trailing" secondItem="ANq-Ei-nLV" secondAttribute="trailing" id="bRE-29-IWH"/>
+                                                                <constraint firstItem="OC0-eC-KuQ" firstAttribute="leading" secondItem="ANq-Ei-nLV" secondAttribute="trailing" priority="472" constant="8" id="d1w-vj-2Yg"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OC0-eC-KuQ" secondAttribute="trailing" constant="8" id="fbL-DK-coI"/>
+                                                                <constraint firstItem="ANq-Ei-nLV" firstAttribute="centerY" secondItem="DqR-z7-S23" secondAttribute="centerY" constant="-9" id="lAD-9L-ZMW"/>
+                                                                <constraint firstAttribute="centerY" secondItem="DqR-z7-S23" secondAttribute="centerY" constant="-0.5" id="oP6-dj-0gi"/>
+                                                                <constraint firstItem="ANq-Ei-nLV" firstAttribute="top" secondItem="OC0-eC-KuQ" secondAttribute="top" id="qNM-va-Luv"/>
+                                                            </constraints>
                                                             <size key="customSize" width="316" height="104"/>
                                                             <connections>
                                                                 <outlet property="destinationLabel" destination="lGh-A8-ZKR" id="cYF-cp-DQU"/>
