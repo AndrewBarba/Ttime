@@ -32,8 +32,6 @@
     } else {
         [self.timeView setDepartureDate:[stop.ttime.outboundDepartureDates firstObject]];
     }
-
-    
 }
 
 -(NSString *)distanceToStop:(TTStop *)stop

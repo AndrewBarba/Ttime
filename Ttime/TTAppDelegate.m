@@ -16,6 +16,8 @@
 {
     // Setup Tracker
     [TTTracker sharedTracker];
+    
+    // Get in-app purchases ready
     [[TTDonationService sharedInstance] refreshProducts];
     
     return YES;

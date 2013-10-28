@@ -14,16 +14,6 @@
 
 @implementation TTRootViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_handleLocationStatusChanged:)
-                                                 name:TTLocationStatusChangedNotificationKey
-                                               object:nil];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -31,6 +21,10 @@
     TT_DISPATCH_ONCE(^{
         TTDispatchAfter(0.5, ^{
             [self _performOpeningSegue];
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(_handleLocationStatusChanged:)
+                                                         name:TTLocationStatusChangedNotificationKey
+                                                       object:nil];
         });
     });
 }

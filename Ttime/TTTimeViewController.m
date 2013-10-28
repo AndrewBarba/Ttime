@@ -31,22 +31,12 @@
     self.inbound = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
-    [self uiloop];
-}
-
-- (void)uiloop
-{
     [self.tableView reloadData];
-    TTDispatchAfter(1, ^{
-        [self uiloop];
-    });
 }
-
-
 
 - (IBAction)switchInbound:(id)sender
 {
@@ -59,12 +49,6 @@
         _inbound = !_inbound;
     }
     [self.tableView reloadData];
-    
-    [[TTDonationService sharedInstance] makeDonation:TTDonationSmallKey
-                                        onCompletion:^(BOOL success, NSError *error){
-                                            NSLog(@"DONATION COMPLETE: %i %@", success, error);
-                                        }];
-
 }
 
 - (NSArray *)_trainArrayForSection:(NSInteger)section
@@ -82,15 +66,10 @@
 
 #pragma mark - Table view data source
 
-
-//watch wwdc autolayout video
-
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    return (screenHeight - 64) / 5;
+    return (screenHeight - 64) / [self tableView:self.tableView numberOfRowsInSection:0];
 }
 
 

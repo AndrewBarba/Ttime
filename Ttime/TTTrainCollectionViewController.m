@@ -24,7 +24,6 @@ static NSString *const TTCellID = @"TTCollectionCell";
         _collectionView = collectionView;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-//        [_collectionView registerClass:[TTCollectionLineCell class] forCellWithReuseIdentifier:TTCellID];
     }
 }
 
@@ -32,16 +31,9 @@ static NSString *const TTCellID = @"TTCollectionCell";
 {
     if (_trains != trains) {
         _trains = trains;
-        [self uiloop];
+        [self.collectionView reloadData];
+        [self _update];
     }
-}
-
-- (void)uiloop
-{
-    [self.collectionView reloadData];
-    TTDispatchAfter(0.25, ^{
-        [self uiloop];
-    });
 }
 
 
@@ -67,6 +59,20 @@ static NSString *const TTCellID = @"TTCollectionCell";
     return cell;
 }
 
-
+- (void)_update
+{
+    [_trains enumerateObjectsUsingBlock:^(TTTrain *train, NSUInteger index, BOOL *done){
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+        TTCollectionLineCell *cell = (TTCollectionLineCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        TTStop *stop = [train closestStopToLocation:[[TTLocationManager sharedManager] currentLocation]];
+        [cell updateCell:stop forInbound:self.inbound andColor:self.color];
+    }];
+    
+    __weak TTTrainCollectionViewController *_weakSelf = self;
+    
+    TTDispatchAfter(0.5, ^{
+        [_weakSelf _update];
+    });
+}
 
 @end
