@@ -15,7 +15,7 @@
 -(void)updateCell:(TTStop *)stop forInbound:(BOOL)inbound andColor:(UIColor *)color
 {
     self.stopLabel.textColor = color;
-    self.stopLabel.text = [NSString stringWithFormat:@"%@", stop.name];
+    self.stopLabel.text = [stop.name uppercaseString];
     self.destinationLabel.textColor = color;
     self.destinationLabel.text = [NSString stringWithFormat:@"%@",
                                   inbound ? stop.train.inboundStation : stop.train.outboundStation];

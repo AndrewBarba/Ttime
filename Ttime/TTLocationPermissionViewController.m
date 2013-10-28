@@ -19,4 +19,9 @@
     [[TTLocationManager sharedManager] startUpdatingLocation];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

@@ -100,13 +100,13 @@
     [super willMoveToSuperview:newSuperview];
     
     _circleLayer = [self circleForView:self];
-    _circleLayer.lineWidth = 6.0;
+    _circleLayer.lineWidth = 4.0;
     _circleLayer.opacity = 0.4;
     _circleLayer.strokeEnd = 1.0f;
     [self.layer addSublayer:_circleLayer];
     
     _circleAnimationLayer = [self circleForView:self];
-    _circleAnimationLayer.lineWidth = 6.0;
+    _circleAnimationLayer.lineWidth = 4.0;
     _circleAnimationLayer.opacity = 1.0;
     _circleAnimationLayer.strokeEnd = 0.0;
     [self.layer addSublayer:_circleAnimationLayer];
@@ -119,6 +119,9 @@
         _label.backgroundColor = [UIColor clearColor];
         _label.numberOfLines = 0;
         _label.textAlignment = NSTextAlignmentCenter;
+        
+        [_label enableParallax:10.0];
+        
         [self addSubview:_label];
     }
     _label.attributedText = [self attributedTextForLabel];

@@ -50,6 +50,8 @@
 		B88A61F217B02B430087A69B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88A61D417B02B430087A69B /* UIKit.framework */; };
 		B88A61FA17B02B430087A69B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88A61F817B02B430087A69B /* InfoPlist.strings */; };
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
+		B8B1AFD2181F2825000FA12C /* UIView+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD1181F2825000FA12C /* UIView+TT.m */; };
+		B8B1AFD5181F2C4C000FA12C /* TTCircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */; };
 		B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */; };
 		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
 		B8C69438181DB01F00FD1F5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C69437181DB01F00FD1F5A /* StoreKit.framework */; };
@@ -159,6 +161,10 @@
 		B88A61F917B02B430087A69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B88A61FB17B02B430087A69B /* TtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TtimeTests.m; sourceTree = "<group>"; };
 		B88A621017B02CA90087A69B /* Ttime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ttime.entitlements; sourceTree = "<group>"; };
+		B8B1AFD0181F2825000FA12C /* UIView+TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TT.h"; sourceTree = "<group>"; };
+		B8B1AFD1181F2825000FA12C /* UIView+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TT.m"; sourceTree = "<group>"; };
+		B8B1AFD3181F2C4C000FA12C /* TTCircleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleAnimationView.h; sourceTree = "<group>"; };
+		B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleAnimationView.m; sourceTree = "<group>"; };
 		B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
@@ -310,6 +316,8 @@
 				B81EEC581804E92500C3FC31 /* NSDictionary+TT.m */,
 				B8E3D61B181602C5003AA4BB /* UIColor+TT.h */,
 				B8E3D61C181602C5003AA4BB /* UIColor+TT.m */,
+				B8B1AFD0181F2825000FA12C /* UIView+TT.h */,
+				B8B1AFD1181F2825000FA12C /* UIView+TT.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -647,6 +655,8 @@
 			children = (
 				B8E3D60A1815E8E3003AA4BB /* TTCircleView.h */,
 				B8E3D60B1815E8E3003AA4BB /* TTCircleView.m */,
+				B8B1AFD3181F2C4C000FA12C /* TTCircleAnimationView.h */,
+				B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */,
 			);
 			name = Circle;
 			sourceTree = "<group>";
@@ -852,6 +862,8 @@
 				B82A07D618160FE500DD37E6 /* TTRootViewController.m in Sources */,
 				B823473517F7849700EAEAEE /* AFURLRequestSerialization.m in Sources */,
 				B8D0884017F25A6700DDF43E /* TTDispatch.m in Sources */,
+				B8B1AFD2181F2825000FA12C /* UIView+TT.m in Sources */,
+				B8B1AFD5181F2C4C000FA12C /* TTCircleAnimationView.m in Sources */,
 				B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */,
 				B823473B17F7849700EAEAEE /* UIButton+AFNetworking.m in Sources */,
 				B8E3D6161815FEFF003AA4BB /* TTTrainCollectionViewController.m in Sources */,
@@ -996,7 +1008,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",
@@ -1018,7 +1030,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ttime/Ttime-Prefix.pch";
 				INFOPLIST_FILE = "Ttime/Ttime-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/Ttime/Thirdparty/GoogleAnalytics",

@@ -7,3 +7,16 @@
 
 // In app purchase
 #define TT_IN_APP_PURCHASE_SECRET @"b8e9931df12e4b8aa8aa0a648f226306"
+
+//---------------------------------------- SYSTEM VERSIONS
+
+// Use these sparingly. Always better to test for the existence of a class or selector when possible.
+#define TL_SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define TL_SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define TL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define TL_SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define TL_SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define TL_IS_IOS7() (TL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+
+#define TL_IS_IOS6() (TL_SYSTEM_VERSION_LESS_THAN(@"7.0"))

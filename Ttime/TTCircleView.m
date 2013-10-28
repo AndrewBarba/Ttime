@@ -42,7 +42,7 @@
     // Blue
     CGContextBeginPath(context);
     CGContextAddArc(context, x+gap, y+gap, radius, 0.5*M_PI, 0.0*M_PI, YES);
-    CGContextSetRGBStrokeColor(context, 46.0/255.0, 49.0/255.0, 145.0/255.0, 1.0);
+    CGContextSetRGBStrokeColor(context, 0.0/255.0, 99.0/255.0, 255.0/255.0, 1.0);
     CGContextDrawPath(context, kCGPathStroke);
 
     // Orange
@@ -56,33 +56,6 @@
     CGContextAddArc(context, x-gap, y-gap, radius, 1.5*M_PI, 1.0*M_PI, YES);
     CGContextSetRGBStrokeColor(context, 236.0/255.0, 28.0/255.0, 36.0/255.0, 1.0);
     CGContextDrawPath(context, kCGPathStroke);
-}
-
-- (void)_animate
-{
-    CABasicAnimation* rotate =  [CABasicAnimation animationWithKeyPath: @"transform.rotation.z"];
-    rotate.removedOnCompletion = NO;
-    rotate.fillMode = kCAFillModeForwards;
-    
-    //Do a series of 5 quarter turns for a total of a 1.25 turns
-    //(2PI is a full turn, so pi/2 is a quarter turn)
-    [rotate setToValue: [NSNumber numberWithFloat: -M_PI / 2]];
-    rotate.repeatCount = 11;
-    
-    rotate.duration = 5.5;
-    rotate.cumulative = YES;
-    rotate.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    [self.layer addAnimation:rotate forKey: @"rotateAnimation"];
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    if (!_isAnimating) {
-        [self _animate];
-    }
 }
 
 #pragma mark - Initialization

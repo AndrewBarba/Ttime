@@ -26,7 +26,7 @@
                                                          name:TTLocationStatusChangedNotificationKey
                                                        object:nil];
         });
-    });
+    });    
 }
 
 #pragma mark - Segue
@@ -42,21 +42,22 @@
 
 - (void)_performMainSegue
 {
-    [self performSegueWithIdentifier:@"Main Segue" sender:self];
+//    [self performSegueWithIdentifier:@"Main Segue" sender:self];
 }
 
 - (void)_performLocationPermissionSegue
 {
-    [self performSegueWithIdentifier:@"Location Permission Segue" sender:self];
+//    [self performSegueWithIdentifier:@"Location Permission Segue" sender:self];
 }
 
 #pragma mark - Notification
 
 - (void)_handleLocationStatusChanged:(NSNotification *)notification
 {
-    if ([TTLocationManager locationStatus] == TTLocationStatusOkay) {
+    TTLocationStatus status = [TTLocationManager locationStatus];
+    if (status == TTLocationStatusOkay) {
         [self _performMainSegue];
-    } else {
+    } else if (status != TTLocationStatusNotDetermined) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Location", nil)
                                     message:NSLocalizedString(@"It looks like we do not have location permissions. In order to use TTIME we need to know where you are so we can track the closest T stations. Please go to Settings -> Privacy -> Location Services and then make sure TTIME is enabled.", nil)
                                    delegate:nil

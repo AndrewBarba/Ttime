@@ -24,4 +24,5 @@
     #import "TTTrain.h"
     #import "NSDictionary+TT.h"
     #import "UIColor+TT.h"
+    #import "UIView+TT.h"
 #endif

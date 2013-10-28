@@ -29,7 +29,7 @@
 
 + (instancetype)blueLineColor
 {
-    return [UIColor blueColor];
+    return [UIColor colorWithRed:0.0/255.0 green:99.0/255.0 blue:255.0/255.0 alpha:1.0];
 }
 
 + (instancetype)greenLineColor
