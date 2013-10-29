@@ -20,7 +20,7 @@
     // Get in-app purchases ready
     [[TTDonationService sharedInstance] refreshProducts];
     
-    if (TL_IS_IOS7()) {
+    if (TT_IS_IOS7()) {
         [self.window setTintColor:[UIColor whiteColor]];
     }
     

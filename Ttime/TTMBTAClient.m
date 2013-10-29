@@ -50,13 +50,13 @@
 - (void)_asyncMBTARequest:(NSString *)endpoint
                     data:(NSDictionary *)data
               completion:(TTRequestBlock)complete
-{
+{    
     NSString *path = [NSString stringWithFormat:@"%@%@", TT_MBTA_BASE_URL, endpoint];
     
     NSMutableDictionary *params = [data mutableCopy];
     params[@"api_key"] = TT_MBTA_API_KEY;
     
-    if (TL_IS_IOS7()) {
+    if (TT_IS_IOS7()) {
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
