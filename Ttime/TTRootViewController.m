@@ -57,7 +57,9 @@
     TTLocationStatus status = [TTLocationManager locationStatus];
     if (status == TTLocationStatusOkay) {
         [self _performMainSegue];
+        [[TTTracker sharedTracker] trackEvent:@"location_granted" withName:@"Location Granted"];
     } else if (status != TTLocationStatusNotDetermined) {
+        [[TTTracker sharedTracker] trackEvent:@"location_denied" withName:@"Location Denied"];
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Location", nil)
                                     message:NSLocalizedString(@"It looks like we do not have location permissions. In order to use TTIME we need to know where you are so we can track the closest T stations. Please go to Settings -> Privacy -> Location Services and then make sure TTIME is enabled.", nil)
                                    delegate:nil

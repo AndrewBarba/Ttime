@@ -29,6 +29,8 @@
     self.navigationItem.title = @"TTIME";
     
     self.inbound = YES;
+    
+    [[TTTracker sharedTracker] trackScreenWithName:@"Main Screen"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -49,6 +51,8 @@
         _inbound = !_inbound;
     }
     [self.tableView reloadData];
+    
+    [[TTTracker sharedTracker] trackEvent:@"inboun_outboun" withName:@"Toggled Inbound/Outbound"];
 }
 
 - (NSArray *)_trainArrayForSection:(NSInteger)section

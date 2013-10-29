@@ -25,12 +25,23 @@
                                                           forKey:kGAIScreenName] build]];
 }
 
-- (void)trackEvent:(NSString *)event forAction:(NSString *)action withName:(NSString *)name
+- (void)trackEvent:(NSString *)event withName:(NSString *)name
 {
-    [_gaiTracker send:[[GAIDictionaryBuilder createEventWithCategory:event         // Event category (required)
-                                                              action:action        // Event action (required)
-                                                               label:name          // Event label
+    [_gaiTracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ttime_action"
+                                                              action:event
+                                                               label:name
                                                                value:nil] build]];
+}
+
+- (void)trackPurchase:(NSString *)purchaseID withName:(NSString *)name forValue:(NSNumber *)value
+{
+    [_gaiTracker send:[[GAIDictionaryBuilder createItemWithTransactionId:purchaseID
+                                                                    name:name
+                                                                     sku:purchaseID
+                                                                category:@"Donations"
+                                                                   price:value
+                                                                quantity:@1
+                                                            currencyCode:@"USD"] build]];
 }
 
 #pragma mark - Initialization
