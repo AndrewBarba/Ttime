@@ -29,13 +29,19 @@ static NSString *const TTCellID = @"TTCollectionCell";
     }
 }
 
+
 -(void)setTrains:(NSArray *)trains
 {
     if (_trains != trains) {
         _trains = trains;
+        self.collectionView.pagingEnabled = YES;
+        self.pageControl.numberOfPages = trains.count;
+        self.pageControl.tintColor = [UIColor greenLineColor];
         [self.collectionView reloadData];
         [self _setupTimer];
     }
+    
+    
 }
 
 - (void)_setupTimer
@@ -53,6 +59,17 @@ static NSString *const TTCellID = @"TTCollectionCell";
 {
     [_updateTimer invalidate];
     _updateTimer = nil;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+    if (self.collectionView.contentSize.width <= self.collectionView.frame.size.width) {
+    } else {
+        NSInteger page = MAX(0.0, self.collectionView.contentOffset.x
+                             / self.collectionView.frame.size.width);
+        self.pageControl.currentPage = page;
+    }
 }
 
 

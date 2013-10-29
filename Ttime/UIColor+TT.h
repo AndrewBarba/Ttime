@@ -20,5 +20,7 @@
 
 + (instancetype)silverLineColor;
 
++ (instancetype)greenLineColorTranslucent;
+
 
 @end

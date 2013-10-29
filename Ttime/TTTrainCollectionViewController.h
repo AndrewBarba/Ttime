@@ -18,5 +18,6 @@
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
 @end
