@@ -29,6 +29,14 @@ static NSString *const TTCellID = @"TTCollectionCell";
     }
 }
 
+- (void)setColor:(UIColor *)color
+{
+    if (_color != color) {
+        _color = color;
+        self.pageControl.currentPageIndicatorTintColor = color;
+    }
+}
+
 
 -(void)setTrains:(NSArray *)trains
 {
@@ -36,7 +44,6 @@ static NSString *const TTCellID = @"TTCollectionCell";
         _trains = trains;
         self.collectionView.pagingEnabled = YES;
         self.pageControl.numberOfPages = trains.count;
-        self.pageControl.tintColor = [UIColor greenLineColor];
         [self.collectionView reloadData];
         [self _setupTimer];
     }
