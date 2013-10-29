@@ -15,7 +15,9 @@
 
 - (void)trackScreenWithName:(NSString *)name;
 
-- (void)trackEvent:(NSString *)event forAction:(NSString *)action withName:(NSString *)name;
+- (void)trackEvent:(NSString *)event withName:(NSString *)name;
+
+- (void)trackPurchase:(NSString *)purchaseID withName:(NSString *)name forValue:(NSNumber *)value;
 
 + (instancetype)sharedTracker;
 

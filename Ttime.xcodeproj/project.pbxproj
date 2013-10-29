@@ -52,6 +52,9 @@
 		B88A61FC17B02B430087A69B /* TtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B88A61FB17B02B430087A69B /* TtimeTests.m */; };
 		B8B1AFD2181F2825000FA12C /* UIView+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD1181F2825000FA12C /* UIView+TT.m */; };
 		B8B1AFD5181F2C4C000FA12C /* TTCircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */; };
+		B8B1AFD9181F546E000FA12C /* TTAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD8181F546E000FA12C /* TTAboutViewController.m */; };
+		B8B1AFDD181F6124000FA12C /* TTTeamImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFDC181F6124000FA12C /* TTTeamImageView.m */; };
+		B8B1AFDF181F68AD000FA12C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B1AFDE181F68AD000FA12C /* MessageUI.framework */; };
 		B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */; };
 		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
 		B8C69438181DB01F00FD1F5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C69437181DB01F00FD1F5A /* StoreKit.framework */; };
@@ -165,6 +168,11 @@
 		B8B1AFD1181F2825000FA12C /* UIView+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TT.m"; sourceTree = "<group>"; };
 		B8B1AFD3181F2C4C000FA12C /* TTCircleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleAnimationView.h; sourceTree = "<group>"; };
 		B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleAnimationView.m; sourceTree = "<group>"; };
+		B8B1AFD7181F546E000FA12C /* TTAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAboutViewController.h; sourceTree = "<group>"; };
+		B8B1AFD8181F546E000FA12C /* TTAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAboutViewController.m; sourceTree = "<group>"; };
+		B8B1AFDB181F6124000FA12C /* TTTeamImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTeamImageView.h; sourceTree = "<group>"; };
+		B8B1AFDC181F6124000FA12C /* TTTeamImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTeamImageView.m; sourceTree = "<group>"; };
+		B8B1AFDE181F68AD000FA12C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B1AFDF181F68AD000FA12C /* MessageUI.framework in Frameworks */,
 				B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */,
 				B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */,
 				B8E3D6021815A1DA003AA4BB /* CoreData.framework in Frameworks */,
@@ -272,6 +281,7 @@
 		B80CD58518060B7200BD3BD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B8B1AFDA181F6111000FA12C /* Team Image View */,
 				B8E3D6091815E8C9003AA4BB /* Circle */,
 				B8E3D6081815E8B8003AA4BB /* Translucent */,
 				B8E3D6071815E8A6003AA4BB /* Count Down */,
@@ -440,6 +450,7 @@
 		B88A61CF17B02B430087A69B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8B1AFDE181F68AD000FA12C /* MessageUI.framework */,
 				B8C69437181DB01F00FD1F5A /* StoreKit.framework */,
 				B8E3D6051815A1EF003AA4BB /* libz.dylib */,
 				B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */,
@@ -466,7 +477,6 @@
 		B88A61D717B02B430087A69B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B88A620617B02B6D0087A69B /* Assets */,
 				B88A621017B02CA90087A69B /* Ttime.entitlements */,
 				B88A61D817B02B430087A69B /* Ttime-Info.plist */,
 				B88A61D917B02B430087A69B /* InfoPlist.strings */,
@@ -504,16 +514,17 @@
 				B88A620C17B02BDE0087A69B /* Data */,
 				B8D0884117F25B1200DDF43E /* Utilities */,
 				B823470A17F7848500EAEAEE /* Thirdparty */,
+				B88A620617B02B6D0087A69B /* Media */,
 			);
 			name = Source;
 			sourceTree = "<group>";
 		};
-		B88A620617B02B6D0087A69B /* Assets */ = {
+		B88A620617B02B6D0087A69B /* Media */ = {
 			isa = PBXGroup;
 			children = (
 				B88A61E817B02B430087A69B /* Images.xcassets */,
 			);
-			name = Assets;
+			name = Media;
 			sourceTree = "<group>";
 		};
 		B88A620717B02B990087A69B /* Delegate */ = {
@@ -551,6 +562,7 @@
 				B82A07D71816148A00DD37E6 /* Location Permission */,
 				B8E3D6131815FEE5003AA4BB /* Train Controller */,
 				B8E3D60E1815FE89003AA4BB /* Main Controller */,
+				B8B1AFD6181F545D000FA12C /* About Controller */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -562,6 +574,24 @@
 				B8D0884217F260F300DDF43E /* Services */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		B8B1AFD6181F545D000FA12C /* About Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8B1AFD7181F546E000FA12C /* TTAboutViewController.h */,
+				B8B1AFD8181F546E000FA12C /* TTAboutViewController.m */,
+			);
+			name = "About Controller";
+			sourceTree = "<group>";
+		};
+		B8B1AFDA181F6111000FA12C /* Team Image View */ = {
+			isa = PBXGroup;
+			children = (
+				B8B1AFDB181F6124000FA12C /* TTTeamImageView.h */,
+				B8B1AFDC181F6124000FA12C /* TTTeamImageView.m */,
+			);
+			name = "Team Image View";
 			sourceTree = "<group>";
 		};
 		B8C69439181DB09000FD1F5A /* In App Purchase */ = {
@@ -837,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80CD58818060B8500BD3BD4 /* TTTranslucentView.m in Sources */,
+				B8B1AFDD181F6124000FA12C /* TTTeamImageView.m in Sources */,
 				B823473717F7849700EAEAEE /* AFURLSessionManager.m in Sources */,
 				B8E3D61A1816009F003AA4BB /* TTCollectionLineCell.m in Sources */,
 				B8F71D7518062A7800D097AD /* TTTimeService.m in Sources */,
@@ -867,6 +898,7 @@
 				B81EEC551804E76300C3FC31 /* TTMBTAObject.m in Sources */,
 				B823473B17F7849700EAEAEE /* UIButton+AFNetworking.m in Sources */,
 				B8E3D6161815FEFF003AA4BB /* TTTrainCollectionViewController.m in Sources */,
+				B8B1AFD9181F546E000FA12C /* TTAboutViewController.m in Sources */,
 				B823473C17F7849700EAEAEE /* UIImageView+AFNetworking.m in Sources */,
 				B8D0884517F2610100DDF43E /* TTMBTAService.m in Sources */,
 				B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */,

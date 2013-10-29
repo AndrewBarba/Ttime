@@ -14,9 +14,17 @@
 
 @implementation TTLocationPermissionViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[TTTracker sharedTracker] trackScreenWithName:@"Location Permission"];
+}
+
 - (IBAction)_handleGetLocationPermission:(id)sender
 {
     [[TTLocationManager sharedManager] startUpdatingLocation];
+    [[TTTracker sharedTracker] trackEvent:@"getting_location_permission" withName:@"Asked for location"];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

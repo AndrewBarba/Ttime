@@ -10,7 +10,7 @@
 
 #define TT_MAX_INTERVAL (20.0 * 60) // 20 min ago
 
-#define TT_TIMER_INT (1.0f / 15.0f)
+#define TT_TIMER_INT (1.0f / 3.0f)
 
 @interface TTCircleTimeView() {
     NSTimer *_updateTimer;
@@ -145,7 +145,7 @@
     NSDictionary *timeAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:radius],
                                NSForegroundColorAttributeName : self.tintColor};
     
-    NSDictionary *labelAttr = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:(radius * 0.25)],
+    NSDictionary *labelAttr = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:(radius * 0.30)],
                                 NSForegroundColorAttributeName : self.tintColor};
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:timeText attributes:timeAttr];
