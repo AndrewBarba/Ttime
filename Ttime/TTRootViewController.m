@@ -19,7 +19,7 @@
     [super viewDidAppear:animated];
     
     TT_DISPATCH_ONCE(^{
-        TTDispatchAfter(0.5, ^{
+        TTDispatchAfter(0.2, ^{
             [self _performOpeningSegue];
             [[NSNotificationCenter defaultCenter] addObserver:self
                                                      selector:@selector(_handleLocationStatusChanged:)
