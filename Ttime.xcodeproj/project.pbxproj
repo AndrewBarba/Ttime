@@ -473,7 +473,6 @@
 		B88A61D717B02B430087A69B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B88A620617B02B6D0087A69B /* Assets */,
 				B88A621017B02CA90087A69B /* Ttime.entitlements */,
 				B88A61D817B02B430087A69B /* Ttime-Info.plist */,
 				B88A61D917B02B430087A69B /* InfoPlist.strings */,
@@ -511,16 +510,17 @@
 				B88A620C17B02BDE0087A69B /* Data */,
 				B8D0884117F25B1200DDF43E /* Utilities */,
 				B823470A17F7848500EAEAEE /* Thirdparty */,
+				B88A620617B02B6D0087A69B /* Media */,
 			);
 			name = Source;
 			sourceTree = "<group>";
 		};
-		B88A620617B02B6D0087A69B /* Assets */ = {
+		B88A620617B02B6D0087A69B /* Media */ = {
 			isa = PBXGroup;
 			children = (
 				B88A61E817B02B430087A69B /* Images.xcassets */,
 			);
-			name = Assets;
+			name = Media;
 			sourceTree = "<group>";
 		};
 		B88A620717B02B990087A69B /* Delegate */ = {
