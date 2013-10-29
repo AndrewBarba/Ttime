@@ -8,6 +8,11 @@
 // In app purchase
 #define TT_IN_APP_PURCHASE_SECRET @"b8e9931df12e4b8aa8aa0a648f226306"
 
+//---------------------------------------- UI
+
+#define TT_DISABLE_UI() [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+#define TT_ENABLE_UI() [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+
 //---------------------------------------- SYSTEM VERSIONS
 
 // Use these sparingly. Always better to test for the existence of a class or selector when possible.

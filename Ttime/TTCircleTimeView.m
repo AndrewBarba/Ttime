@@ -145,7 +145,7 @@
     NSDictionary *timeAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:radius],
                                NSForegroundColorAttributeName : self.tintColor};
     
-    NSDictionary *labelAttr = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:(radius * 0.25)],
+    NSDictionary *labelAttr = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:(radius * 0.30)],
                                 NSForegroundColorAttributeName : self.tintColor};
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:timeText attributes:timeAttr];

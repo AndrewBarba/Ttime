@@ -24,13 +24,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    self.navigationItem.title = @"TTIME";
     
     self.inbound = YES;
     
     [[TTTracker sharedTracker] trackScreenWithName:@"Main Screen"];
+    
+    if (TT_IS_IOS7()) {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:nil
+                                                                                action:nil];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,17 +49,11 @@
 
 - (IBAction)switchInbound:(id)sender
 {
-    if (_inbound)
-    {
-        [_inboundButton setTitle:@"Outbound" forState:UIControlStateNormal];
-        _inbound = !_inbound;
-    } else {
-        [_inboundButton setTitle:@"Inbound" forState:UIControlStateNormal];
-        _inbound = !_inbound;
-    }
+    _inbound = !_inbound;
+    [_inboundButton setTitle: (_inbound ? @"Inbound" : @"Outbound") forState:UIControlStateNormal];
     [self.tableView reloadData];
     
-    [[TTTracker sharedTracker] trackEvent:@"inboun_outboun" withName:@"Toggled Inbound/Outbound"];
+    [[TTTracker sharedTracker] trackEvent:@"inbound_outbound" withName:@"Toggled Inbound/Outbound"];
 }
 
 - (NSArray *)_trainArrayForSection:(NSInteger)section
