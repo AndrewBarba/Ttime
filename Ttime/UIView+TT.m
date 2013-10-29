@@ -12,14 +12,14 @@
 
 - (void)enableParallax:(CGFloat)intensity
 {
-    if (TL_IS_IOS7()) {
+    if (TT_IS_IOS7()) {
         UIInterpolatingMotionEffect *interpolationHorizontal = [[UIInterpolatingMotionEffect alloc]initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-        interpolationHorizontal.minimumRelativeValue = @(intensity);
-        interpolationHorizontal.maximumRelativeValue = @(intensity*-1.0);
+        interpolationHorizontal.minimumRelativeValue = @(intensity*-1.0);
+        interpolationHorizontal.maximumRelativeValue = @(intensity);
         
         UIInterpolatingMotionEffect *interpolationVertical = [[UIInterpolatingMotionEffect alloc]initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-        interpolationVertical.minimumRelativeValue = @(intensity);
-        interpolationVertical.maximumRelativeValue = @(intensity*-1.0);
+        interpolationVertical.minimumRelativeValue = @(intensity*-1.0);
+        interpolationVertical.maximumRelativeValue = @(intensity);
         
         [self addMotionEffect:interpolationHorizontal];
         [self addMotionEffect:interpolationVertical];

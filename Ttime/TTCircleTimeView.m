@@ -120,7 +120,7 @@
         _label.numberOfLines = 0;
         _label.textAlignment = NSTextAlignmentCenter;
         
-        [_label enableParallax:10.0];
+//        [_label enableParallax:10.0];
         
         [self addSubview:_label];
     }
