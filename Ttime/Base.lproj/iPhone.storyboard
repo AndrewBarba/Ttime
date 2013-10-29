@@ -485,27 +485,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="About Us" id="FnX-cm-TfL">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="5td-Jx-suW">
-                            <view key="customView" contentMode="scaleToFill" id="HFG-nn-X9e">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IRP-hf-4wZ">
-                                        <rect key="frame" x="51" y="7" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="IRP-hf-4wZ" secondAttribute="centerY" constant="-0.5" id="36d-vi-aFp"/>
-                                    <constraint firstAttribute="trailing" secondItem="IRP-hf-4wZ" secondAttribute="trailing" id="pZs-3n-XYG"/>
-                                </constraints>
-                            </view>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="Icc-gN-akR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="_handleComposeTapped:" destination="8Oa-0L-dNS" id="nDh-5t-GJ3"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="spinner" destination="IRP-hf-4wZ" id="eBQ-Fr-OSI"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQl-YR-pMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,8 +8,9 @@
 
 #import "TTAboutViewController.h"
 #import "TTDonationService.h"
+#import <MessageUI/MessageUI.h>
 
-@interface TTAboutViewController ()
+@interface TTAboutViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
@@ -107,6 +108,35 @@
                                delegate:nil
                       cancelButtonTitle:@"Okay"
                       otherButtonTitles:nil] show];
+}
+
+#pragma mark - Mail
+
+- (IBAction)_handleComposeTapped:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
+        
+        [vc setToRecipients:@[@"team@ttimeapp.com"]];
+        
+        [vc setSubject:@"TTIME App Question"];
+        
+        vc.mailComposeDelegate = self;
+        [self presentViewController:vc animated:YES completion:^{
+            [[TTTracker sharedTracker] trackScreenWithName:@"Contact Us"];
+        }];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    if (result == MFMailComposeResultSent) {
+        [[TTTracker sharedTracker] trackEvent:@"contact_us_sent" withName:@"Contact Us email sent"];
+    } else {
+        [[TTTracker sharedTracker] trackEvent:@"contact_us_cancelled" withName:@"Contact Us email cancelled"];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Shake easter egg

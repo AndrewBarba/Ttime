@@ -54,6 +54,7 @@
 		B8B1AFD5181F2C4C000FA12C /* TTCircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD4181F2C4C000FA12C /* TTCircleAnimationView.m */; };
 		B8B1AFD9181F546E000FA12C /* TTAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFD8181F546E000FA12C /* TTAboutViewController.m */; };
 		B8B1AFDD181F6124000FA12C /* TTTeamImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B1AFDC181F6124000FA12C /* TTTeamImageView.m */; };
+		B8B1AFDF181F68AD000FA12C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B1AFDE181F68AD000FA12C /* MessageUI.framework */; };
 		B8B6681E1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */; };
 		B8C5F231180F1A0F00A5C7F0 /* Northeastern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */; };
 		B8C69438181DB01F00FD1F5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C69437181DB01F00FD1F5A /* StoreKit.framework */; };
@@ -171,6 +172,7 @@
 		B8B1AFD8181F546E000FA12C /* TTAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAboutViewController.m; sourceTree = "<group>"; };
 		B8B1AFDB181F6124000FA12C /* TTTeamImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTeamImageView.h; sourceTree = "<group>"; };
 		B8B1AFDC181F6124000FA12C /* TTTeamImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTeamImageView.m; sourceTree = "<group>"; };
+		B8B1AFDE181F68AD000FA12C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B8B6681C1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTrainCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		B8B6681D1818CE0700BC3600 /* TTTrainCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTrainCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B8C5F230180F1A0F00A5C7F0 /* Northeastern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Northeastern.gpx; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B1AFDF181F68AD000FA12C /* MessageUI.framework in Frameworks */,
 				B8E3D6061815A1EF003AA4BB /* libz.dylib in Frameworks */,
 				B8E3D6041815A1E6003AA4BB /* SystemConfiguration.framework in Frameworks */,
 				B8E3D6021815A1DA003AA4BB /* CoreData.framework in Frameworks */,
@@ -447,6 +450,7 @@
 		B88A61CF17B02B430087A69B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8B1AFDE181F68AD000FA12C /* MessageUI.framework */,
 				B8C69437181DB01F00FD1F5A /* StoreKit.framework */,
 				B8E3D6051815A1EF003AA4BB /* libz.dylib */,
 				B8E3D6031815A1E6003AA4BB /* SystemConfiguration.framework */,
