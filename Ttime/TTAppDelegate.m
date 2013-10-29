@@ -12,6 +12,11 @@
 
 @implementation TTAppDelegate
 
++ (instancetype)sharedDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Setup Tracker

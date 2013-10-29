@@ -10,8 +10,9 @@
 #import "TTDonationService.h"
 #import <MessageUI/MessageUI.h>
 
+#define TT_LOADING_VIEW_TAG 0x801
+
 @interface TTAboutViewController () <MFMailComposeViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -37,18 +38,6 @@
 }
 
 #pragma mark - Donations
-
-- (void)_startLoading
-{
-    TT_DISABLE_UI();
-    [self.spinner startAnimating];
-}
-
-- (void)_endLoading
-{
-    TT_ENABLE_UI();
-    [self.spinner stopAnimating];
-}
 
 - (IBAction)_handleSmallDonationTapped:(id)sender
 {
@@ -108,6 +97,48 @@
                                delegate:nil
                       cancelButtonTitle:@"Okay"
                       otherButtonTitles:nil] show];
+}
+
+#pragma mark - Loading
+
+- (void)_startLoading
+{
+    [self showFullScreenLoader];
+}
+
+- (void)_endLoading
+{
+    [self hideFullScreenLoader];
+}
+
+- (void)showFullScreenLoader
+{
+    TT_DISABLE_UI();
+    
+    UIView *view = [TTAppDelegate sharedDelegate].window;
+    
+    UIView *loadingView = [[UIView alloc] initWithFrame:view.bounds];
+    loadingView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.8];
+    loadingView.tag = TT_LOADING_VIEW_TAG;
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    spinner.center = loadingView.center;
+    
+    [loadingView addSubview:spinner];
+    [view addSubview:loadingView];
+    
+    [spinner startAnimating];
+}
+
+- (void)hideFullScreenLoader
+{
+    UIView *view = [TTAppDelegate sharedDelegate].window;
+    
+    UIView *loader = [view viewWithTag:TT_LOADING_VIEW_TAG];
+    [loader removeFromSuperview];
+    
+    TT_ENABLE_UI();
 }
 
 #pragma mark - Mail

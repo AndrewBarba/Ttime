@@ -25,4 +25,5 @@
     #import "NSDictionary+TT.h"
     #import "UIColor+TT.h"
     #import "UIView+TT.h"
+    #import "TTAppDelegate.h"
 #endif
