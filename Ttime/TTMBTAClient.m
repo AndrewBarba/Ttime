@@ -51,25 +51,38 @@
                     data:(NSDictionary *)data
               completion:(TTRequestBlock)complete
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
     NSString *path = [NSString stringWithFormat:@"%@%@", TT_MBTA_BASE_URL, endpoint];
     
     NSMutableDictionary *params = [data mutableCopy];
     params[@"api_key"] = TT_MBTA_API_KEY;
     
-    [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
-        if (complete) {
-            complete(response, nil);
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error){
-        NSLog(@"ERROR: %@", task.originalRequest.URL);
-        if (complete) {
-            complete(nil, error);
-        }
-    }];
+    if (TL_IS_IOS7()) {
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *response){
+            if (complete) {
+                complete(response, nil);
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error){
+            NSLog(@"ERROR: %@", task.originalRequest.URL);
+            if (complete) {
+                complete(nil, error);
+            }
+        }];
+    } else {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [manager GET:path parameters:params success:^(AFHTTPRequestOperation *task, NSDictionary *response){
+            if (complete) {
+                complete(response, nil);
+            }
+        } failure:^(AFHTTPRequestOperation *task, NSError *error){
+            NSLog(@"ERROR: %@", task.request.URL);
+            if (complete) {
+                complete(nil, error);
+            }
+        }];
+    }
 }
 
 - (void)_processQueue

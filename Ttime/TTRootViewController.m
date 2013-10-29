@@ -42,12 +42,12 @@
 
 - (void)_performMainSegue
 {
-//    [self performSegueWithIdentifier:@"Main Segue" sender:self];
+    [self performSegueWithIdentifier:@"Main Segue" sender:self];
 }
 
 - (void)_performLocationPermissionSegue
 {
-//    [self performSegueWithIdentifier:@"Location Permission Segue" sender:self];
+    [self performSegueWithIdentifier:@"Location Permission Segue" sender:self];
 }
 
 #pragma mark - Notification

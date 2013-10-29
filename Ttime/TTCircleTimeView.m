@@ -101,7 +101,7 @@
     
     _circleLayer = [self circleForView:self];
     _circleLayer.lineWidth = 4.0;
-    _circleLayer.opacity = 0.4;
+    _circleLayer.opacity = 0.3;
     _circleLayer.strokeEnd = 1.0f;
     [self.layer addSublayer:_circleLayer];
     

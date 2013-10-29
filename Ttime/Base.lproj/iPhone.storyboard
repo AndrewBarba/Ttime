@@ -9,12 +9,12 @@
         <scene sceneID="JAH-FG-oJP">
             <objects>
                 <tableViewController id="yom-tx-uv2" customClass="TTTimeViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylU-o9-m6e">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylU-o9-m6e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="separatorColor" red="0.13976801658163263" green="0.13976801658163263" blue="0.13976801658163263" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.10196079313755035" green="0.10196079313755035" blue="0.10196079313755035" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TTTrainCell" rowHeight="130" id="lni-w5-6ZO" customClass="TTTrainCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="130"/>
@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c1A-wO-GqE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="320" height="132"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -104,9 +104,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="c1A-wO-GqE" firstAttribute="top" secondItem="e6t-ss-hBs" secondAttribute="top" id="Lmi-hJ-JXW"/>
+                                                <constraint firstItem="c1A-wO-GqE" firstAttribute="top" secondItem="e6t-ss-hBs" secondAttribute="top" constant="-1" id="Lmi-hJ-JXW"/>
                                                 <constraint firstItem="c1A-wO-GqE" firstAttribute="leading" secondItem="e6t-ss-hBs" secondAttribute="leading" id="YDI-rS-0EX"/>
-                                                <constraint firstAttribute="bottom" secondItem="c1A-wO-GqE" secondAttribute="bottom" id="xGq-Bb-WvC"/>
+                                                <constraint firstAttribute="bottom" secondItem="c1A-wO-GqE" secondAttribute="bottom" constant="-1" id="xGq-Bb-WvC"/>
                                                 <constraint firstAttribute="trailing" secondItem="c1A-wO-GqE" secondAttribute="trailing" id="z35-kF-i1H"/>
                                             </constraints>
                                             <connections>
