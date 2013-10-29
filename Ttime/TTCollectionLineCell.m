@@ -36,8 +36,6 @@
 
 -(NSString *)distanceToStop:(TTStop *)stop
 {
-#warning I dont like this logic. Lets move this to a class thats more suited to returning this kind of info. \
-It's fine that this method returns a string but there should be a method somewhere else that converts meters to miles
     CLLocationDistance distance = [stop distanceFromLocation:
                                    [[TTLocationManager sharedManager] currentLocation]];
     distance = distance * 0.000621371;
@@ -51,7 +49,9 @@ It's fine that this method returns a string but there should be a method somewhe
     [numberFormatter setMaximumFractionDigits:1];
     
     NSString *num = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:distance]];
-    return [num stringByAppendingString:@" miles"];
+    num = [num stringByAppendingString:@" mile"];
+    if (distance != 1.0) num = [num stringByAppendingString:@"s"];
+    return num;
 }
 
 

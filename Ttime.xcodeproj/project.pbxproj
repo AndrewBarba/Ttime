@@ -798,7 +798,7 @@
 				ORGANIZATIONNAME = "Andrew Barba";
 				TargetAttributes = {
 					B88A61CC17B02B430087A69B = {
-						DevelopmentTeam = 4SVQ2M25CT;
+						DevelopmentTeam = EVJS956X67;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
