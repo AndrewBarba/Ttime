@@ -74,7 +74,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat screenHeight = self.view.bounds.size.height;
-    return (screenHeight - 64) / [self tableView:self.tableView numberOfRowsInSection:0];
+    return screenHeight / [self tableView:self.tableView numberOfRowsInSection:0];
 }
 
 
