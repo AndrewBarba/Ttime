@@ -689,13 +689,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bachiri" width="720" height="960"/>
-        <image name="baier" width="480" height="640"/>
-        <image name="barba" width="960" height="960"/>
-        <image name="brookes" width="720" height="720"/>
-        <image name="campbell" width="409" height="665"/>
+        <image name="bachiri" width="90" height="90"/>
+        <image name="baier" width="90" height="90"/>
+        <image name="barba" width="90" height="90"/>
+        <image name="brookes" width="90" height="90"/>
+        <image name="campbell" width="90" height="90"/>
         <image name="location" width="237" height="233"/>
-        <image name="stanley" width="640" height="960"/>
+        <image name="stanley" width="90" height="90"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

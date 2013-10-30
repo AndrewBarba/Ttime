@@ -92,7 +92,7 @@
 {
     if (_isUpdatingData) {
         [self updateAllData:^{
-            TTDispatchAfter(5.0, ^{
+            TTDispatchAfter(15.0, ^{
                 [self _updateData];
             });
         }];
