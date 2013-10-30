@@ -101,7 +101,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="OGM-f1-d76">
-                                                    <rect key="frame" x="261" y="94" width="39" height="37"/>
+                                                    <rect key="frame" x="273" y="101" width="39" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pageControl>
@@ -109,10 +109,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="OGM-f1-d76" firstAttribute="bottom" secondItem="c1A-wO-GqE" secondAttribute="bottom" id="GOw-p2-jiE"/>
+                                                <constraint firstAttribute="bottom" secondItem="OGM-f1-d76" secondAttribute="bottom" constant="-8" id="9bi-Fp-iz8"/>
                                                 <constraint firstItem="c1A-wO-GqE" firstAttribute="top" secondItem="e6t-ss-hBs" secondAttribute="top" constant="-1" id="Lmi-hJ-JXW"/>
                                                 <constraint firstItem="c1A-wO-GqE" firstAttribute="leading" secondItem="e6t-ss-hBs" secondAttribute="leading" id="YDI-rS-0EX"/>
-                                                <constraint firstAttribute="trailing" secondItem="OGM-f1-d76" secondAttribute="trailing" constant="20" symbolic="YES" id="bVR-gn-z7h"/>
+                                                <constraint firstAttribute="trailing" secondItem="OGM-f1-d76" secondAttribute="trailing" constant="8" id="bVR-gn-z7h"/>
                                                 <constraint firstAttribute="bottom" secondItem="c1A-wO-GqE" secondAttribute="bottom" constant="-1" id="xGq-Bb-WvC"/>
                                                 <constraint firstAttribute="trailing" secondItem="c1A-wO-GqE" secondAttribute="trailing" id="z35-kF-i1H"/>
                                             </constraints>

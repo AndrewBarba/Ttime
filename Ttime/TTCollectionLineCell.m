@@ -17,11 +17,15 @@
     self.stopLabel.textColor = color;
     self.stopLabel.text = [stop.name uppercaseString];
     self.destinationLabel.textColor = color;
-    self.destinationLabel.text = [NSString stringWithFormat:@"%@",
-                                  inbound ? stop.train.inboundStation : stop.train.outboundStation];
+    
+    NSString *endName = inbound ? stop.train.inboundStation : stop.train.outboundStation;
+    if (![stop.train.name isEqualToString:@"main"]) {
+        endName = [NSString stringWithFormat:@"%@ » %@", [stop.train.name uppercaseString], endName];
+    }
+    
+    self.destinationLabel.text = endName;
     self.distanceLabel.textColor = color;
-    self.distanceLabel.text = [NSString stringWithFormat:@"%@",
-                               [self distanceToStop:stop]];
+    self.distanceLabel.text = [self distanceToStop:stop];
     
     
     
