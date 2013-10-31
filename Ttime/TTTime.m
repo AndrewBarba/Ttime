@@ -65,7 +65,6 @@ static NSString *const _TTGreenLine  = @"Green Line";
             for (NSDictionary *direction in dict[@"direction"]) {
                 TTDirection lineDirection = [direction[@"direction_id"] integerValue];
                 for (NSDictionary *trip in direction[@"trip"]) {
-                    NSDictionary *trip = [direction[@"trip"] firstObject];
                     NSTimeInterval departTime = [trip[@"sch_dep_dt"] doubleValue];
                     NSDate *departDate = [NSDate dateWithTimeIntervalSince1970:departTime];
                     
