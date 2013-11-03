@@ -47,8 +47,6 @@ static NSString *const TTCellID = @"TTCollectionCell";
         [self.collectionView reloadData];
         [self _setupTimer];
     }
-    
-    
 }
 
 - (void)_setupTimer
@@ -58,7 +56,7 @@ static NSString *const TTCellID = @"TTCollectionCell";
         _updateTimer = nil;
     }
     
-    _updateTimer = [NSTimer timerWithTimeInterval:0.25 target:self selector:@selector(_update:) userInfo:nil repeats:YES];
+    _updateTimer = [NSTimer timerWithTimeInterval:0.15 target:self selector:@selector(_update:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:_updateTimer forMode:NSRunLoopCommonModes];
 }
 
